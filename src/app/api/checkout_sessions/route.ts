@@ -9,6 +9,8 @@ export async function POST(request: NextRequest) {
 
     console.log("Empfangene Items:", items);
 
+    const origin = request.headers.get("origin") || new URL(request.url).origin;
+
     const line_items = [
       ...items.map((item: CartItem) => ({
         price_data: {
@@ -39,6 +41,8 @@ export async function POST(request: NextRequest) {
     const session = await stripe.checkout.sessions.create({
       line_items,
       mode: "payment",
+      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${origin}/?canceled=true`,
       automatic_tax: { enabled: true },
     });
 
