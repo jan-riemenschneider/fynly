@@ -5,6 +5,7 @@ import { ShoppingCart } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import CartItem from "@/components/CartItem";
 import Link from "next/link";
+import { ButtonLoading } from "../components/ui/loadingButton";
 
 const Cart = () => {
   const { items, total, clearCart } = useCart();
@@ -22,7 +23,6 @@ const Cart = () => {
         },
         body: JSON.stringify({ items }),
       });
-
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || `HTTP Error: ${response.status}`);
@@ -121,9 +121,14 @@ const Cart = () => {
               <p className="text-xs text-muted-foreground mt-1">inkl. MwSt.</p>
             </div>
 
-            <Button className="w-full mt-6" size="lg" onClick={handleCheckout}>
+            <ButtonLoading
+              loading={loading}
+              className="w-full mt-6"
+              size="lg"
+              onClick={handleCheckout}
+            >
               Zur Kasse
-            </Button>
+            </ButtonLoading>
           </div>
         </div>
       </div>

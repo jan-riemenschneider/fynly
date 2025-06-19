@@ -1,9 +1,7 @@
 "use client";
-
 import React, { createContext, ReactNode, useReducer } from "react";
-import { Product } from "@/data/products";
 
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
@@ -23,6 +21,20 @@ const initialState: CartState = {
   items: [],
   total: 0,
 };
+
+export interface Product {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  category: string;
+  images: string[];
+  colors: string[];
+  inStock: boolean;
+  quantity: number;
+}
+
+export type CartItems = CartItem[];
 
 const calculateTotal = (items: CartItem[]): number => {
   return items.reduce(

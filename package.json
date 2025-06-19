@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@geist-ui/core": "^2.3.8",
     "@radix-ui/react-slot": "^1.2.2",
     "@stripe/stripe-js": "^7.3.1",
     "class-variance-authority": "^0.7.1",
