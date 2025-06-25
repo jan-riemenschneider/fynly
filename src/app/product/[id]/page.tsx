@@ -6,12 +6,12 @@ import { getProductById, categoryTranslations } from "@/data/products";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Carousel } from "../../components/ui/carousel";
+import { useCart } from "@/context/CartContext";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
-  console.log(id);
   const router = useRouter();
-
+  const { addItem } = useCart();
   const product = id ? getProductById(id) : null;
 
   if (!product) {
@@ -78,6 +78,7 @@ const ProductDetail = () => {
             className="w-full mt-4 gap-2"
             size="lg"
             disabled={!product.inStock}
+            onClick={() => addItem(product)}
           >
             <ShoppingCart className="h-5 w-5" />
             {product.inStock ? "In den Warenkorb" : "Nicht verfügbar"}

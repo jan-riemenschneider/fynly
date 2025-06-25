@@ -50,7 +50,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="container-custom">
@@ -113,11 +112,6 @@ const HomePage = () => {
             Babyaccessoires, die mit Liebe hergestellt wurden.
           </p>
           <ProductGrid products={featuredProducts} />
-          <div className="mt-10 text-center">
-            <Button asChild variant="outline" className="px-8">
-              <Link href="/CategoryPage">Alle Produkte ansehen</Link>
-            </Button>
-          </div>
         </div>
       </section>
 
