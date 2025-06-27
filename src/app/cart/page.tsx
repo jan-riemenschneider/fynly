@@ -11,7 +11,6 @@ const Cart = () => {
   const { items, total, clearCart } = useCart();
 
   const [loading, setLoading] = useState(false);
-
   const handleCheckout = async () => {
     setLoading(true);
 

@@ -77,7 +77,6 @@ const ProductDetail = () => {
           <Button
             className="w-full mt-4 gap-2"
             size="lg"
-            disabled={!product.inStock}
             onClick={() => addItem(product)}
           >
             <ShoppingCart className="h-5 w-5" />

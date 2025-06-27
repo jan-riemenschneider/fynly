@@ -64,7 +64,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           total: calculateTotal(updatedItems),
         };
       } else {
-        // Add new item
         const updatedItems = [
           ...state.items,
           { product: action.payload, quantity: 1 },
@@ -157,7 +156,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     </CartContext.Provider>
   );
 };
-
+a
 export const useCart = (): CartContextType => {
   const context = React.useContext(CartContext);
   if (!context) {
