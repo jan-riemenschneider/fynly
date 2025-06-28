@@ -8,11 +8,12 @@ import Link from "next/link";
 import { Carousel } from "../../components/ui/carousel";
 import { useCart } from "@/context/CartContext";
 
-const ProductDetail = () => {
+export default function Product() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const { addItem } = useCart();
+  const { addItem, items } = useCart();
   const product = id ? getProductById(id) : null;
+  console.log(items);
 
   if (!product) {
     return (
@@ -92,6 +93,4 @@ const ProductDetail = () => {
       </div>
     </div>
   );
-};
-
-export default ProductDetail;
+}

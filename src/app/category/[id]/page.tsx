@@ -10,7 +10,7 @@ import {
 import { Button } from "../../components/ui/button";
 import Link from "next/link";
 
-const CategoryPage = () => {
+export default function Category() {
   const { id } = useParams<{ id: string }>();
 
   const validCategoryId = id as ProductCategory | undefined;
@@ -49,6 +49,4 @@ const CategoryPage = () => {
       <ProductGrid products={products} />
     </div>
   );
-};
-
-export default CategoryPage;
+}

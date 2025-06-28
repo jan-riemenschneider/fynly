@@ -7,10 +7,12 @@ import CartItem from "@/components/CartItem";
 import Link from "next/link";
 import { ButtonLoading } from "../components/ui/loadingButton";
 
-const Cart = () => {
+export default function Cart() {
   const { items, total, clearCart } = useCart();
+  console.log("all items", items);
 
   const [loading, setLoading] = useState(false);
+
   const handleCheckout = async () => {
     setLoading(true);
 
@@ -32,8 +34,6 @@ const Cart = () => {
       if (result.url) {
         window.location.href = result.url;
       }
-
-      console.log("response:", result);
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
@@ -45,7 +45,7 @@ const Cart = () => {
 
   if (items.length === 0) {
     return (
-      <div className="container-custom py-16 text-center">
+      <div className="py-16 text-center">
         <div className="max-w-md mx-auto">
           <ShoppingCart className="h-16 w-16 mx-auto text-muted-foreground mb-4" />
           <h1 className="heading-lg mb-4">Ihr Warenkorb ist leer</h1>
@@ -62,7 +62,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="container-custom py-8">
+    <div className="py-8">
       <h1 className="heading-lg mb-8">Ihr Warenkorb</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -133,6 +133,4 @@ const Cart = () => {
       </div>
     </div>
   );
-};
-
-export default Cart;
+}

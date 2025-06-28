@@ -2,7 +2,7 @@
 import React, { createContext, ReactNode, useReducer } from "react";
 import { Product } from "@/data/products";
 
-interface CartItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
@@ -10,6 +10,7 @@ interface CartItem {
 interface CartState {
   items: CartItem[];
   total: number;
+  totalItems: number;
 }
 
 type CartAction =
@@ -21,6 +22,7 @@ type CartAction =
 const initialState: CartState = {
   items: [],
   total: 0,
+  totalItems: 0,
 };
 
 const calculateTotal = (items: CartItem[]): number => {
@@ -28,6 +30,10 @@ const calculateTotal = (items: CartItem[]): number => {
     (sum, item) => sum + item.product.price * item.quantity,
     0
   );
+};
+
+const calculateTotalItems = (items: CartItem[]): number => {
+  return items.reduce((sum, item) => sum + item.quantity, 0);
 };
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -49,6 +55,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           ...state,
           items: updatedItems,
           total: calculateTotal(updatedItems),
+          totalItems: calculateTotalItems(updatedItems),
         };
       } else {
         // Add new item
@@ -61,6 +68,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           ...state,
           items: updatedItems,
           total: calculateTotal(updatedItems),
+          totalItems: calculateTotalItems(updatedItems),
         };
       }
     }
@@ -74,6 +82,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         ...state,
         items: updatedItems,
         total: calculateTotal(updatedItems),
+        totalItems: calculateTotalItems(updatedItems),
       };
     }
 
@@ -88,6 +97,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
         ...state,
         items: updatedItems,
         total: calculateTotal(updatedItems),
+        totalItems: calculateTotalItems(updatedItems),
       };
     }
 
@@ -134,6 +144,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         items: state.items,
         total: state.total,
+        totalItems: state.totalItems,
         addItem,
         removeItem,
         updateQuantity,

@@ -1,10 +1,7 @@
-"use client";
-import React from "react";
-
-const Contact = () => {
+export default function Contact() {
   return (
     <div className="flex-1 flex flex-col justify-center">
-      <div className="flex flex-col items-center gap-5">  
+      <div className="flex flex-col items-center gap-5">
         <h1 className="heading-lg text-center mb-2">Kontakt</h1>
         <p className="text-center text-muted-foreground mb-8 px-3">
           Haben Sie Fragen oder spezielle Wünsche? Kontaktieren Sie uns.
@@ -47,6 +44,4 @@ const Contact = () => {
       </div>
     </div>
   );
-};
-
-export default Contact;
+}

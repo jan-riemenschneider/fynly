@@ -6,12 +6,12 @@ import { getFeaturedProducts } from "@/data/products";
 import Image from "next/image";
 import Link from "next/link";
 
-const HomePage = () => {
+export default function HomePage() {
   const featuredProducts = getFeaturedProducts();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <section className="relative bg-rose-50 py-16 md:py-24">
+    <div className="min-h-screen flex flex-col bg-background">
+      <section className="bg-rose-50 py-16 md:py-24">
         <div className="container-custom flex flex-col md:flex-row items-center">
           <div className="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0">
             <h1 className="heading-xl text-gray-800 mb-4 font-[Quicksand] font-bold">
@@ -38,7 +38,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <div className="relative w-72 h-72 md:w-96 md:h-96 bg-white rounded-full shadow-lg overflow-hidden">
+            <div className="w-72 h-72 md:w-96 md:h-96 bg-white rounded-full shadow-lg overflow-hidden">
               <Image
                 width={50}
                 height={50}
@@ -51,7 +51,7 @@ const HomePage = () => {
         </div>
       </section>
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-12">
             Warum unsere Produkte?
@@ -163,6 +163,4 @@ const HomePage = () => {
       </section>
     </div>
   );
-};
-
-export default HomePage;
+}
