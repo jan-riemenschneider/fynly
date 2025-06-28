@@ -11,8 +11,8 @@ import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import { Button } from "../ui/button";
-import CartItem from "../CartItem";
+import { Button } from "@/components/ui/button";
+import CartItem from "@/components/CartItem";
 
 const CartSlideoverContent = () => {
   const [toggleShopping, setToggleShopping] = useState(false);

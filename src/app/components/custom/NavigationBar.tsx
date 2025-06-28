@@ -12,13 +12,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { categoryTranslations } from "../../products";
+import { categoryTranslations } from "@/products";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import Logo from "./../../../../public/LogoFynnly.svg";
-import CartSlideoverContent from "./CartSlideoverContent";
+import CartSlideoverContent from "@/components/custom/CartSlideoverContent";
 
 function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);
