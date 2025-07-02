@@ -30,8 +30,8 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-center py-4 border-b last:border-b-0">
-      <div className="w-full sm:w-20 h-20 bg-muted rounded overflow-hidden flex-shrink-0 mb-2 sm:mb-0">
+    <div className="flex items-center space-x-6 mt-4 h-auto">
+      <div className="flex-1/3 bg-muted rounded overflow-hidden">
         <Image
           src={image}
           alt={name}
@@ -41,7 +41,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
         />
       </div>
 
-      <div className="flex-1 sm:ml-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+      <div className="flex flex-2/3 flex-col gap-3 ">
         <Link
           className="text-base font-medium hover:text-primary truncate max-w-[200px]"
           href={`/product/${id}`}
@@ -49,32 +49,32 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
           {name}
         </Link>
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center border rounded-md">
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-none"
-              onClick={handleDecreaseQuantity}
-              aria-label="Reduce quantity"
-            >
-              <Minus className="h-3 w-3" />
-            </Button>
-            <span className="w-8 text-center">{quantity}</span>
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 rounded-none"
-              onClick={handleIncreaseQuantity}
-              aria-label="Increase quantity"
-            >
-              <Plus className="h-3 w-3" />
-            </Button>
-          </div>
+        <div className="flex items-center justify-center border rounded-md max-w-25">
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 rounded-none"
+            onClick={handleDecreaseQuantity}
+            aria-label="Reduce quantity"
+          >
+            <Minus className="h-3 w-3" />
+          </Button>
+          <span className="w-8 text-center">{quantity}</span>
+          <Button
+            type="button"
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 rounded-none"
+            onClick={handleIncreaseQuantity}
+            aria-label="Increase quantity"
+          >
+            <Plus className="h-3 w-3" />
+          </Button>
+        </div>
 
-          <div className="font-medium text-right min-w-[80px]">
+        <div className="flex items-center space-x-1">
+          <div className="font-medium text-right">
             {(price * quantity).toFixed(2)} €
           </div>
 

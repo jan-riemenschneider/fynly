@@ -12,13 +12,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { categoryTranslations } from "@/products";
 import Hamburger from "hamburger-react";
 import { useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import Logo from "./../../../../public/LogoFynnly.svg";
-import CartSlideoverContent from "@/components/custom/CartSlideoverContent";
+import CartSlideoverContent from "@/components/utils/CartSlideoverContent";
+import { ChevronRight } from "lucide-react";
+import { categoryTranslations } from "../../data/products";
 
 function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);
@@ -35,22 +36,23 @@ function NavigationBar() {
                 toggle={setToggleHamburger}
               />
             </SheetTrigger>
-            <SheetContent className="w-80">
-              <SheetHeader className="bg-accent shadow-sm">
+            <SheetContent className="w-80 gap-0">
+              <SheetHeader className="shadow-sm py-5">
                 <SheetTitle>Unsere Kategorien</SheetTitle>
               </SheetHeader>
-              <div className="flex gap-6 flex-col">
+              <div className="flex flex-col">
                 {Object.entries(categoryTranslations).map(([key, value]) => (
-                  <NavigationMenuItem key={key} className="">
+                  <NavigationMenuItem key={key} className="list-none">
                     <NavigationMenuLink
                       href={`/category/${key}`}
                       className={clsx(
-                        key === "schnullerketten" ? "font-bold" : null,
-                        "text-base pl-4"
+                        "text-base p-5 flex flex-row justify-between"
                       )}
                     >
                       {value}
+                      <ChevronRight strokeWidth={1} />
                     </NavigationMenuLink>
+                    <div className="border-b" />
                   </NavigationMenuItem>
                 ))}
               </div>
@@ -65,7 +67,7 @@ function NavigationBar() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <NavigationMenu className="bg-background sticky top-0 hidden lg:block max-w-[2100px] mx-auto">
+      <NavigationMenu className="bg-background sticky top-0 hidden lg:block max-w-[2100px]">
         <NavigationMenuList className="flex justify-between px-7 shadow-md">
           <Link href={"/"}>
             <Logo className="h-30 w-30" />
@@ -73,7 +75,10 @@ function NavigationBar() {
           <div className="flex gap-8 pl-2">
             {Object.entries(categoryTranslations).map(([key, value]) => (
               <NavigationMenuItem key={key}>
-                <NavigationMenuLink asChild className="text-base">
+                <NavigationMenuLink
+                  asChild
+                  className="text-base hover:cursor-pointer"
+                >
                   <Link href={`/category/${key}`}>{value}</Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
