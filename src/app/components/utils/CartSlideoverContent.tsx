@@ -6,7 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { ShoppingBag, ShoppingCart } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
 import Link from "next/link";
@@ -15,10 +15,11 @@ import { Button } from "@/components/ui/button";
 import CartItem from "@/components/CartItem";
 import { NavigationMenuLink } from "../ui/navigation-menu";
 import { ButtonLoading } from "../ui/loadingButton";
+import { handleCheckout } from "../../lib/handleCheckout";
 
 const CartSlideoverContent = () => {
   const [toggleShopping, setToggleShopping] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(false);
   const { totalItems, items, clearCart, total } = useCart();
 
   return (
@@ -33,22 +34,27 @@ const CartSlideoverContent = () => {
       </NavigationMenuLink>
 
       <SheetContent side="right">
-        <SheetHeader className="bg-accent shadow-sm">
+        <SheetHeader className="bg-accentshadow-sm border-b">
           <SheetTitle>Dein Warenkorb</SheetTitle>
         </SheetHeader>
+
         {items.length === 0 && (
-          <div className="flex flex-col text-center mx-5 gap-4">
-            <ShoppingCart className="h-20 w-20 mx-auto text-muted-foreground" />
-            <p className="text-muted-foreground">
-              Du haben noch keine Produkte in deinem Warenkorb 🙁
+          <div className="flex flex-col items-center justify-center gap-6 px-4 py-8 text-center h-full">
+            <h2 className="text-xl font-semibold">Dein Warenkorb ist leer</h2>
+            <p className="text-sm text-muted-foreground">
+              Füge jetzt Produkte hinzu und starte deinen Einkauf!
             </p>
-            <Link href={"/"} className="mt-3">
-              <Button className="" onClick={() => setToggleShopping(false)}>
+            <Link href="/shop" aria-label="Zur Shop-Seite">
+              <Button
+                variant={"default"}
+                onClick={() => setToggleShopping(false)}
+              >
                 Jetzt einkaufen
               </Button>
             </Link>
           </div>
         )}
+
         {items.length > 0 && (
           <div className="p-6 flex flex-col space-y-5">
             <h2 className="text-lg font-medium mb-4">
@@ -95,11 +101,23 @@ const CartSlideoverContent = () => {
               <p className="text-xs text-muted-foreground mt-2">inkl. MwSt.</p>
             </div>
 
-            <Link href="/cart">
-              <ButtonLoading className="w-full py-3 px-4 mt-4">
-                Express Checkout
-              </ButtonLoading>
-            </Link>
+            <ButtonLoading
+              className="w-full py-3 px-4 mt-4"
+              loading={isLoading}
+              onClick={async () => {
+                setIsLoading(true);
+                try {
+                  await handleCheckout(items);
+                } catch (err) {
+                  console.error("Checkout fehlgeschlagen", err);
+                } finally {
+                  setToggleShopping(false);
+                  setIsLoading(false);
+                }
+              }}
+            >
+              Express Checkout
+            </ButtonLoading>
           </div>
         )}
       </SheetContent>

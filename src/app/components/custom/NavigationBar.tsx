@@ -67,7 +67,7 @@ function NavigationBar() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <NavigationMenu className="bg-background sticky top-0 hidden lg:block max-w-[2100px]">
+      <NavigationMenu className="bg-background sticky top-0 hidden lg:block w-full">
         <NavigationMenuList className="flex justify-between px-7 shadow-md">
           <Link href={"/"}>
             <Logo className="h-30 w-30" />

@@ -27,8 +27,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className=" max-w-[2100px] mx-auto overflow-x-hidden min-h-screen flex flex-col">
-        <CartProvider>  
+      <body className="mx-auto overflow-x-hidden min-h-screen flex flex-col">
+        <CartProvider>
           <NavigationBar />
           <main className="flex-1">{children}</main>
           <Footer />
