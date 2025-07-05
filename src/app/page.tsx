@@ -11,43 +11,24 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <section className="bg-rose-50 py-16 md:py-24">
-        <div className="container-custom flex flex-col md:flex-row items-center">
-          <div className="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0">
-            <h1 className="heading-xl text-gray-800 mb-4 font-[Quicksand] font-bold">
-              Handgemachte Baby-Accessoires mit
-              <span className="text-primary">♥</span>
-            </h1>
-            <p className="text-lg mb-8 max-w-md mx-auto font-[Fredoka] md:mx-0">
-              Entdecken Sie unsere liebevollen Unikate
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <Button
-                asChild
-                className="bg-rose-400 text-white hover:bg-rose-300"
-              >
-                <Link href="/category/schnullerketten">Jetzt entdecken</Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className="bg-rose-200 border-none hover:bg-rose-300"
-              >
-                <Link href="/contact">Kontakt</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-            <div className="w-72 h-72 md:w-96 md:h-96 bg-white rounded-full shadow-lg overflow-hidden">
-              <Image
-                width={50}
-                height={50}
-                src="/placeholder.svg"
-                alt="Handgemachte Baby-Accessoires"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+      <section className="border flex flex-col items-center pt-10">
+        <div className="w-72 h-72 bg-white rounded-full shadow-md overflow-hidden">
+          <Image
+            width={50}
+            height={50}
+            src="https://picsum.photos/200"
+            alt="alt"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <h1 className="heading-xl text-gray-800 mb-4 font-heading font-bold">
+          Hey ich bin Lisa und willkommen auf meinem Shop!
+        </h1>
+        <p className="text-lg">Entdecken Sie unsere liebevollen Unikate</p>
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+          <Button asChild size={"lg"} className="">
+            <Link href="/category/schnullerketten">Jetzt entdecken</Link>
+          </Button>
         </div>
       </section>
       {/* Features Section */}

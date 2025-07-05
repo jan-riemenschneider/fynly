@@ -11,22 +11,6 @@
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Quicksand", system-ui, -apple-system, sans-serif;
-  line-height: 1.2;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.2s ease;
-}
 
 :root {
   --card: oklch(1 0 0);
@@ -132,6 +116,7 @@ a {
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --font-heading: "Fredoka";
 }
 
 @layer base {
