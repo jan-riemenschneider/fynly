@@ -20,14 +20,13 @@ import Logo from "./../../../../public/LogoFynnly.svg";
 import CartSlideoverContent from "@/components/utils/CartSlideoverContent";
 import { ChevronRight } from "lucide-react";
 import { categoryTranslations } from "../../data/products";
-
 function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);
 
   return (
     <>
       <NavigationMenu className="bg-background sticky top-0 lg:hidden">
-        <NavigationMenuList className="w-screen flex justify-between px-7 shadow-md">
+        <NavigationMenuList className="w-screen flex justify-between px-7 shadow-sm">
           <Sheet open={toggleHamburger} onOpenChange={setToggleHamburger}>
             <SheetTrigger>
               <Hamburger
@@ -68,7 +67,7 @@ function NavigationBar() {
       </NavigationMenu>
 
       <NavigationMenu className="bg-background sticky top-0 hidden lg:block w-full">
-        <NavigationMenuList className="flex justify-between px-7 shadow-md">
+        <NavigationMenuList className="flex justify-between px-7 shadow-sm">
           <Link href={"/"}>
             <Logo className="h-30 w-30" />
           </Link>

@@ -13,7 +13,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product }: ProductCardProps) => {
-  
   const { addItem } = useCart();
 
   return (
@@ -54,6 +53,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <Button
           onClick={() => addItem(product)}
           className="w-full gap-2"
+          variant={"secondary"}
         >
           <ShoppingCart className="h-4 w-4" /> Zum Warenkorb
         </Button>
