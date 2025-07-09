@@ -26,7 +26,7 @@ export default function HomePage() {
 
       {/* Featured Products */}
 
-      <section className="py-16 p-6">
+      <section className="py-16 p-6 bg-gray-50">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-4">
             Unsere beliebtesten Produkte
@@ -40,7 +40,7 @@ export default function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="p-6">
+      <section className="p-6 bg-gray-50">
         <div className="container-custom">
           <h2 className="heading-md text-center mb-12  text-card-foreground">
             Warum unsere Produkte?
@@ -99,7 +99,7 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 p-6">
+      <section className="py-16 p-6 bg-gray-50">
         <div className="container-custom">
           <h2 className="text-center mb-12">Was unsere Kunden sagen</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

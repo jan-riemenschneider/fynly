@@ -35,25 +35,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <p className="text-lg font-semibold mt-1">
           {product.price.toFixed(2)} €
         </p>
-        {product.colors && product.colors.length > 0 && (
-          <div className="flex items-center gap-1 mt-2">
-            <span className="text-xs text-muted-foreground">Farben:</span>
-            <div className="flex gap-1">
-              {product.colors.map((color, index) => (
-                <span key={index} className="text-xs">
-                  {color}
-                  {index < product.colors.length - 1 ? ", " : ""}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </CardContent>
       <CardFooter>
         <Button
           onClick={() => addItem(product)}
           className="w-full gap-2"
-          variant={"secondary"}
+          variant={"default"}
         >
           <ShoppingCart className="h-4 w-4" /> Zum Warenkorb
         </Button>

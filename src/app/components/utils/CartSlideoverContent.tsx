@@ -29,7 +29,7 @@ const CartSlideoverContent = () => {
           <Badge className="h-5 min-w-4 rounded-full px-1 tabular-nums absolute left-5 bottom-6">
             {totalItems}
           </Badge>
-          <ShoppingBag className="h-6 w-6 margin-0 padding-0"></ShoppingBag>
+          <ShoppingBag className="h-6 w-6 margin-0 padding-0 text-gray-900"></ShoppingBag>
         </SheetTrigger>
       </NavigationMenuLink>
 
