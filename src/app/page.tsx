@@ -12,16 +12,18 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-background">
       {/* Hero Section */}
       <section className="flex flex-col bg-[url(https://picsum.photos/200)] justify-center gap-8 items-center pt-10 h-[60vh] md:h-[80vh] realtive p-6">
-        <h1 className="text-4xl mb-4 font-heading text-white">
-          Hey ich bin Lisa!
-        </h1>
-        <p className="font-text font-semibold text-white">
-          Das sind unsere selbstgemachten Schnullerketten – jede mit viel Liebe
-          und Sorgfalt gefertigt. Jede Kette ist ein echtes Unikat.
-        </p>
-        <Button asChild size={"lg"} className="mb-8" variant={"default"}>
-          <Link href="/category/schnullerketten">Jetzt entdecken</Link>
-        </Button>
+        <div className="flex flex-col items-center gap-6 max-w-lg">
+          <h1 className="text-4xl mb-4 font-heading text-white">
+            Hey ich bin Lisa!
+          </h1>
+          <p className="font-text font-semibold text-white text-center">
+            Das sind unsere selbstgemachten Schnullerketten – jede mit viel
+            Liebe und Sorgfalt gefertigt. Jede Kette ist ein echtes Unikat.
+          </p>
+          <Button asChild size={"lg"} className="mb-8" variant={"default"}>
+            <Link href="/category/schnullerketten">Jetzt entdecken</Link>
+          </Button>
+        </div>
       </section>
 
       {/* Featured Products */}
