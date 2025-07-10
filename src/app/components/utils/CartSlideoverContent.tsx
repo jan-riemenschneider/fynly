@@ -56,7 +56,7 @@ const CartSlideoverContent = () => {
         )}
 
         {items.length > 0 && (
-          <div className="p-6 flex flex-col space-y-5">
+          <div className="p-6 flex flex-col space-y-5 overflow-auto">
             <h2 className="text-lg font-medium mb-4">
               Artikel ({items.length})
             </h2>

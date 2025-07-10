@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
-import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
@@ -17,25 +23,27 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <Card className="overflow-hidden card-hover border-none">
-      <Link href={`/product/${product.id}`}>
-        <div className="aspect-square overflow-hidden">
-          <Image
-            src={product.images[0]}
-            alt={product.name}
-            className="h-full w-full object-cover transition-transform hover:scale-105 duration-300"
-            width={50}
-            height={50}
-          />
-        </div>
-      </Link>
-      <CardTitle>
+      <CardHeader className="">
         <Link href={`/product/${product.id}`}>
-          <h3 className="text-lg">{product.name}</h3>
+          <div className="aspect-square overflow-hidden">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              className="h-full w-full object-cover transition-transform hover:scale-105 duration-300"
+              width={50}
+              height={50}
+            />
+          </div>
         </Link>
-      </CardTitle>
-      <CardContent className="pt-4">
+        <CardTitle>
+          <Link href={`/product/${product.id}`}>
+            <h3 className="text-lg">{product.name}</h3>
+          </Link>
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
         <p className="text-md text-muted-foreground">{product.description}</p>
-        <p className="text-lg font-semibold mt-1">
+        <p className="text-lg font-semibold">
           {product.price.toFixed(2)} €
         </p>
       </CardContent>

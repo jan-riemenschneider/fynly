@@ -43,7 +43,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
 
       <div className="flex flex-2/3 flex-col gap-3 ">
         <Link
-          className="text-base font-medium hover:text-primary truncate max-w-[200px]"
+          className="text-base font-medium hover:text-primary truncate max-w-[200px] text-wrap"
           href={`/product/${id}`}
         >
           {name}
