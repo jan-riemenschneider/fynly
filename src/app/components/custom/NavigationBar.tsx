@@ -25,7 +25,7 @@ function NavigationBar() {
 
   return (
     <>
-      <NavigationMenu className="bg-white/95 backdrop-blur-sm sticky top-0 lg:hidden hover:bg-background ">
+      <NavigationMenu className="bg-white/95 backdrop-blur-sm sticky top-0 lg:hidden hover:bg-background z-10">
         <NavigationMenuList className="w-screen flex justify-between px-7 shadow-sm ">
           <Sheet open={toggleHamburger} onOpenChange={setToggleHamburger}>
             <SheetTrigger>

@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, ReactNode, useReducer } from "react";
 import { Product } from "@/data/products";
+import toast from "react-hot-toast";
 
 export interface CartItem {
   product: Product;
@@ -44,7 +45,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       );
 
       if (existingItemIndex !== -1) {
-        // Item already exists, increase quantity
         const updatedItems = [...state.items];
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],
@@ -58,7 +58,6 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           totalItems: calculateTotalItems(updatedItems),
         };
       } else {
-        // Add new item
         const updatedItems = [
           ...state.items,
           { product: action.payload, quantity: 1 },

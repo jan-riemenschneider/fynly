@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import NavigationBar from "@/components/custom/NavigationBar";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,8 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="mx-auto overflow-x-hidden min-h-screen flex flex-col">
+      <body className="mx-auto overflow-x-hidden min-h-screen flex flex-col scroll-smooth">
         <CartProvider>
+          <Toaster position="top-right" reverseOrder={false} />
           <NavigationBar />
           <main className="flex-1">{children}</main>
           <Footer />
