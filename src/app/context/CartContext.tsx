@@ -1,7 +1,6 @@
 "use client";
 import React, { createContext, ReactNode, useReducer } from "react";
 import { Product } from "@/data/products";
-import toast from "react-hot-toast";
 
 export interface CartItem {
   product: Product;
