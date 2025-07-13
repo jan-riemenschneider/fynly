@@ -14,10 +14,9 @@
 *::after {
   box-sizing: border-box;
 }
-
 :root {
   --background: oklch(1 0 0);
-  --foreground: oklch(21% 0.034 264.665); /* Grey-900 */
+  --foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
   --primary: oklch(71.2% 0.194 13.428);

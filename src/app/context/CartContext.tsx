@@ -1,6 +1,7 @@
 "use client";
 import React, { createContext, ReactNode, useReducer } from "react";
 import { Product } from "@/data/products";
+import { addItemToast } from "../store/toastStore";
 
 export interface CartItem {
   product: Product;
@@ -122,6 +123,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   const [state, dispatch] = useReducer(cartReducer, initialState);
 
   const addItem = (product: Product) => {
+    addItemToast(product.name);
     dispatch({ type: "ADD_ITEM", payload: product });
   };
 

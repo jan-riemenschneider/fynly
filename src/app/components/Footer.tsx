@@ -4,9 +4,8 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-yellow-100 ">
+    <footer className="bg-white shadow-md">
       <div className="py-3 pt-8 flex flex-col items-center gap-2 md:flex-row justify-center pb-7">
-        
         <p className="text-sm flex text-muted-foreground">
           © {currentYear} BabyBastelei. Alle Rechte vorbehalten.
           <a href="">Impressum</a>
@@ -15,7 +14,6 @@ const Footer = () => {
         <div className="flex flex-col gap-3 md:absolute right-15">
           <p className="text-sm">Folgen Sie uns:</p>
           <div className="flex space-x-4 justify-center md:justify-normal">
-
             <a
               href="#"
               className="hover:text-primary transition-colors"

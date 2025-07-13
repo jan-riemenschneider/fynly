@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="mx-auto overflow-x-hidden min-h-screen flex flex-col scroll-smooth">
+        <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
-          <Toaster position="top-right" reverseOrder={false} />
           <NavigationBar />
           <main className="flex-1">{children}</main>
           <Footer />

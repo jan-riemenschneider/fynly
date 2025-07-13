@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const { addItem } = useCart();
 
   return (
-    <Card className="overflow-hidden card-hover border-none max-w-sm">
+    <Card className="overflow-hidden card-hover border-none w-full h-full flex-grow">
       <CardHeader className="mb-2">
         <Link href={`/product/${product.id}`}>
           <div className="aspect-square overflow-hidden mb-3.5 relative">
@@ -44,14 +44,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           </div>
         </Link>
-        <CardTitle>
+        <CardTitle className="line-clamp-1">
           <Link href={`/product/${product.id}`}>
             <h3>{product.name}</h3>
           </Link>
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <p className="text-sm text-muted-foreground">{product.description}</p>
+        <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
       </CardContent>
       <CardFooter className="flex justify-between">
         <div className="space-x-1.5">
@@ -62,8 +62,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
         <Button
           onClick={() => addItem(product)}
-          className="px-4 py-2"
           variant={"default"}
+          size={"lg"}
         >
           <ShoppingCart className="h-4 w-4" /> Zum Warenkorb
         </Button>
