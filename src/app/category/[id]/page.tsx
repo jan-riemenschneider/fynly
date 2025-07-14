@@ -25,7 +25,7 @@ export default function Category() {
 
   if (!products) {
     return (
-      <div className="container-custom py-16 text-center">
+      <div className="container-custom py-16 text-center bg-gray-50">
         <h1 className="heading-lg mb-4">Produkt nicht gefunden</h1>
         <p className="mb-8">
           Das gesuchte Produktkategorie konnte leider nicht gefunden werden.

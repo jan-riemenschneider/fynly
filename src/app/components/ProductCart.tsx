@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const { addItem } = useCart();
 
   return (
-    <Card className="overflow-hidden card-hover border-none w-full h-full flex-grow">
+    <Card className="flex flex-col overflow-hidden card-hover border-none w-full h-full flex-grow">
       <CardHeader className="mb-2">
         <Link href={`/product/${product.id}`}>
           <div className="aspect-square overflow-hidden mb-3.5 relative">
@@ -51,21 +51,26 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent className="">
-        <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
+        <p className="text-sm text-muted-foreground line-clamp-2">
+          {product.description}
+        </p>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <div className="space-x-1.5">
-          <span className="text-lg font-semibold">
+      <CardFooter className="flex justify-between mt-auto">
+        <div className="space-x-2">
+          <span className="text-lg font-semibold inline-block">
             {product.price.toFixed(2)}€
           </span>
-          <span className="text-muted-foreground text-xs">inkl. MwSt.</span>
+          <span className="text-muted-foreground text-xs inline-block">
+            inkl. MwSt.
+          </span>
         </div>
         <Button
           onClick={() => addItem(product)}
           variant={"default"}
-          size={"lg"}
+          size={"sm"}
         >
-          <ShoppingCart className="h-4 w-4" /> Zum Warenkorb
+          <ShoppingCart className="h-4 w-4" />
+          Zum Warenkorb
         </Button>
       </CardFooter>
     </Card>

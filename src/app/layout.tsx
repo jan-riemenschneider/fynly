@@ -32,7 +32,7 @@ export default function RootLayout({
         <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
           <NavigationBar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
         </CartProvider>
       </body>

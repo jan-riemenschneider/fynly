@@ -7,17 +7,17 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Carousel } from "../../components/ui/carousel";
 import { useCart } from "@/context/CartContext";
+import { ProduktCarousel } from "../../components/custom/ProduktCarousel";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
-  const { addItem, items } = useCart();
+  const { addItem } = useCart();
   const product = id ? getProductById(id) : null;
-  console.log(items);
 
   if (!product) {
     return (
-      <div className="container-custom py-16 text-center">
+      <div className="container-custom py-16 text-center bg-gray-50">
         <h1 className="heading-lg mb-4">Produkt nicht gefunden</h1>
         <p className="mb-8">
           Das gesuchte Produkt konnte leider nicht gefunden werden.
@@ -30,7 +30,7 @@ export default function Product() {
   }
 
   return (
-    <div className="container-custom py-8">
+    <div className="p-6 bg-gray-50 flex-1">
       <Button variant="ghost" className="mb-6 pl-0" onClick={router.back}>
         <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
       </Button>
@@ -59,22 +59,6 @@ export default function Product() {
             <p className="text-muted-foreground">{product.description}</p>
           </div>
 
-          {product.colors && product.colors.length > 0 && (
-            <div className="mb-6">
-              <h2 className="font-medium mb-2">Verfügbare Farben</h2>
-              <div className="flex flex-wrap gap-2">
-                {product.colors.map((color, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 rounded-full bg-muted text-sm"
-                  >
-                    {color}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
           <Button
             className="w-full mt-4 gap-2"
             size="lg"
@@ -91,6 +75,7 @@ export default function Product() {
           </div>
         </div>
       </div>
+      <ProduktCarousel />
     </div>
   );
 }
