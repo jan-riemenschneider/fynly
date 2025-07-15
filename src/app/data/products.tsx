@@ -202,6 +202,12 @@ export const getProductsByCategory = (category: ProductCategory) =>
 export const getProductById = (id: string) =>
   products.find((product) => product.id === id);
 
+export const getImagesById = (id: string) => {
+  const product = products.find((product) => product.id === id);
+
+  return product.images;  
+};
+
 export const getAllCategories = (): ProductCategory[] => [
   "schnullerketten",
   "beissketten",

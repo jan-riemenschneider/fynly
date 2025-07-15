@@ -2,18 +2,23 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ArrowLeft } from "lucide-react";
-import { getProductById, categoryTranslations } from "@/data/products";
+import {
+  getProductById,
+  categoryTranslations,
+  getImagesById,
+} from "@/data/products";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Carousel } from "../../components/ui/carousel";
 import { useCart } from "@/context/CartContext";
-import { ProduktCarousel } from "../../components/custom/ProduktCarousel";
+import ProduktCarousel from "../../components/custom/ProduktCarousel";
+import AccordionProdukt from "../../components/custom/Accordion";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { addItem } = useCart();
   const product = id ? getProductById(id) : null;
+  const images = getImagesById(id);
 
   if (!product) {
     return (
@@ -34,10 +39,9 @@ export default function Product() {
       <Button variant="ghost" className="mb-6 pl-0" onClick={router.back}>
         <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
       </Button>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-muted rounded-lg overflow-hidden">
-          <Carousel />
+          <ProduktCarousel className="" images={images} />
         </div>
 
         <div>
@@ -75,7 +79,8 @@ export default function Product() {
           </div>
         </div>
       </div>
-      <ProduktCarousel />
+      <AccordionProdukt />
+      <h2>Das könnte dir gefallen</h2>
     </div>
   );
 }
