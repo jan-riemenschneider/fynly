@@ -12,13 +12,9 @@ import Autoplay from "embla-carousel-autoplay";
 import { cn } from "../../lib/utils";
 import Image from "next/image";
 
-// Interface statt Class (für reine Datenstruktur)
 interface ImageData {
-  src: string;
-  height: number;
-  width: number;
+  src: string[];
   alt: string;
-  className?: string;
 }
 
 interface ProduktCarouselProps {
@@ -26,24 +22,28 @@ interface ProduktCarouselProps {
   itemCount?: number;
   images: ImageData[];
   autoplay: boolean;
-  itemsPerView?: "1/2" | "1/3" | "1/4";
+  itemsPerView?: "1/1" | "1/2" | "1/3" | "1/4";
 }
 
 function ProduktCarousel({
   className,
-  itemsPerView = "1/2",
+  itemsPerView = "1/1",
   autoplay,
   images,
-  itemCount,
 }: ProduktCarouselProps) {
   const basisClass = {
+    "1/1": "basis-1/1",
     "1/2": "basis-1/2",
     "1/3": "basis-1/3",
     "1/4": "basis-1/4",
   };
 
-  // Verwende entweder images.length oder itemCount
-  const totalItems = itemCount || images.length;
+  const flattenedImages = images.flatMap((image) =>
+    image.src.map((srcURL) => ({
+      src: srcURL,
+      alt: image.alt,
+    }))
+  );
 
   return (
     <Carousel
@@ -60,7 +60,7 @@ function ProduktCarousel({
       }
     >
       <CarouselContent className="-ml-1">
-        {Array.from({ length: totalItems }).map((_, index) => (
+        {flattenedImages.map((image, index) => (
           <CarouselItem
             key={index}
             className={`pl-1 ${basisClass[itemsPerView]}`}
@@ -68,27 +68,21 @@ function ProduktCarousel({
             <div className="p-1">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6">
-                  {images[index] ? (
-                    <Image
-                      src={images[index].src}
-                      height={images[index].height}
-                      width={images[index].width}
-                      alt={images[index].alt}
-                      className={
-                        images[index].className || "object-cover rounded"
-                      }
-                    />
-                  ) : (
-                    <span className="text-2xl font-semibold">{index + 1}</span>
-                  )}
+                  <Image
+                    src={image.src}
+                    height={400}
+                    width={400}
+                    alt={image.alt}
+                    className={""}
+                  />
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2" /> 
-      <CarouselNext className="right-2" /> 
+      <CarouselPrevious className="left-2" />
+      <CarouselNext className="right-2" />
     </Carousel>
   );
 }

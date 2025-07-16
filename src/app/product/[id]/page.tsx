@@ -10,15 +10,15 @@ import {
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
-import ProduktCarousel from "../../components/custom/ProduktCarousel";
 import AccordionProdukt from "../../components/custom/Accordion";
+import ProduktCarousel from "../../components/custom/ProduktCarousel";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
   const router = useRouter();
   const { addItem } = useCart();
   const product = id ? getProductById(id) : null;
-  const images = getImagesById(id);
+  const getImages = getImagesById(id);
 
   if (!product) {
     return (
@@ -40,9 +40,7 @@ export default function Product() {
         <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
       </Button>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-muted rounded-lg overflow-hidden">
-          <ProduktCarousel className="" images={images} />
-        </div>
+        <ProduktCarousel autoplay={false} images={getImages} />
 
         <div>
           <div className="mb-6">
@@ -81,6 +79,7 @@ export default function Product() {
       </div>
       <AccordionProdukt />
       <h2>Das könnte dir gefallen</h2>
+      <ProduktCarousel autoplay={true} images={getImages} />
     </div>
   );
 }

@@ -36,7 +36,16 @@ export const products: Product[] = [
     description:
       "Handgefertigte Schnullerkette in sanften Rosatönen mit kindersicheren Holzperlen. Perfekt für Ihr Baby.",
     category: "schnullerketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Rosa", "Weiß"],
     inStock: true,
@@ -49,7 +58,16 @@ export const products: Product[] = [
     description:
       "Handgefertigte Schnullerkette in Blautönen mit kindersicheren Holzperlen. Ideal für kleine Jungs.",
     category: "schnullerketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Blau", "Weiß"],
     inStock: true,
     quantity: 1,
@@ -61,7 +79,16 @@ export const products: Product[] = [
     description:
       "Handgefertigte Schnullerkette mit niedlichen Tiermotiven und verschiedenen Holzperlen.",
     category: "schnullerketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Grün", "Braun"],
     inStock: true,
     quantity: 1,
@@ -73,7 +100,16 @@ export const products: Product[] = [
     description:
       "Sanfte Beißkette mit Wolkenmotiv, sicher für Babys Zahnungsphase und aus lebensmittelechtem Silikon.",
     category: "beissketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Grau", "Weiß"],
     inStock: true,
@@ -86,7 +122,16 @@ export const products: Product[] = [
     description:
       "Farbenfrohe Beißkette mit Regenbogenmotiv, aus lebensmittelechtem Silikon für empfindliches Zahnfleisch.",
     category: "beissketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Mehrfarbig"],
     inStock: true,
     quantity: 1,
@@ -98,7 +143,16 @@ export const products: Product[] = [
     description:
       "Bezaubernde Kinderwagenkette mit Sternen- und Mondmotiven, handgefertigt für unterwegs.",
     category: "kinderwagenketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Grau", "Weiß"],
     inStock: true,
@@ -111,7 +165,16 @@ export const products: Product[] = [
     description:
       "Abenteuerliche Kinderwagenkette mit niedlichen Tiermotiven für kleine Entdecker.",
     category: "kinderwagenketten",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Gelb", "Grün"],
     inStock: true,
     quantity: 1,
@@ -123,7 +186,16 @@ export const products: Product[] = [
     description:
       "Süßer handgefertigter Schlüsselanhänger mit Pilzmotiv, der perfekte Glücksbringer.",
     category: "schlüsselanhänger",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Rot", "Weiß"],
     inStock: true,
     quantity: 1,
@@ -135,7 +207,16 @@ export const products: Product[] = [
     description:
       "Liebevoller Schlüsselanhänger mit Herzmotiv, ein perfektes Geschenk für jeden Anlass.",
     category: "schlüsselanhänger",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Pink", "Weiß"],
     inStock: true,
@@ -148,7 +229,16 @@ export const products: Product[] = [
     description:
       "Handgestrickte Babysocken aus weicher Merinowolle, warm und komfortabel für kleine Füße.",
     category: "babysocken",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Blau", "Rosa", "Gelb"],
     inStock: true,
@@ -161,7 +251,16 @@ export const products: Product[] = [
     description:
       "Handgestrickte Streifensocken für Babys aus hautfreundlicher Baumwolle.",
     category: "babysocken",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Mehrfarbig"],
     inStock: true,
     quantity: 1,
@@ -173,7 +272,16 @@ export const products: Product[] = [
     description:
       "Handgestrickte Babymütze mit niedlichen Bärenohren aus weicher Merinowolle.",
     category: "mützen",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     featured: true,
     colors: ["Braun", "Beige"],
     inStock: true,
@@ -186,7 +294,16 @@ export const products: Product[] = [
     description:
       "Handgestrickte Zipfelmütze für Babys und Kleinkinder, warm und niedlich zugleich.",
     category: "mützen",
-    images: ["https://picsum.photos/200"],
+    images: [
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+      "https://picsum.photos/200",
+    ],
     colors: ["Blau", "Rot", "Grün"],
     inStock: true,
     quantity: 1,
@@ -205,7 +322,12 @@ export const getProductById = (id: string) =>
 export const getImagesById = (id: string) => {
   const product = products.find((product) => product.id === id);
 
-  return product.images;  
+  return [
+    {
+      src: product.images,
+      alt: product.name,
+    },
+  ];
 };
 
 export const getAllCategories = (): ProductCategory[] => [
