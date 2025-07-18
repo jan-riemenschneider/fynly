@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, ArrowLeft } from "lucide-react";
 import {
@@ -12,6 +12,8 @@ import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import AccordionProdukt from "../../components/custom/Accordion";
 import ProduktCarousel from "../../components/custom/ProduktCarousel";
+import NextJsImage from "@/components/ui/nextJsImage";
+import Lightbox from "yet-another-react-lightbox";
 
 export default function Product() {
   const { id } = useParams<{ id: string }>();
@@ -19,7 +21,7 @@ export default function Product() {
   const { addItem } = useCart();
   const product = id ? getProductById(id) : null;
   const getImages = getImagesById(id);
-
+  const [lightboxOpen, setlightboxOpen] = useState(false);
   if (!product) {
     return (
       <div className="container-custom py-16 text-center bg-gray-50">
@@ -39,9 +41,14 @@ export default function Product() {
       <Button variant="ghost" className="mb-6 pl-0" onClick={router.back}>
         <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
       </Button>
+      <Lightbox
+        open={lightboxOpen}
+        close={() => setlightboxOpen(false)}
+        slides={[image1, image2, image3]}
+        render={{ slide: NextJsImage }}
+        
+      />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <ProduktCarousel autoplay={false} images={getImages} />
-
         <div>
           <div className="mb-6">
             <Link

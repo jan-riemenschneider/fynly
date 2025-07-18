@@ -39,7 +39,8 @@
     "stripe": "^18.2.1",
     "swr": "^2.3.3",
     "tailwind-merge": "^3.3.1",
-    "vaul": "^1.1.2"
+    "vaul": "^1.1.2",
+    "yet-another-react-lightbox": "^3.24.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
