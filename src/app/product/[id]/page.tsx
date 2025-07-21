@@ -1,12 +1,12 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '@/components/ui/button'
-import { ShoppingCart, ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Check, ShoppingBag } from 'lucide-react'
 import {
   getProductById,
   categoryTranslations,
   getImagesById,
-  getAllImages,
+  products,
 } from '@/data/products'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
@@ -21,10 +21,9 @@ export default function Product() {
   const { addItem } = useCart()
   const product = id ? getProductById(id) : null
   const getImages = getImagesById(id)
-  const allImages = getAllImages()
   if (!product) {
     return (
-      <div className="container-custom bg-gray-50 py-16 text-center">
+      <div className="container-custom bg-gray-50 text-center">
         <h1 className="heading-lg mb-4">Produkt nicht gefunden</h1>
         <p className="mb-8">
           Das gesuchte Produkt konnte leider nicht gefunden werden.
@@ -37,51 +36,65 @@ export default function Product() {
   }
 
   return (
-    <div className="flex-1 bg-gray-50 p-6">
-      <Button variant="ghost" className="mb-6 pl-0" onClick={router.back}>
-        <ArrowLeft className="mr-2 h-4 w-4" /> Zurück
-      </Button>
-      <LightBoxCarousel slides={getImages} />
-
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+    <div className="max-w-6xl flex-1 lg:mx-auto">
+      <div className="grid-cols-2 gap-4 lg:grid">
         <div>
-          <div className="mb-6">
-            <Link
-              href={`/category/${product.category}`}
-              className="text-muted-foreground hover:text-primary text-sm transition-colors"
-            >
-              {categoryTranslations[product.category]}
-            </Link>
-            <h1 className="heading-lg mt-2">{product.name}</h1>
-            <p className="mt-2 text-2xl font-bold">
-              {product.price.toFixed(2)} €
-            </p>
-          </div>
+          <Button
+            variant="link"
+            size="link"
+            className="mb-4"
+            onClick={router.back}
+          >
+            <ArrowLeft className="h-4 w-4" /> Zurück
+          </Button>
+          <LightBoxCarousel slides={getImages} />
+        </div>
 
-          <div className="mb-6">
-            <h2 className="mb-2 font-medium">Beschreibung</h2>
-            <p className="text-muted-foreground">{product.description}</p>
+        <div className="flex w-full flex-col items-start justify-center">
+          <Button variant="link" size="link" className="mb-4">
+            {categoryTranslations[product.category]}
+          </Button>
+
+          <h1 className="mb-4 md:mb-6">{product.name}</h1>
+
+          <div className="mb-6 space-x-2 md:mb-8">
+            <span className="price">{product.price.toFixed(2)}€</span>
+            <small>inkl. MwSt.</small>
           </div>
 
           <Button
-            className="mt-4 w-full gap-2"
+            className="mb-8 w-full md:mb-16"
             size="lg"
             onClick={() => addItem(product)}
           >
-            <ShoppingCart className="h-5 w-5" />
-            {product.inStock ? 'In den Warenkorb' : 'Nicht verfügbar'}
+            <ShoppingBag className="h-8 w-8" />
+            {product.inStock}In den Warenkorb
           </Button>
+          <div className="mb-6 w-full space-y-2 md:mb-8 md:space-y-4">
+            <h2 className="">Beschreibung</h2>
+            <p className="">{product.description}</p>
+          </div>
 
-          <div className="text-muted-foreground mt-6 text-sm">
-            <p>✓ Handgefertigt mit Liebe</p>
-            <p>✓ Aus hochwertigen Materialien</p>
-            <p>✓ Sicher für Babys und Kleinkinder</p>
+          <div className="bg-card mb-4 w-full rounded-lg p-4 shadow-sm transition-all hover:shadow-md">
+            <p className="flex gap-2">
+              <Check className="text-primary" />
+              Handgefertigt mit Liebe
+            </p>
+            <p className="flex gap-2">
+              <Check className="text-primary" /> Aus hochwertigen Materialien
+            </p>
+            <p className="flex gap-2">
+              <Check className="text-primary" />
+              Sicher für Babys und Kleinkinder
+            </p>
           </div>
         </div>
       </div>
-      <AccordionProdukt />
-      <h2>Das könnte dir gefallen</h2>
-      <ProduktCarousel images={allImages} autoplay={true} />
+
+      <div className="mb-8 w-full md:mb-16">
+        <AccordionProdukt />
+      </div>
+      <ProduktCarousel products={products} autoplay={true} />
     </div>
   )
 }

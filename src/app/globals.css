@@ -6,6 +6,7 @@
 
 :root {
   --background: oklch(1 0 0);
+  --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
   --foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
@@ -111,6 +112,7 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-hover-card: var(--hover-card);
   --font-roboto: 'Roboto';
+  --color-main-background: var(--mainBackground);
 }
 
 @layer base {
@@ -126,7 +128,7 @@
   }
 
   h2 {
-    @apply font-roboto text-2xl font-semibold tracking-tight text-gray-700 md:text-3xl;
+    @apply text-2xl font-semibold tracking-tight text-gray-700 md:text-3xl;
   }
 
   h3 {
@@ -141,6 +143,12 @@
     @apply text-muted-foreground font-roboto text-sm tracking-wide md:text-base;
   }
   span {
-    @apply text-foreground font-roboto font-medium tracking-normal;
+    @apply text-foreground font-roboto text-base font-medium tracking-normal md:text-lg;
+  }
+}
+
+@layer components {
+  .price {
+    @apply text-3xl font-bold text-gray-800 md:text-4xl;
   }
 }

@@ -1,6 +1,5 @@
 import * as React from 'react'
 
-import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
   CarouselContent,
@@ -10,37 +9,23 @@ import {
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { cn } from '../../lib/utils'
-import Image from 'next/image'
-
-interface ImageData {
-  src: string
-  alt: string
-}
+import { Product } from '../../data/products'
+import ProductCard from '../ProductCart'
 
 interface ProduktCarouselProps {
+  products: Product[]
   className?: string
-  itemCount?: number
-  images: ImageData[]
   autoplay: boolean
-  itemsPerView?: '1/1' | '1/2' | '1/3' | '1/4'
 }
 
 function ProduktCarousel({
+  products = [],
   className,
-  itemsPerView = '1/2',
   autoplay,
-  images,
 }: ProduktCarouselProps) {
-  const basisClass = {
-    '1/1': 'basis-1/1',
-    '1/2': 'basis-1/2',
-    '1/3': 'basis-1/3',
-    '1/4': 'basis-1/4',
-  }
-
   return (
     <Carousel
-      className={cn('mx-auto max-w-2xl', className)}
+      className={cn('mx-auto w-100%', className)}
       plugins={
         autoplay
           ? [
@@ -52,25 +37,10 @@ function ProduktCarousel({
           : undefined
       }
     >
-      <CarouselContent className="-ml-1">
-        {images.map((image, index) => (
-          <CarouselItem
-            key={index}
-            className={`pl-1 ${basisClass[itemsPerView]}`}
-          >
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <Image
-                    src={image.src}
-                    height={400}
-                    width={400}
-                    alt={image.alt}
-                    className={''}
-                  />
-                </CardContent>
-              </Card>
-            </div>
+      <CarouselContent className="">
+        {products.map(product => (
+          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/3">
+            <ProductCard key={product.id} product={product} />
           </CarouselItem>
         ))}
       </CarouselContent>

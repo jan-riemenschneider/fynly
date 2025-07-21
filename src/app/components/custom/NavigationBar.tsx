@@ -1,33 +1,33 @@
-"use client";
+'use client'
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+} from '@/components/ui/navigation-menu'
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/sheet";
-import Hamburger from "hamburger-react";
-import { useState } from "react";
-import Link from "next/link";
-import clsx from "clsx";
-import Logo from "./../../../../public/LogoFynnly.svg";
-import CartSlideoverContent from "@/components/utils/CartSlideoverContent";
-import { ChevronRight } from "lucide-react";
-import { categoryTranslations } from "../../data/products";
+} from '@/components/ui/sheet'
+import Hamburger from 'hamburger-react'
+import { useState } from 'react'
+import Link from 'next/link'
+import clsx from 'clsx'
+import Logo from './../../../../public/LogoFynnly.svg'
+import CartSlideoverContent from '@/components/custom/CartSlideoverContent'
+import { ChevronRight } from 'lucide-react'
+import { categoryTranslations } from '../../data/products'
 
 export function NavigationBar() {
-  const [toggleHamburger, setToggleHamburger] = useState(false);
+  const [toggleHamburger, setToggleHamburger] = useState(false)
 
   return (
     <>
-      <NavigationMenu className="bg-white/95 backdrop-blur-sm sticky top-0 lg:hidden hover:bg-background z-10">
-        <NavigationMenuList className="w-screen flex justify-between px-7 shadow-sm ">
+      <NavigationMenu className="hover:bg-background  sticky top-0 z-10 bg-white/95 backdrop-blur-sm lg:hidden">
+        <NavigationMenuList className="flex w-screen justify-between px-7 shadow-sm">
           <Sheet open={toggleHamburger} onOpenChange={setToggleHamburger}>
             <SheetTrigger>
               <Hamburger
@@ -46,7 +46,7 @@ export function NavigationBar() {
                     <NavigationMenuLink
                       href={`/category/${key}`}
                       className={clsx(
-                        "text-base p-5 flex flex-row justify-between"
+                        'flex flex-row justify-between p-5 text-base'
                       )}
                     >
                       {value}
@@ -58,8 +58,8 @@ export function NavigationBar() {
               </div>
             </SheetContent>
           </Sheet>
-          <div className="bg-nav w-screen flex justify-center">
-            <Link href={"/"}>
+          <div className="bg-nav flex w-screen justify-center">
+            <Link href={'/'}>
               <Logo className="h-20 w-20" />
             </Link>
           </div>
@@ -67,9 +67,9 @@ export function NavigationBar() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <NavigationMenu className="bg-white/95 backdrop-blur-sm sticky top-0 hidden lg:block w-full z-10">
+      <NavigationMenu className="sticky top-0 z-10 hidden w-full bg-white/95 backdrop-blur-sm lg:block">
         <NavigationMenuList className="flex justify-between px-7 shadow-sm">
-          <Link href={"/"}>
+          <Link href={'/'}>
             <Logo className="h-30 w-30" />
           </Link>
           <div className="flex gap-8 pl-2">
@@ -88,5 +88,5 @@ export function NavigationBar() {
         </NavigationMenuList>
       </NavigationMenu>
     </>
-  );
+  )
 }

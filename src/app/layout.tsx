@@ -24,7 +24,9 @@ export default function RootLayout({
         <CartProvider>
           <AnnouncementBar />
           <NavigationBar />
-          <main className="flex flex-1 flex-col">{children}</main>
+          <main className="bg-main-background flex flex-1 flex-col px-4 py-16 md:px-8 md:py-32">
+            {children}
+          </main>
           <Footer />
         </CartProvider>
       </body>

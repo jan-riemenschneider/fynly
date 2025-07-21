@@ -32,7 +32,7 @@ function AccordionProdukt() {
         <AccordionContent className="flex flex-col gap-4 text-balance">
           <p>
             We stand behind our products with a comprehensive 30-day return
-            policy. If you&apos;re not completely satisfied, simply return the
+            policy. If youre not completely satisfied, simply return the
             item in its original condition.
           </p>
           <p>

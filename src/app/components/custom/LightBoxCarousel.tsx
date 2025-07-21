@@ -52,6 +52,7 @@ export default function LightBoxCarousel({ slides }: LightBoxCarouselProps) {
           inline={{
             style: {
               width: '100%',
+              height: '100%',
               maxWidth: '500px',
               aspectRatio: '3 / 4',
               margin: '0 auto',
