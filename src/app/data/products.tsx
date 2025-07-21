@@ -322,12 +322,22 @@ export const getProductById = (id: string) =>
 export const getImagesById = (id: string) => {
   const product = products.find((product) => product.id === id);
 
-  return [
-    {
-      src: product.images,
+  const images = product.images;
+
+  const mapImages = images.map((image) => ({
+    src: image,
+  }));
+
+  return mapImages;
+};
+
+export const getAllImages = () => {
+  return products.flatMap((product) =>
+    product.images.map((image) => ({
+      src: image,
       alt: product.name,
-    },
-  ];
+    }))
+  );
 };
 
 export const getAllCategories = (): ProductCategory[] => [

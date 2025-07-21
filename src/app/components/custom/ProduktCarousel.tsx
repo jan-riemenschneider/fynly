@@ -1,53 +1,46 @@
-import * as React from "react";
+import * as React from 'react'
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from '@/components/ui/card'
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "../../lib/utils";
-import Image from "next/image";
+} from '@/components/ui/carousel'
+import Autoplay from 'embla-carousel-autoplay'
+import { cn } from '../../lib/utils'
+import Image from 'next/image'
 
 interface ImageData {
-  src: string[];
-  alt: string;
+  src: string
+  alt: string
 }
 
 interface ProduktCarouselProps {
-  className?: string;
-  itemCount?: number;
-  images: ImageData[];
-  autoplay: boolean;
-  itemsPerView?: "1/1" | "1/2" | "1/3" | "1/4";
+  className?: string
+  itemCount?: number
+  images: ImageData[]
+  autoplay: boolean
+  itemsPerView?: '1/1' | '1/2' | '1/3' | '1/4'
 }
 
 function ProduktCarousel({
   className,
-  itemsPerView = "1/1",
+  itemsPerView = '1/2',
   autoplay,
   images,
 }: ProduktCarouselProps) {
   const basisClass = {
-    "1/1": "basis-1/1",
-    "1/2": "basis-1/2",
-    "1/3": "basis-1/3",
-    "1/4": "basis-1/4",
-  };
-
-  const flattenedImages = images.flatMap((image) =>
-    image.src.map((srcURL) => ({
-      src: srcURL,
-      alt: image.alt,
-    }))
-  );
+    '1/1': 'basis-1/1',
+    '1/2': 'basis-1/2',
+    '1/3': 'basis-1/3',
+    '1/4': 'basis-1/4',
+  }
 
   return (
     <Carousel
-      className={cn("mx-auto max-w-2xl", className)}
+      className={cn('mx-auto max-w-2xl', className)}
       plugins={
         autoplay
           ? [
@@ -60,7 +53,7 @@ function ProduktCarousel({
       }
     >
       <CarouselContent className="-ml-1">
-        {flattenedImages.map((image, index) => (
+        {images.map((image, index) => (
           <CarouselItem
             key={index}
             className={`pl-1 ${basisClass[itemsPerView]}`}
@@ -73,7 +66,7 @@ function ProduktCarousel({
                     height={400}
                     width={400}
                     alt={image.alt}
-                    className={""}
+                    className={''}
                   />
                 </CardContent>
               </Card>
@@ -84,7 +77,7 @@ function ProduktCarousel({
       <CarouselPrevious className="left-2" />
       <CarouselNext className="right-2" />
     </Carousel>
-  );
+  )
 }
 
-export default ProduktCarousel;
+export default ProduktCarousel

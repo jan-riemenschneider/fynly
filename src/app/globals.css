@@ -1,30 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Meow+Script&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
-@import "tailwindcss";
-@import "tw-animate-css";
+@custom-variant dark (&:where(.dark, .dark *));
 
-@custom-variant dark (&:is(.dark *));
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
+  --card-foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
   --primary: oklch(71.2% 0.194 13.428);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9 0 0);
   --secondary-foreground: oklch(44.6% 0.03 256.802);
   --muted: oklch(0.95 0 0);
-  --muted-foreground: oklch(70.7% 0.022 261.325);
+  --muted-foreground: oklch(55.1% 0.027 264.364); /* Grey-500 */
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --accent: oklch(89.2% 0.058 10.001);
@@ -44,8 +34,6 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --hover-card: oklch(0.94 0 0);
-  --font-heading: "Comfortaa";
-  --font-text: "Inter";
 }
 
 .dark {
@@ -81,11 +69,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-  --font-heading: "Comfortaa";
-  --font-text: "Inter";
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -124,17 +110,37 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-hover-card: var(--hover-card);
-
-  /* Fonts */
-  --font-body: var(--font-body);
-  --font-heading: var(--font-heading);
+  --font-roboto: 'Roboto';
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/50 font-roboto;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background font-roboto;
+  }
+
+  h1 {
+    @apply font-roboto text-4xl font-semibold tracking-tighter text-gray-800 md:text-5xl;
+  }
+
+  h2 {
+    @apply font-roboto text-2xl font-semibold tracking-tight text-gray-700 md:text-3xl;
+  }
+
+  h3 {
+    @apply text-foreground font-roboto text-xl font-medium tracking-normal md:text-2xl;
+  }
+
+  p {
+    @apply text-foreground font-roboto text-base tracking-normal md:text-lg;
+  }
+
+  small {
+    @apply text-muted-foreground font-roboto text-sm tracking-wide md:text-base;
+  }
+  span {
+    @apply text-foreground font-roboto font-medium tracking-normal;
   }
 }

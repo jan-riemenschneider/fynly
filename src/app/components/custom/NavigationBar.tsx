@@ -20,7 +20,8 @@ import Logo from "./../../../../public/LogoFynnly.svg";
 import CartSlideoverContent from "@/components/utils/CartSlideoverContent";
 import { ChevronRight } from "lucide-react";
 import { categoryTranslations } from "../../data/products";
-function NavigationBar() {
+
+export function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false);
 
   return (
@@ -89,5 +90,3 @@ function NavigationBar() {
     </>
   );
 }
-
-export default NavigationBar;
