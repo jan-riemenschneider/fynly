@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -7,12 +7,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { ShoppingCart } from 'lucide-react'
-import Link from 'next/link'
-import { Product } from '@/data/products'
 import { useCart } from '@/context/CartContext'
+import type { Product } from '@/data/products'
+import { ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface ProductCardProps {
   product: Product
@@ -25,7 +24,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <Card className="card-hover flex h-full w-full flex-grow flex-col overflow-hidden border-none">
       <CardHeader className="mb-2">
         <Link href={`/product/${product.id}`}>
-          <div className="relative mb-3.5 aspect-square overflow-hidden">
+          <div className="relative mb-4 aspect-square overflow-hidden">
             <Image
               src={product.images[0]}
               alt={product.name}
@@ -34,8 +33,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
               height={500}
             />
             <div className="absolute top-3 right-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
-                <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500"></div>
+              <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
+                <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
                 Auf Lager
               </span>
             </div>

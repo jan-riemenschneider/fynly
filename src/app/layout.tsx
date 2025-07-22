@@ -1,11 +1,11 @@
-import type { Metadata } from 'next'
-import './globals.css'
-import 'yet-another-react-lightbox/styles.css'
 import { Footer } from '@/components/Footer'
-import { CartProvider } from '@/context/CartContext'
-import { NavigationBar } from '@/components/custom/NavigationBar'
-import { Toaster } from 'react-hot-toast'
 import { AnnouncementBar } from '@/components/custom/AnnouncementBar'
+import { NavigationBar } from '@/components/custom/NavigationBar'
+import { CartProvider } from '@/context/CartContext'
+import type { Metadata } from 'next'
+import { Toaster } from 'react-hot-toast'
+import 'yet-another-react-lightbox/styles.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -24,7 +24,7 @@ export default function RootLayout({
         <CartProvider>
           <AnnouncementBar />
           <NavigationBar />
-          <main className="bg-main-background flex flex-1 flex-col px-4 py-16 md:px-8 md:py-32">
+          <main className="bg-main-background flex flex-1 flex-col px-6 pb-16 md:px-8 md:pb-24">
             {children}
           </main>
           <Footer />

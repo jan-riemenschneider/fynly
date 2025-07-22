@@ -70,11 +70,9 @@ export default function Product() {
             <ShoppingBag className="h-8 w-8" />
             {product.inStock}In den Warenkorb
           </Button>
-          <div className="mb-6 w-full space-y-2 md:mb-8 md:space-y-4">
-            <h2 className="">Beschreibung</h2>
-            <p className="">{product.description}</p>
-          </div>
-
+          <small className="mb-4 md:mb-6">
+            Voraussichtliche Lieferung 3-5 Tage
+          </small>
           <div className="bg-card mb-4 w-full rounded-lg p-4 shadow-sm transition-all hover:shadow-md">
             <p className="flex gap-2">
               <Check className="text-primary" />
@@ -92,7 +90,7 @@ export default function Product() {
       </div>
 
       <div className="mb-8 w-full md:mb-16">
-        <AccordionProdukt />
+        <AccordionProdukt details={''} description={product.description} />
       </div>
       <ProduktCarousel products={products} autoplay={true} />
     </div>

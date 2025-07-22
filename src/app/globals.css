@@ -149,6 +149,6 @@
 
 @layer components {
   .price {
-    @apply text-3xl font-bold text-gray-800 md:text-4xl;
+    @apply text-xl font-bold text-gray-800 md:text-4xl;
   }
 }

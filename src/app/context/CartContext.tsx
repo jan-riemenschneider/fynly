@@ -125,7 +125,6 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   const [state, dispatch] = useReducer(cartReducer, initialState)
   const [isCartOpen, setCartOpen] = useState(false)
   const addItem = (product: Product) => {
-    addItemToast(product.name)
     setCartOpen(true)
     dispatch({ type: 'ADD_ITEM', payload: product })
   }
