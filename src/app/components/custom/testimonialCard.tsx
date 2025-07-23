@@ -3,14 +3,22 @@ import { Star } from 'lucide-react'
 interface TestinomialCardProps {
   comment: string
   name: string
+  rating: number
 }
 
-export function TestinomialCard({ comment, name }: TestinomialCardProps) {
+export function TestinomialCard({
+  comment,
+  name,
+  rating,
+}: TestinomialCardProps) {
   return (
     <div className="rounded-lg bg-white p-6 shadow-sm">
       <div className="mb-4 flex items-center text-yellow-400">
-        {[...Array(5)].map((_, i) => (
-          <Star key={} className="h-4 w-4 fill-current" />
+        {Array.from({ length: rating }, (_, i) => (
+          <Star
+            key={`testimonial-star-${i}`}
+            className="h-4 w-4 fill-current"
+          />
         ))}
       </div>
       <p className="text-muted-foreground mb-4">{comment}</p>

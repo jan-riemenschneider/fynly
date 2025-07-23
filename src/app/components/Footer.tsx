@@ -1,41 +1,35 @@
-"use client";
-import React from "react";
+'use client'
+import DHL from '@/public/dhl-1.svg'
+import MadeInGermany from '@/public/made-in-germany.svg'
+import Stripe from '@/public/stripe.svg'
+import { Check } from 'lucide-react'
+
+import { SeparatingLine } from './custom/SeparatingLine'
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-white shadow-md">
-      <div className="py-3 pt-8 flex flex-col items-center gap-2 md:flex-row justify-center pb-7">
-        <p className="text-sm flex text-muted-foreground">
-          © {currentYear} BabyBastelei. Alle Rechte vorbehalten.
-          <a href="">Impressum</a>
-        </p>
-
-        <div className="flex flex-col gap-3 md:absolute right-15">
-          <p className="text-sm">Folgen Sie uns:</p>
-          <div className="flex space-x-4 justify-center md:justify-normal">
-            <a
-              href="#"
-              className="hover:text-primary transition-colors"
-              aria-label="Pinterest"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-          </div>
+    <footer className="bg-rose-200 shadow-md">
+      <div className="container mx-auto p-6">
+        <div className="flex justify-center gap-4">
+          <small className="flex">
+            <Check className="" />
+            Express Checkout
+          </small>
+          <small className="flex">
+            <Check className="" />
+            Express Checkout
+          </small>
         </div>
+        <SeparatingLine className="w-full" />
+
+        <div className="flex justify-center gap-4">
+          <DHL className="h-20 w-20" />
+          <Stripe className="h-20 w-20" />
+          <MadeInGermany className="h-20 w-20" />
+        </div>
+        <SeparatingLine className="w-full" />
       </div>
     </footer>
-  );
-};
+  )
+}

@@ -103,6 +103,7 @@ export default function HomePage() {
               comment={testimonial.comment}
               name={testimonial.name}
               key={testimonial.id}
+              rating={testimonial.rating}
             />
           ))}
         </div>

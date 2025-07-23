@@ -1,16 +1,15 @@
 'use client'
-import React from 'react'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Check, ShoppingBag } from 'lucide-react'
+import { useCart } from '@/context/CartContext'
 import {
-  getProductById,
   categoryTranslations,
   getImagesById,
+  getProductById,
   products,
 } from '@/data/products'
-import { useParams, useRouter } from 'next/navigation'
+import { ArrowLeft, Check, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
-import { useCart } from '@/context/CartContext'
+import { useParams, useRouter } from 'next/navigation'
 import AccordionProdukt from '../../components/custom/Accordion'
 import LightBoxCarousel from '../../components/custom/LightBoxCarousel'
 import ProduktCarousel from '../../components/custom/ProduktCarousel'
@@ -36,7 +35,7 @@ export default function Product() {
   }
 
   return (
-    <div className="max-w-6xl flex-1 lg:mx-auto">
+    <div className="container flex-1 lg:mx-auto">
       <div className="grid-cols-2 gap-4 lg:grid">
         <div>
           <Button
@@ -63,7 +62,7 @@ export default function Product() {
           </div>
 
           <Button
-            className="mb-8 w-full md:mb-16"
+            className="mb-8 w-full md:mb-10"
             size="lg"
             onClick={() => addItem(product)}
           >
