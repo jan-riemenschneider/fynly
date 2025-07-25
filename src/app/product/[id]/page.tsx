@@ -10,7 +10,7 @@ import {
 import { ArrowLeft, Check, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
-import AccordionProdukt from '../../components/custom/Accordion'
+import { InfoAccordion } from '../../components/custom/InfoAccordion'
 import LightBoxCarousel from '../../components/custom/LightBoxCarousel'
 import ProduktCarousel from '../../components/custom/ProduktCarousel'
 
@@ -89,7 +89,14 @@ export default function Product() {
       </div>
 
       <div className="mb-8 w-full md:mb-16">
-        <AccordionProdukt details={''} description={product.description} />
+        <InfoAccordion
+          firstTitle="Produktbeschreibung"
+          firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
+          secondTitle="Größe & Maße"
+          secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
+          thirdTitle="Versand & Rückgabe"
+          thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
+        />
       </div>
       <ProduktCarousel products={products} autoplay={true} />
     </div>

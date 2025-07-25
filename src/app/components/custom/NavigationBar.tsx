@@ -1,4 +1,5 @@
 'use client'
+import CartSlideoverContent from '@/components/custom/CartSlideoverContent'
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,21 +13,20 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import Hamburger from 'hamburger-react'
-import { useState } from 'react'
-import Link from 'next/link'
 import clsx from 'clsx'
-import Logo from './../../../../public/LogoFynnly.svg'
-import CartSlideoverContent from '@/components/custom/CartSlideoverContent'
+import Hamburger from 'hamburger-react'
 import { ChevronRight } from 'lucide-react'
+import Link from 'next/link'
+import { useState } from 'react'
 import { categoryTranslations } from '../../data/products'
+import Logo from './../../../../public/LogoFynnly.svg'
 
 export function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false)
 
   return (
     <>
-      <NavigationMenu className="hover:bg-background  sticky top-0 z-10 bg-white/95 backdrop-blur-sm lg:hidden">
+      <NavigationMenu className="sticky top-0 z-10 bg-rose-50/95 backdrop-blur-sm lg:hidden">
         <NavigationMenuList className="flex w-screen justify-between px-7 shadow-sm">
           <Sheet open={toggleHamburger} onOpenChange={setToggleHamburger}>
             <SheetTrigger>

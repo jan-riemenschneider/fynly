@@ -7,9 +7,9 @@
 :root {
   --background: oklch(1 0 0);
   --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
-  --foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
+  --foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
+  --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
   --primary: oklch(71.2% 0.194 13.428);
   --primary-foreground: oklch(1 0 0);
   --secondary: oklch(0.9 0 0);
@@ -132,7 +132,7 @@
   }
 
   h3 {
-    @apply text-foreground font-roboto text-xl font-medium tracking-normal md:text-2xl;
+    @apply text-gray-700 font-roboto text-xl font-medium tracking-normal md:text-2xl;
   }
 
   p {
