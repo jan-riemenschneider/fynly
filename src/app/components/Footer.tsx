@@ -28,8 +28,7 @@ export const Footer = () => {
           </p>
         </div>
         <SeparatingLine className="mb-4 w-full border-rose-300" />
-        <div className="mb-4 flex items-center justify-evenly
-        6">
+        <div className="6 mb-4 flex items-center justify-evenly">
           <DHL className="h-15 w-15" />
           <Stripe className="h-20 w-20" />
           <MadeInGermany className="h-25 w-25" />
@@ -38,7 +37,7 @@ export const Footer = () => {
         <div className="relative mb-6 flex justify-center">
           <Fynnly className="h-35 w-35"></Fynnly>
           <div className="absolute bottom-4 text-sm text-gray-500">
-            Handmade with ❤️  
+            Handmade with ❤️
           </div>
         </div>
         <div className="mb-4 flex flex-col items-start justify-start">
@@ -55,7 +54,9 @@ export const Footer = () => {
             Versand
           </Button>
         </div>
-        <small className="text-center">© 2025 Alle Rechte vorbehalten</small>
+        <small className="text-center">
+          © {currentYear} Alle Rechte vorbehalten
+        </small>
       </div>
     </footer>
   )

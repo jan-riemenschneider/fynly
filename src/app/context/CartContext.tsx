@@ -1,7 +1,6 @@
 'use client'
-import React, { createContext, ReactNode, useReducer, useState } from 'react'
 import { Product } from '@/data/products'
-import { addItemToast } from '../store/toastStore'
+import React, { createContext, ReactNode, useReducer, useState } from 'react'
 
 export interface CartItem {
   product: Product
