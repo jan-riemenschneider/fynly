@@ -1,4 +1,4 @@
-export function Contact() {
+export default function Contact() {
   return (
     <div className="flex flex-1 flex-col justify-center">
       <div className="flex flex-col items-center gap-5">
