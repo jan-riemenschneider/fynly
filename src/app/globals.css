@@ -18,7 +18,7 @@
   --muted-foreground: oklch(55.1% 0.027 264.364); /* Grey-500 */
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --accent: oklch(89.2% 0.058 10.001);
+  --accent: oklch(64.5% 0.246 16.439);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: hsl(0 0% 98%);
@@ -117,33 +117,39 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 font-roboto;
+    @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background font-roboto;
+    @apply bg-background font-roboto antialiased;
   }
 
   h1 {
-    @apply font-roboto text-4xl font-semibold tracking-tighter text-gray-800 md:text-5xl;
+    @apply font-roboto text-3xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl;
   }
 
   h2 {
-    @apply text-2xl font-semibold tracking-tight text-gray-700 md:text-3xl;
+    @apply font-roboto text-2xl font-semibold tracking-tight text-gray-800 md:text-3xl lg:text-4xl;
   }
 
   h3 {
-    @apply text-gray-700 font-roboto text-xl font-medium tracking-normal md:text-2xl;
+    @apply font-roboto text-xl font-semibold tracking-normal text-gray-700 md:text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply font-roboto text-lg font-medium tracking-normal text-gray-700 md:text-xl lg:text-2xl;
   }
 
   p {
-    @apply text-foreground font-roboto text-base tracking-normal md:text-lg;
+    @apply font-roboto text-foreground text-base leading-relaxed tracking-normal md:text-lg;
   }
 
   small {
-    @apply text-muted-foreground font-roboto text-sm tracking-wide md:text-base;
+    @apply font-roboto text-muted-foreground text-sm tracking-wide md:text-base;
   }
+
   span {
-    @apply text-foreground font-roboto text-base font-medium tracking-normal md:text-lg;
+    @apply font-roboto text-foreground text-base font-normal tracking-normal md:text-lg;
   }
 }
 

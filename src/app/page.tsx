@@ -50,7 +50,7 @@ export default function HomePage() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
           <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-200">
-              <Baby className="text-card-foreground h-8 w-8" />
+              <Baby className="h-8 w-8" />
             </div>
             <h3 className="mb-2">Babysicher</h3>
             <p className="text-muted-foreground">
@@ -60,9 +60,9 @@ export default function HomePage() {
           </div>
           <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-pink-200">
-              <Gift className="text-card-foreground h-8 w-8" />
+              <Gift className="h-8 w-8" />
             </div>
-            <h3 className="text-card-foreground mb-2">Handgemacht</h3>
+            <h3 className="mb-2">Handgemacht</h3>
             <p className="text-muted-foreground">
               Jedes Stück wird mit Liebe von Hand gefertigt und ist ein
               einzigartiges Unikat.
@@ -70,9 +70,9 @@ export default function HomePage() {
           </div>
           <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-              <Tag className="text-card-foreground h-8 w-8" />
+              <Tag className="h-8 w-8" />
             </div>
-            <h3 className="text-card-foreground mb-2">Personalisierbar</h3>
+            <h3 className="mb-2">Personalisierbar</h3>
             <p className="text-muted-foreground">
               Viele unserer Produkte können nach Ihren Wünschen personalisiert
               werden.
@@ -80,9 +80,9 @@ export default function HomePage() {
           </div>
           <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
-              <Star className="text-card-foreground h-8 w-8" />
+              <Star className="h-8 w-8" />
             </div>
-            <h3 className="text-card-foreground mb-2">Qualität</h3>
+            <h3 className="mb-2">Qualität</h3>
             <p className="text-muted-foreground">
               Wir verwenden nur hochwertige Materialien für langlebige Produkte.
             </p>
