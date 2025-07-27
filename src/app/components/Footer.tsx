@@ -106,7 +106,7 @@ export const Footer = () => {
                 Kontakt
               </Button>
               <Button
-                onClick={() => router.push('/versand')}
+                onClick={() => router.push('/shipping')}
                 variant="link"
                 size="link"
               >
