@@ -13,6 +13,7 @@ import { useParams, useRouter } from 'next/navigation'
 import { InfoAccordion } from '../../components/custom/InfoAccordion'
 import LightBoxCarousel from '../../components/custom/LightBoxCarousel'
 import ProduktCarousel from '../../components/custom/ProduktCarousel'
+import { QuantitySelector } from '../../components/custom/QuantitySelector'
 
 export default function Product() {
   const { id } = useParams<{ id: string }>()
@@ -35,7 +36,7 @@ export default function Product() {
   }
 
   return (
-    <div className="container flex-1 lg:mx-auto">
+    <div className="container mx-auto px-6">
       <div className="grid-cols-2 gap-4 lg:grid">
         <div>
           <Button
@@ -53,22 +54,22 @@ export default function Product() {
           <Button variant="link" size="link" className="mb-4">
             {categoryTranslations[product.category]}
           </Button>
-
           <h1 className="mb-4 md:mb-6">{product.name}</h1>
-
           <div className="mb-6 space-x-2 md:mb-8">
             <span className="price">{product.price.toFixed(2)}€</span>
             <small>inkl. MwSt.</small>
           </div>
-
-          <Button
-            className="mb-8 w-full md:mb-10"
-            size="lg"
-            onClick={() => addItem(product)}
-          >
-            <ShoppingBag className="h-8 w-8" />
-            {product.inStock}In den Warenkorb
-          </Button>
+          <div className="mb-8 flex items-center space-x-4 md:mb-10">
+            <QuantitySelector id={product.id} />
+            <Button
+            className='w-'
+              size="lg"
+              onClick={() => addItem(product)}
+            >
+              <ShoppingBag className="h-8 w-8" />
+              {product.inStock}In den Warenkorb
+            </Button>
+          </div>
           <small className="mb-4 md:mb-6">
             Voraussichtliche Lieferung 3-5 Tage
           </small>

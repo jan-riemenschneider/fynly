@@ -114,6 +114,7 @@ interface CartContextType extends CartState {
   clearCart: () => void
   setCartOpen: (open: boolean) => void
   isCartOpen: boolean
+  getItemQuantity: (id: string) => number
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -140,6 +141,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     dispatch({ type: 'CLEAR_CART' })
   }
 
+  const getItemQuantity = (id: string): number => {
+    const item = state.items.find(item => item.product.id === id)
+    return item?.quantity || 0
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -152,6 +158,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         updateQuantity,
         setCartOpen,
         isCartOpen,
+        getItemQuantity,
       }}
     >
       {children}

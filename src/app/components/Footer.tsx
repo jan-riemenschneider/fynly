@@ -3,8 +3,9 @@ import DHL from '@/public/dhl-1.svg'
 import Fynnly from '@/public/LogoFynnly.svg'
 import MadeInGermany from '@/public/made-in-germany.svg'
 import Stripe from '@/public/stripe.svg'
-import { Check } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { FaTiktok } from 'react-icons/fa'
+import { Checkmark } from './custom/Checkmark'
 import { SeparatingLine } from './custom/SeparatingLine'
 import { Button } from './ui/button'
 
@@ -26,21 +27,15 @@ export const Footer = () => {
 
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-100">
-                  <Check className="h-4 w-4 text-rose-600" />
-                </div>
+                <Checkmark />
                 <span className="text-sm">Handgefertigt mit Liebe</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-100">
-                  <Check className="h-4 w-4 text-rose-600" />
-                </div>
+                <Checkmark />
                 <span className="text-sm">Aus hochwertigen Materialien</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-rose-100">
-                  <Check className="h-4 w-4 text-rose-600" />
-                </div>
+                <Checkmark />
                 <span className="text-sm">
                   Sicher für Babys und Kleinkinder
                 </span>
@@ -90,7 +85,7 @@ export const Footer = () => {
             <h4 className="mb-4">Rechtliches</h4>
             <div className="flex flex-wrap items-start gap-4 md:flex-col">
               <Button
-                onClick={() => router.push('/datenschutz')}
+                onClick={() => router.push('/privacyPolicy')}
                 variant="link"
                 size="link"
               >
@@ -104,7 +99,7 @@ export const Footer = () => {
                 AGB
               </Button>
               <Button
-                onClick={() => router.push('/kontakt')}
+                onClick={() => router.push('/contact')}
                 variant="link"
                 size="link"
               >
@@ -129,7 +124,17 @@ export const Footer = () => {
           <MadeInGermany className="h-16 w-24" />
         </div>
 
-        <SeparatingLine className="w-full" />
+        <SeparatingLine className="mb-8 w-full" />
+
+        <div className="flex flex-col items-center gap-4 text-center">
+          <h4> Entdecke uns auf TikTok!</h4>
+          <div className="flex space-x-2">
+            <Button size="lg" className="mb-1">
+              <FaTiktok />
+              <p className="text-white">@fynly</p>
+            </Button>
+          </div>
+        </div>
 
         <div className="pt-8 text-center md:pt-10">
           <small>© {currentYear} fynly - Alle Rechte vorbehalten</small>

@@ -29,17 +29,15 @@ export default function HomePage() {
       {/* Featured Products */}
 
       <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center">
-            <h2 className="mb-4 md:mb-6">Unsere beliebtesten Produkte</h2>
-            <p className="font-body mb-8 text-center md:mb-10">
-              Entdecken Sie unsere meistverkauften handgefertigten
-              Babyaccessoires, die mit Liebe hergestellt wurden.
-            </p>
-            <SeparatingLine className={'mb-8 md:mb-10'} />
-          </div>
-          <ProductGrid products={featuredProducts} />
+        <div className="container mx-auto flex flex-col items-center px-6">
+          <h2 className="mb-4 md:mb-6">Unsere beliebtesten Produkte</h2>
+          <p className="font-body mb-8 text-center md:mb-10">
+            Entdecken Sie unsere meistverkauften handgefertigten
+            Babyaccessoires, die mit Liebe hergestellt wurden.
+          </p>
+          <SeparatingLine className={'mb-8 md:mb-10'} />  
         </div>
+        <ProductGrid products={featuredProducts} />
       </section>
 
       {/* Features Section */}
