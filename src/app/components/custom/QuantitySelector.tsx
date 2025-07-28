@@ -1,21 +1,16 @@
 import { Minus, Plus } from 'lucide-react'
-import { useCart } from '../../context/CartContext'
 import { Button } from '../ui/button'
 
-export function QuantitySelector({ id }) {
-  const { updateQuantity, getItemQuantity } = useCart()
-  const quantity = getItemQuantity(id)
-
-  const displayQuantity = quantity || 1
-
+export function QuantitySelector({ quantity, setQuantity }) {
   const handleIncreaseQuantity = () => {
-    updateQuantity(id, displayQuantity + 1)
+    setQuantity(prev => prev + 1)
   }
 
   const handleDecreaseQuantity = () => {
-    if (displayQuantity > 1) {
-      updateQuantity(id, displayQuantity - 1)
+    if (quantity === 0) {
+      return
     }
+    setQuantity(prev => prev - 1)
   }
 
   return (
@@ -30,7 +25,7 @@ export function QuantitySelector({ id }) {
       >
         <Minus className="h-3 w-3" />
       </Button>
-      <span className="w-8 text-center">{displayQuantity}</span>
+      <span className="w-8 text-center">{quantity}</span>
       <Button
         type="button"
         variant="ghost"

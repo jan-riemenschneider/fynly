@@ -15,15 +15,15 @@ interface CartItemProps {
 }
 
 const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
-  const { updateQuantity, removeItem } = useCart();
+  const { setQuantity, removeItem } = useCart();
 
   const handleIncreaseQuantity = () => {
-    updateQuantity(id, quantity + 1);
+    setQuantity(id, quantity + 1);
   };
 
   const handleDecreaseQuantity = () => {
     if (quantity > 1) {
-      updateQuantity(id, quantity - 1);
+      setQuantity(id, quantity - 1);
     } else {
       removeItem(id);
     }

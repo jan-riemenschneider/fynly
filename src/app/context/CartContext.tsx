@@ -14,10 +14,12 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; payload: Product }
+  | { type: 'ADD_ITEM'; payload: { product: Product; quantity: number } }
   | { type: 'REMOVE_ITEM'; payload: string }
-  | { type: 'UPDATE_QUANTITY'; payload: { id: string; quantity: number } }
   | { type: 'CLEAR_CART' }
+  | { type: 'SET_QUANTITY'; payload: { id: string; quantity: number } }
+  | { type: 'INCREASE_QUANTITY'; payload: { id: string; quantity: number } }
+  | { type: 'DECREASE_QUANTITY'; payload: { id: string; quantity: number } }
 
 const initialState: CartState = {
   items: [],
@@ -40,14 +42,15 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_ITEM': {
       const existingItemIndex = state.items.findIndex(
-        item => item.product.id === action.payload.id
+        item => item.product.id === action.payload.product.id
       )
 
       if (existingItemIndex !== -1) {
         const updatedItems = [...state.items]
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],
-          quantity: updatedItems[existingItemIndex].quantity + 1,
+          quantity:
+            updatedItems[existingItemIndex].quantity + action.payload.quantity,
         }
 
         return {
@@ -59,7 +62,10 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       } else {
         const updatedItems = [
           ...state.items,
-          { product: action.payload, quantity: 1 },
+          {
+            product: action.payload.product,
+            quantity: action.payload.quantity,
+          },
         ]
 
         return {
@@ -84,7 +90,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
       }
     }
 
-    case 'UPDATE_QUANTITY': {
+    case 'SET_QUANTITY': {
       const updatedItems = state.items.map(item =>
         item.product.id === action.payload.id
           ? { ...item, quantity: action.payload.quantity }
@@ -108,9 +114,9 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 }
 
 interface CartContextType extends CartState {
-  addItem: (product: Product) => void
+  addItem: (product: Product, quantity: number) => void
   removeItem: (id: string) => void
-  updateQuantity: (id: string, quantity: number) => void
+  setQuantity: (id: string, quantity: number) => void
   clearCart: () => void
   setCartOpen: (open: boolean) => void
   isCartOpen: boolean
@@ -124,17 +130,17 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState)
   const [isCartOpen, setCartOpen] = useState(false)
-  const addItem = (product: Product) => {
+  const addItem = (product: Product, quantity: number) => {
     setCartOpen(true)
-    dispatch({ type: 'ADD_ITEM', payload: product })
+    dispatch({ type: 'ADD_ITEM', payload: { product, quantity } })
   }
 
   const removeItem = (id: string) => {
     dispatch({ type: 'REMOVE_ITEM', payload: id })
   }
 
-  const updateQuantity = (id: string, quantity: number) => {
-    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } })
+  const setQuantity = (id: string, quantity: number) => {
+    dispatch({ type: 'SET_QUANTITY', payload: { id, quantity } })
   }
 
   const clearCart = () => {
@@ -155,7 +161,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         addItem,
         clearCart,
         removeItem,
-        updateQuantity,
+        setQuantity,
         setCartOpen,
         isCartOpen,
         getItemQuantity,
