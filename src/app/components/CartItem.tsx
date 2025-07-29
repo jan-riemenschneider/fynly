@@ -1,80 +1,58 @@
-"use client";
-import React from "react";
-import { Minus, Plus, Trash2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useCart } from "../context/CartContext";
-import Image from "next/image";
-import Link from "next/link";
+'use client'
+import { Button } from '@/components/ui/button'
+import { Trash2 } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useCart } from '../context/CartContext'
+import { QuantitySelector } from './custom/QuantitySelector'
 
 interface CartItemProps {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  quantity: number;
+  id: string
+  name: string
+  price: number
+  image: string
+  quantity: number
 }
 
 const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
-  const { setQuantity, removeItem } = useCart();
+  const { setQuantity, removeItem } = useCart()
 
   const handleIncreaseQuantity = () => {
-    setQuantity(id, quantity + 1);
-  };
+    setQuantity(id, quantity + 1)
+  }
 
   const handleDecreaseQuantity = () => {
     if (quantity > 1) {
-      setQuantity(id, quantity - 1);
+      setQuantity(id, quantity - 1)
     } else {
-      removeItem(id);
+      removeItem(id)
     }
-  };
+  }
 
   return (
-    <div className="flex items-center space-x-6 mt-4 h-auto">
-      <div className="flex-1/3 bg-muted rounded overflow-hidden">
+    <div className="mt-4 flex h-auto items-center space-x-6">
+      <div className="bg-muted flex-1/3 overflow-hidden rounded">
         <Image
           src={image}
           alt={name}
           width={50}
           height={50}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
 
-      <div className="flex flex-2/3 flex-col gap-3 ">
+      <div className="flex flex-2/3 flex-col gap-3">
         <Link
-          className="text-base font-medium hover:text-primary truncate max-w-[200px] text-wrap"
+          className="hover:text-primary max-w-[200px] truncate text-base font-medium text-wrap"
           href={`/product/${id}`}
         >
           {name}
         </Link>
 
-        <div className="flex items-center justify-center border rounded-md max-w-25">
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 rounded-none"
-            onClick={handleDecreaseQuantity}
-            aria-label="Reduce quantity"
-          >
-            <Minus className="h-3 w-3" />
-          </Button>
-          <span className="w-8 text-center">{quantity}</span>
-          <Button
-            type="button"
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 rounded-none"
-            onClick={handleIncreaseQuantity}
-            aria-label="Increase quantity"
-          >
-            <Plus className="h-3 w-3" />
-          </Button>
-        </div>
+        <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
 
         <div className="flex items-center space-x-1">
-          <div className="font-medium text-right">
+          <div className="text-right font-medium">
             {(price * quantity).toFixed(2)} €
           </div>
 
@@ -82,7 +60,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
             type="button"
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-muted-foreground hover:text-destructive"
+            className="text-muted-foreground hover:text-destructive h-8 w-8"
             onClick={() => removeItem(id)}
             aria-label="Remove"
           >
@@ -91,7 +69,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CartItem;
+export default CartItem

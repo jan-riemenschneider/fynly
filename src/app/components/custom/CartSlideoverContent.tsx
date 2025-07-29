@@ -1,4 +1,7 @@
 'use client'
+import CartItem from '@/components/CartItem'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import {
   Sheet,
   SheetContent,
@@ -6,16 +9,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
-import { ShoppingBag } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import Link from 'next/link'
 import { useCart } from '@/context/CartContext'
-import { Button } from '@/components/ui/button'
-import CartItem from '@/components/CartItem'
-import { NavigationMenuLink } from '../ui/navigation-menu'
-import { ButtonLoading } from '../ui/loadingButton'
-import { handleCheckout } from '../../lib/handleCheckout'
+import { ShoppingBag } from 'lucide-react'
+import Link from 'next/link'
 import { useState } from 'react'
+import { handleCheckout } from '../../lib/handleCheckout'
+import { ButtonLoading } from '../ui/loadingButton'
+import { NavigationMenuLink } from '../ui/navigation-menu'
 
 const CartSlideoverContent = () => {
   const { totalItems, items, clearCart, total, setCartOpen, isCartOpen } =
@@ -25,7 +25,7 @@ const CartSlideoverContent = () => {
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <NavigationMenuLink className="hover:cursor-pointer">
         <SheetTrigger className="relative hover:cursor-pointer">
-          <Badge className="absolute bottom-6 left-5 h-5 min-w-4 rounded-full px-1 tabular-nums">
+          <Badge className="absolute -end-3.5 -top-5 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
             {totalItems}
           </Badge>
           <ShoppingBag className="margin-0 padding-0 h-6 w-6 text-gray-900"></ShoppingBag>

@@ -61,7 +61,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </span>
         </div>
         <Button
-          onClick={() => addItem(product)}
+          onClick={() => addItem(product, 1)}
           variant={'default'}
           size={'sm'}
         >
