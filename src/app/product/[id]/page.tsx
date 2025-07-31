@@ -1,4 +1,9 @@
 'use client'
+import { Checkmark } from '@/components/custom/Checkmark'
+import { InfoAccordion } from '@/components/custom/InfoAccordion'
+import LightBoxCarousel from '@/components/custom/LightBoxCarousel'
+import ProduktCarousel from '@/components/custom/ProduktCarousel'
+import { QuantitySelector } from '@/components/custom/QuantitySelector'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContext'
 import {
@@ -11,14 +16,9 @@ import { ArrowLeft, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { Checkmark } from '../../components/custom/Checkmark'
-import { InfoAccordion } from '../../components/custom/InfoAccordion'
-import LightBoxCarousel from '../../components/custom/LightBoxCarousel'
-import ProduktCarousel from '../../components/custom/ProduktCarousel'
-import { QuantitySelector } from '../../components/custom/QuantitySelector'
 
 export default function Product() {
-  const [quantity, setQuantity] = useState(1)
+  const [amount, setAmount] = useState<number>(1)
   const { id } = useParams<{ id: string }>()
   const router = useRouter()
   const { addItem } = useCart()
@@ -26,8 +26,8 @@ export default function Product() {
   const getImages = getImagesById(id)
 
   const handleAddToCart = () => {
-    addItem(product, quantity)
-    setQuantity(1)
+    addItem(product, amount)
+    setAmount(1)
   }
 
   if (!product) {
@@ -70,7 +70,7 @@ export default function Product() {
               <small>inkl. MwSt.</small>
             </div>
             <div className="mb-8 flex items-center space-x-4 md:mb-10">
-              <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+              <QuantitySelector amount={amount} setAmount={setAmount} />
               <Button
                 className="w-"
                 size="lg"

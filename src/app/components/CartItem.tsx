@@ -15,18 +15,10 @@ interface CartItemProps {
 }
 
 const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
-  const { setQuantity, removeItem } = useCart()
+  const { removeItem, setQuantity } = useCart()
 
-  const handleIncreaseQuantity = () => {
-    setQuantity(id, quantity + 1)
-  }
-
-  const handleDecreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(id, quantity - 1)
-    } else {
-      removeItem(id)
-    }
+  const handleQuantityChange = (newAmount: number) => {
+    setQuantity(id, newAmount)
   }
 
   return (
@@ -49,7 +41,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
           {name}
         </Link>
 
-        <QuantitySelector quantity={quantity} setQuantity={setQuantity} />
+        <QuantitySelector amount={quantity} setAmount={handleQuantityChange} />
 
         <div className="flex items-center space-x-1">
           <div className="text-right font-medium">

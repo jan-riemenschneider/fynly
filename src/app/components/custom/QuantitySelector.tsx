@@ -1,16 +1,18 @@
 import { Minus, Plus } from 'lucide-react'
 import { Button } from '../ui/button'
 
-export function QuantitySelector({ quantity, setQuantity }) {
+interface QuantitySelectorProps {
+  amount: number
+  setAmount: (value: number | ((prev: number) => number)) => void
+}
+export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
   const handleIncreaseQuantity = () => {
-    setQuantity(prev => prev + 1)
+    setAmount(amount + 1) 
   }
 
   const handleDecreaseQuantity = () => {
-    if (quantity === 0) {
-      return
-    }
-    setQuantity(prev => prev - 1)
+    if (amount === 0) return
+    setAmount(amount - 1) 
   }
 
   return (
@@ -24,7 +26,7 @@ export function QuantitySelector({ quantity, setQuantity }) {
       >
         <Minus className="h-3 w-3" />
       </Button>
-      <span className="w-8 text-center">{quantity}</span>
+      <span className="w-8 text-center">{amount}</span>
       <Button
         variant="ghost"
         size="icon"
