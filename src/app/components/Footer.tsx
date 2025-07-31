@@ -16,9 +16,7 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 shadow-md">
       <div className="container mx-auto px-6 py-12 md:py-14">
-        {/* Desktop: 4-spaltig, Mobile: gestapelt */}
         <div className="mb-10 grid grid-cols-1 gap-10 md:mb-12 md:grid-cols-4 md:gap-12">
-          {/* Spalte 1: Brand & USPs */}
           <div>
             <div className="flex items-center gap-2">
               <Fynnly className="h-15 w-15" />
@@ -43,10 +41,9 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Spalte 2: Produkte */}
           <div>
             <h4 className="mb-4">Produkte</h4>
-            <div className="flex items-start gap-4 md:flex-col">
+            <div className="flex flex-wrap items-start gap-4 md:flex-col">
               <Button variant="link" size="link">
                 Schnullerketten
               </Button>
@@ -62,7 +59,6 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Spalte 3: Service */}
           <div>
             <h4 className="mb-4">Service</h4>
             <div className="flex flex-wrap items-start gap-4 md:flex-col">
