@@ -18,7 +18,11 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
   const { removeItem, setQuantity } = useCart()
 
   const handleQuantityChange = (newAmount: number) => {
-    setQuantity(id, newAmount)
+    if (newAmount === 0) {
+      removeItem(id)
+    } else {
+      setQuantity(id, newAmount)
+    }
   }
 
   return (
