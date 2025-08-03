@@ -1,9 +1,9 @@
+import NextJsImage from '@/components/ui/nextJsImage'
+import { X } from 'lucide-react'
 import * as React from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import Inline from 'yet-another-react-lightbox/plugins/inline'
-import NextJsImage from '@/components/ui/nextJsImage'
 import 'yet-another-react-lightbox/styles.css'
-import { X } from 'lucide-react'
 
 interface Slide {
   src: string
@@ -29,7 +29,7 @@ export default function LightBoxCarousel({ slides }: LightBoxCarouselProps) {
 
   const InlineCustomCounter = () => {
     return (
-      <small className="absolute top-2 right-0">
+      <small className="absolute top-2 right-2">
         {index + 1} / {slides.length}
       </small>
     )
@@ -37,7 +37,7 @@ export default function LightBoxCarousel({ slides }: LightBoxCarouselProps) {
 
   return (
     <>
-      <div className="relative">
+      <div className="relative mb-6">
         <InlineCustomCounter />
         <Lightbox
           index={index}
@@ -53,10 +53,8 @@ export default function LightBoxCarousel({ slides }: LightBoxCarouselProps) {
             style: {
               width: '100%',
               height: '100%',
-              maxWidth: '500px',
-              aspectRatio: '3 / 4',
-              margin: '0 auto',
-              backgroundColor: 'rgba(0, 0, 0, 0)',
+              maxWidth: '100%',
+              aspectRatio: '4 / 4',
             },
           }}
           styles={{

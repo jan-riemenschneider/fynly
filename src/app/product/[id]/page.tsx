@@ -54,11 +54,11 @@ export default function Product() {
     <>
       <div className="container mx-auto max-w-6xl p-6">
         <div className="max-w-6xl grid-cols-2 gap-4 lg:grid">
-          <div>
+          <div className="relative">
             <Button
               variant="link"
               size="link"
-              className="mb-4"
+              className="absolute top-2 left-2"
               onClick={router.back}
             >
               <ArrowLeft className="h-4 w-4" /> Zurück
@@ -66,8 +66,8 @@ export default function Product() {
             <LightBoxCarousel slides={urls} />
           </div>
 
-          <div className="flex w-full flex-col items-start justify-center">
-            <Button variant="link" size="link" className="mb-4">
+          <div className="flex w-full flex-col items-start justify-start">
+            <Button variant="link" size="link" className="mt-2 mb-4">
               {categoryTranslations[product.category]}
             </Button>
             <h1 className="mb-4 md:mb-6">{product.name}</h1>
@@ -75,25 +75,26 @@ export default function Product() {
               <span className="price">{product.price.toFixed(2)}€</span>
               <small>inkl. MwSt.</small>
             </div>
-            <div className="mb-8 flex items-center space-x-4 md:mb-10">
+            <div className="mb-8 flex w-full items-center space-x-4 md:mb-10">
               <QuantitySelector amount={amount} setAmount={setAmount} />
               <Button
-                className="w-"
+                variant="default"
                 size="lg"
+                className="flex-1"
                 onClick={() => handleAddToCart()}
               >
                 <ShoppingBag className="h-8 w-8" />
                 {product.inStock}In den Warenkorb
               </Button>
             </div>
+            <div className="flex flex-col space-y-1">
+              <span className="">Kostenloser Versand ab 29€</span>
+              <span className="mb-4 md:mb-6">Geschenkverpackung verfügbar</span>
+            </div>
             <small className="mb-4 md:mb-6">
               Voraussichtliche Lieferung 3-5 Tage
             </small>
-            <div className="bg-card mb-4 flex w-full flex-col gap-4 rounded-lg p-4 shadow-sm transition-all hover:shadow-md">
-              <div className="flex gap-2">
-                <Checkmark />
-                <p>Handgefertigt mit Liebe</p>
-              </div>
+            <div className="bg-card flex w-full flex-col gap-6 rounded-lg p-4 shadow-sm transition-all hover:shadow-md">
               <div className="flex gap-2">
                 <Checkmark />
                 <p> Aus hochwertigen Materialien</p>
@@ -101,6 +102,10 @@ export default function Product() {
               <div className="flex gap-2">
                 <Checkmark />
                 <p>Sicher für Babys und Kleinkinder</p>
+              </div>
+              <div className="flex gap-2">
+                <Checkmark />
+                <p>Individuell personalisierbar</p>
               </div>
             </div>
           </div>

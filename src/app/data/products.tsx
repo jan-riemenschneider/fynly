@@ -24,9 +24,6 @@ export const categoryTranslations = {
   schnullerketten: 'Schnullerketten',
   beissketten: 'Beißketten',
   kinderwagenketten: 'Kinderwagenketten',
-  schlüsselanhänger: 'Schlüsselanhänger',
-  babysocken: 'Babysocken',
-  mützen: 'Mützen',
 }
 
 export const products: Product[] = [
