@@ -6,29 +6,35 @@ import ProduktCarousel from '@/components/custom/ProduktCarousel'
 import { QuantitySelector } from '@/components/custom/QuantitySelector'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContext'
-import {
-  categoryTranslations,
-  getImagesById,
-  getProductById,
-  products,
-} from '@/data/products'
+import { categoryTranslations, getProductById, products } from '@/data/products'
 import { ArrowLeft, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 export default function Product() {
   const [amount, setAmount] = useState<number>(1)
+  const [urls, setUrls] = useState([])
   const { id } = useParams<{ id: string }>()
   const router = useRouter()
   const { addItem } = useCart()
   const product = id ? getProductById(id) : null
-  const getImages = getImagesById(id)
 
   const handleAddToCart = () => {
     addItem(product, amount)
     setAmount(1)
   }
+
+  useEffect(() => {
+    async function getUrl() {
+      const path = product.folderParth
+      const data = await fetch(`/api/${path}`)
+      const url = await data.json()
+      console.log(url)
+      setUrls(url)
+    }
+    getUrl()
+  }, [product.folderParth])
 
   if (!product) {
     return (
@@ -57,7 +63,7 @@ export default function Product() {
             >
               <ArrowLeft className="h-4 w-4" /> Zurück
             </Button>
-            <LightBoxCarousel slides={getImages} />
+            <LightBoxCarousel slides={urls} />
           </div>
 
           <div className="flex w-full flex-col items-start justify-center">

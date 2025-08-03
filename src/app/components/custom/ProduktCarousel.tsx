@@ -39,7 +39,7 @@ function ProduktCarousel({
     >
       <CarouselContent className="">
         {products.map(product => (
-          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/4">
+          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/5">
             <ProductCard key={product.id} product={product} />
           </CarouselItem>
         ))}

@@ -10,7 +10,6 @@ import {
 import { useCart } from '@/context/CartContext'
 import type { Product } from '@/data/products'
 import { ShoppingCart } from 'lucide-react'
-import Image from 'next/image'
 import Link from 'next/link'
 
 interface ProductCardProps {
@@ -25,13 +24,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <CardHeader className="mb-2">
         <Link href={`/product/${product.id}`}>
           <div className="relative mb-4 aspect-square overflow-hidden">
-            <Image
+            {/* <Image
               src={product.images[0]}
               alt={product.name}
               className="h-full w-full object-cover transition-transform"
               width={500}
               height={500}
-            />
+            /> */}
             <div className="absolute top-3 right-3">
               <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
                 <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
