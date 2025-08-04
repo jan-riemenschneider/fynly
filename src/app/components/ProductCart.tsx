@@ -9,7 +9,9 @@ import {
 } from '@/components/ui/card'
 import { useCart } from '@/context/CartContext'
 import type { Product } from '@/data/products'
+import { useProductsUrls } from '@/hooks/useProductUrls'
 import { ShoppingCart } from 'lucide-react'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 
 interface ProductCardProps {
@@ -19,18 +21,28 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const { addItem } = useCart()
 
+  const urls = useProductsUrls(product.folderParth)
   return (
     <Card className="card-hover flex h-full w-full flex-grow flex-col overflow-hidden border-none">
       <CardHeader className="mb-2">
         <Link href={`/product/${product.id}`}>
           <div className="relative mb-4 aspect-square overflow-hidden">
-            {/* <Image
-              src={product.images[0]}
-              alt={product.name}
-              className="h-full w-full object-cover transition-transform"
-              width={500}
-              height={500}
-            /> */}
+            {urls.length > 0 ? (
+              <CldImage
+                src={urls[0].src}
+                alt={product.name}
+                className="h-full w-full object-cover transition-transform"
+                width={400}
+                height={400}
+                quality="auto"
+                format="auto"
+                loading="lazy"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center bg-gray-200">
+                <span className="text-gray-500">Lädt...</span>
+              </div>
+            )}
             <div className="absolute top-3 right-3">
               <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
                 <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />

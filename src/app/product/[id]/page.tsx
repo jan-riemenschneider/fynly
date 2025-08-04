@@ -7,14 +7,14 @@ import { QuantitySelector } from '@/components/custom/QuantitySelector'
 import { Button } from '@/components/ui/button'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById, products } from '@/data/products'
+import { useProductsUrls } from '@/hooks/useProductUrls'
 import { ArrowLeft, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 export default function Product() {
   const [amount, setAmount] = useState<number>(1)
-  const [urls, setUrls] = useState([])
   const { id } = useParams<{ id: string }>()
   const router = useRouter()
   const { addItem } = useCart()
@@ -25,16 +25,7 @@ export default function Product() {
     setAmount(1)
   }
 
-  useEffect(() => {
-    async function getUrl() {
-      const path = product.folderParth
-      const data = await fetch(`/api/${path}`)
-      const url = await data.json()
-      console.log(url)
-      setUrls(url)
-    }
-    getUrl()
-  }, [product.folderParth])
+  const urls = useProductsUrls(product.folderParth)
 
   if (!product) {
     return (
