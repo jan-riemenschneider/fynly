@@ -67,24 +67,19 @@ export function NavigationBar() {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <NavigationMenu className="sticky top-0 z-10 hidden w-full bg-white/85 pr-6 pl-6 shadow-sm backdrop-blur-sm lg:block">
+      <NavigationMenu className="sticky top-0 z-10 hidden w-full bg-white/85 shadow-sm backdrop-blur-sm lg:block">
         <NavigationMenuList className="mx-auto max-w-6xl">
           <div className="flex w-full items-center justify-between">
             <Link href={'/'}>
               <Logo className="h-25 w-25" />
             </Link>
-            <div className="flex gap-8">
-              {Object.entries(categoryTranslations).map(([key, value]) => (
-                <NavigationMenuItem key={key}>
-                  <NavigationMenuLink
-                    asChild
-                    className="text-base hover:cursor-pointer"
-                  >
-                    <Link href={`/category/${key}`}>{value}</Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </div>
+            {Object.entries(categoryTranslations).map(([key, value]) => (
+              <NavigationMenuItem key={key}>
+                <NavigationMenuLink asChild className="text-lg">
+                  <Link href={`/category/${key}`}>{value}</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
             <CartSlideoverContent />
           </div>
         </NavigationMenuList>

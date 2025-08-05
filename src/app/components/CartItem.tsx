@@ -1,7 +1,8 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { useProductsUrls } from '@/hooks/useProductUrls'
 import { Trash2 } from 'lucide-react'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useCart } from '../context/CartContext'
 import { QuantitySelector } from './custom/QuantitySelector'
@@ -10,27 +11,35 @@ interface CartItemProps {
   id: string
   name: string
   price: number
-  image: string
   quantity: number
+  folderPath: string
 }
 
-const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
+const CartItem = ({ id, name, price, quantity, folderPath }: CartItemProps) => {
   const { removeItem, setQuantity } = useCart()
 
   const handleQuantityChange = (newAmount: number) => {
     setQuantity(id, newAmount)
   }
 
+  const urls = useProductsUrls(folderPath)
+
   return (
     <div className="mt-4 flex h-auto items-center space-x-6">
       <div className="bg-muted flex-1/3 overflow-hidden rounded">
-        <Image
-          src={image}
-          alt={name}
-          width={50}
-          height={50}
-          className="h-full w-full object-cover"
-        />
+        {urls.length > 0 ? (
+          <CldImage
+            src={urls[0].src}
+            alt={name}
+            width={50}
+            height={50}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-gray-200">
+            <span className="text-gray-500">Lädt...</span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-2/3 flex-col gap-3">

@@ -2,21 +2,21 @@ import { useEffect, useState } from 'react'
 
 const imageCache = new Map()
 
-export function useProductsUrls(folderParth: string) {
+export function useProductsUrls(folderPath: string) {
   const [urls, setUrls] = useState([])
 
   useEffect(() => {
-    if (imageCache.has(folderParth)) {
-      setUrls(imageCache.get(folderParth))
+    if (imageCache.has(folderPath)) {
+      setUrls(imageCache.get(folderPath))
       return
     }
     async function getUrl() {
-      const data = await fetch(`/api/${folderParth}`)
+      const data = await fetch(`/api/${folderPath}`)
       const url = await data.json()
-      imageCache.set(folderParth, url)
+      imageCache.set(folderPath, url)
       setUrls(url)
     }
     getUrl()
-  }, [folderParth])
+  }, [folderPath])
   return urls
 }

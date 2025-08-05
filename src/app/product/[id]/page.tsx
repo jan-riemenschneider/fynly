@@ -25,7 +25,7 @@ export default function Product() {
     setAmount(1)
   }
 
-  const urls = useProductsUrls(product.folderParth)
+  const urls = useProductsUrls(product.folderPath)
 
   if (!product) {
     return (

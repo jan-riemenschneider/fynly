@@ -1,8 +1,8 @@
 'use client'
+import DhlLogo from '@/public/dhlLogo.svg'
+import Stripe from '@/public/stripeLogo.svg'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import DhlLogo from './../../../../public/dhl.svg'
-import Stripe from './../../../../public/stripe.svg'
 
 const announcements = [
   {
