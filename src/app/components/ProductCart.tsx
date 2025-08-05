@@ -23,7 +23,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   const urls = useProductsUrls(product.folderPath)
   return (
-    <Card className="card-hover flex h-full w-full flex-grow flex-col overflow-hidden">
+    <Card className="flex h-full w-full flex-grow flex-col overflow-hidden">
       <Link href={`/product/${product.id}`}>
         <div className="relative mb-4 aspect-square overflow-hidden">
           {urls.length > 0 ? (
