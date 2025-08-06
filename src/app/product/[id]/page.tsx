@@ -5,6 +5,8 @@ import LightBoxCarousel from '@/components/custom/LightBoxCarousel'
 import ProduktCarousel from '@/components/custom/ProduktCarousel'
 import { QuantitySelector } from '@/components/custom/QuantitySelector'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById, products } from '@/data/products'
 import { useProductsUrls } from '@/hooks/useProductUrls'
@@ -15,6 +17,7 @@ import { useState } from 'react'
 
 export default function Product() {
   const [amount, setAmount] = useState<number>(1)
+  const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
   const router = useRouter()
   const { addItem } = useCart()
@@ -77,6 +80,25 @@ export default function Product() {
                 <ShoppingBag className="h-8 w-8" />
                 {product.inStock}In den Warenkorb
               </Button>
+            </div>
+            <div className="mb-4 flex w-full flex-col gap-3">
+              <div className="flex items-center gap-3">
+                <Switch
+                  id="check"
+                  onCheckedChange={() => setShowInput(prev => !prev)}
+                />
+                <label htmlFor="check" className="text-base font-semibold">
+                  Deine Produkt personalieren (+ 5,00€)
+                </label>
+              </div>
+              <small>Trage hier deinen Wunschnamen ein (max. 8 Zeichen)</small>
+              {showInput && (
+                <Input
+                  className="w-full"
+                  placeholder="Hier eingeben..."
+                  maxLength={8}
+                />
+              )}
             </div>
             <div className="flex flex-col space-y-1">
               <span className="">Kostenloser Versand ab 29€</span>
