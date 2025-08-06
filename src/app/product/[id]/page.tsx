@@ -84,11 +84,14 @@ export default function Product() {
             <div className="mb-4 flex w-full flex-col gap-3">
               <div className="flex items-center gap-3">
                 <Switch
-                  id="check"
+                  id="personalize"
                   onCheckedChange={() => setShowInput(prev => !prev)}
                 />
-                <label htmlFor="check" className="text-base font-semibold">
-                  Deine Produkt personalieren (+ 5,00€)
+                <label
+                  htmlFor="personalize"
+                  className="text-base font-semibold"
+                >
+                  Deine Produkt personalisieren (+ 5,00€)
                 </label>
               </div>
               <small>Trage hier deinen Wunschnamen ein (max. 8 Zeichen)</small>
@@ -100,7 +103,7 @@ export default function Product() {
                 />
               )}
             </div>
-            <div className="flex flex-col space-y-1">
+            <div className="mt-4 flex flex-col space-y-1">
               <span className="">Kostenloser Versand ab 29€</span>
               <span className="mb-4 md:mb-6">Geschenkverpackung verfügbar</span>
             </div>
