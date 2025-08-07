@@ -1,4 +1,3 @@
-
 'use client'
 import DHL from '@/public/dhlLogo.svg'
 import Fynnly from '@/public/LogoFynnly.svg'

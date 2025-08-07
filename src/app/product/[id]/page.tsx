@@ -17,6 +17,7 @@ import { useState } from 'react'
 
 export default function Product() {
   const [amount, setAmount] = useState<number>(1)
+  const [custom, setCustom] = useState<string>('')
   const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
   const router = useRouter()
@@ -24,8 +25,9 @@ export default function Product() {
   const product = id ? getProductById(id) : null
 
   const handleAddToCart = () => {
-    addItem(product, amount)
+    addItem(product, amount, custom)
     setAmount(1)
+    setCustom('')
   }
 
   const urls = useProductsUrls(product.folderPath)
@@ -100,6 +102,7 @@ export default function Product() {
                   className="w-full"
                   placeholder="Hier eingeben..."
                   maxLength={8}
+                  onChange={e => setCustom(e.target.value)}
                 />
               )}
             </div>

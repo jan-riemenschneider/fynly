@@ -18,10 +18,10 @@ import { ButtonLoading } from '../ui/loadingButton'
 import { NavigationMenuLink } from '../ui/navigation-menu'
 
 const CartSlideoverContent = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const { totalItems, items, clearCart, total, setCartOpen, isCartOpen } =
     useCart()
 
-  const [isLoading, setIsLoading] = useState(false)
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger className="">
@@ -66,6 +66,7 @@ const CartSlideoverContent = () => {
                 price={item.product.price}
                 folderPath={item.product.folderPath}
                 quantity={item.quantity}
+                customization={item.customization?.name}
               />
             ))}
 

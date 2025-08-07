@@ -5,6 +5,10 @@ import React, { createContext, ReactNode, useReducer, useState } from 'react'
 export interface CartItem {
   product: Product
   quantity: number
+  customization?: {
+    name: string
+    price: number
+  }
 }
 
 interface CartState {
@@ -14,7 +18,10 @@ interface CartState {
 }
 
 type CartAction =
-  | { type: 'ADD_ITEM'; payload: { product: Product; quantity: number } }
+  | {
+      type: 'ADD_ITEM'
+      payload: { product: Product; quantity: number; customization?: string }
+    }
   | { type: 'REMOVE_ITEM'; payload: string }
   | { type: 'CLEAR_CART' }
   | { type: 'SET_QUANTITY'; payload: { id: string; quantity: number } }
@@ -28,10 +35,13 @@ const initialState: CartState = {
 }
 
 const calculateTotal = (items: CartItem[]): number => {
-  return items.reduce(
-    (sum, item) => sum + item.product.price * item.quantity,
-    0
-  )
+  return items.reduce((sum, item) => {
+    const productTotal = item.product.price * item.quantity
+    const customizationTotal = item.customization
+      ? item.customization.price * item.quantity
+      : 0
+    return sum + productTotal + customizationTotal
+  }, 0)
 }
 
 const calculateTotalItems = (items: CartItem[]): number => {
@@ -66,6 +76,12 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
           {
             product: action.payload.product,
             quantity: action.payload.quantity,
+            ...(action.payload.customization && {
+              customization: {
+                name: action.payload.customization,
+                price: 5,
+              },
+            }),
           },
         ]
 
@@ -115,7 +131,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 }
 
 interface CartContextType extends CartState {
-  addItem: (product: Product, quantity: number) => void
+  addItem: (product: Product, quantity: number, customization?: string) => void
   removeItem: (id: string) => void
   setQuantity: (id: string, quantity: number) => void
   clearCart: () => void
@@ -131,9 +147,16 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [state, dispatch] = useReducer(cartReducer, initialState)
   const [isCartOpen, setCartOpen] = useState(false)
-  const addItem = (product: Product, quantity: number) => {
+  const addItem = (
+    product: Product,
+    quantity: number,
+    customization?: string
+  ) => {
     setCartOpen(true)
-    dispatch({ type: 'ADD_ITEM', payload: { product, quantity } })
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: { product, quantity, customization },
+    })
   }
 
   const removeItem = (id: string) => {
