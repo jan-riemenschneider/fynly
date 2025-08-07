@@ -121,7 +121,7 @@ function NavigationMenuViewport({
   );
 }
 
-function NavigationMenuLink({
+function  NavigationMenuLink({
   className,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Link>) {

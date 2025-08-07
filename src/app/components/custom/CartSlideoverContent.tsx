@@ -18,19 +18,20 @@ import { ButtonLoading } from '../ui/loadingButton'
 import { NavigationMenuLink } from '../ui/navigation-menu'
 
 const CartSlideoverContent = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const { totalItems, items, clearCart, total, setCartOpen, isCartOpen } =
     useCart()
-  const [isLoading, setIsLoading] = useState(false)
+
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
-      <NavigationMenuLink className="hover:cursor-pointer">
-        <SheetTrigger className="relative hover:cursor-pointer">
-          <Badge className="absolute -end-3.5 -top-5 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
+      <SheetTrigger className="">
+        <NavigationMenuLink className="relative hover:cursor-pointer">
+          <Badge className="absolute -end-3 -top-4 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
             {totalItems}
           </Badge>
-          <ShoppingBag className="margin-0 padding-0 h-6 w-6 text-gray-900"></ShoppingBag>
-        </SheetTrigger>
-      </NavigationMenuLink>
+          <ShoppingBag className="margin-0 padding-0 relative h-6 w-6 text-gray-900"></ShoppingBag>
+        </NavigationMenuLink>
+      </SheetTrigger>
 
       <SheetContent side="right">
         <SheetHeader className="bg-accentshadow-sm border-b">
@@ -63,8 +64,9 @@ const CartSlideoverContent = () => {
                 id={item.product.id}
                 name={item.product.name}
                 price={item.product.price}
-                image={item.product.images[0]}
+                folderPath={item.product.folderPath}
                 quantity={item.quantity}
+                customization={item.customization?.name}
               />
             ))}
 

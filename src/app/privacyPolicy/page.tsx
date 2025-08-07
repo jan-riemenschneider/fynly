@@ -1,6 +1,6 @@
 export default function PrivacyPolicy() {
   return (
-    <div className="container mx-auto flex flex-col justify-start gap-6 p-6 ">
+    <div className="container mx-auto flex flex-col justify-start gap-6 p-6">
       <h1>Datenschutzerklärung (gemäß DSGVO)</h1>
 
       <div className="space-y-2 md:space-y-4">

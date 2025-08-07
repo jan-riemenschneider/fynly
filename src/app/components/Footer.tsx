@@ -1,8 +1,8 @@
 'use client'
-import DHL from '@/public/dhl-1.svg'
+import DHL from '@/public/dhlLogo.svg'
 import Fynnly from '@/public/LogoFynnly.svg'
-import MadeInGermany from '@/public/made-in-germany.svg'
-import Stripe from '@/public/stripe.svg'
+import MadeInGermany from '@/public/madeInGermanyLogo.svg'
+import Stripe from '@/public/stripeLogo.svg'
 import { useRouter } from 'next/navigation'
 import { FaTiktok } from 'react-icons/fa'
 import { Checkmark } from './custom/Checkmark'
@@ -112,12 +112,12 @@ export const Footer = () => {
           </div>
         </div>
 
-        <SeparatingLine className="mb-8 w-full" />
+        <SeparatingLine className="mb-6 w-full" />
 
         <div className="mb-8 flex items-center justify-center gap-8 md:justify-evenly md:gap-10">
-          <DHL className="h-16 w-24" />
-          <Stripe className="h-16 w-24" />
-          <MadeInGermany className="h-16 w-24" />
+          <DHL className="h-25" />
+          <Stripe className="h-30" />
+          <MadeInGermany className="h-25" />
         </div>
 
         <SeparatingLine className="mb-8 w-full" />

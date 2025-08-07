@@ -1,7 +1,8 @@
 'use client'
+import DhlLogo from '@/public/dhlLogo.svg'
+import Stripe from '@/public/stripeLogo.svg'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
-import DhlLogo from './../../../../public/dhl.svg'
 
 const announcements = [
   {
@@ -19,6 +20,10 @@ const announcements = [
   {
     text: '✨ 14 Tage Rückgaberecht',
     icon: '📦',
+  },
+  {
+    text: 'Schneller Bezahlung & ohne Anmeldung',
+    icon: <Stripe className="h-5 w-5" />,
   },
 ]
 

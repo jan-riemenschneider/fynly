@@ -12,7 +12,7 @@ export interface Product {
   price: number
   description: string
   category: ProductCategory
-  images: string[]
+  folderPath: string
   featured?: boolean
   colors: string[]
   inStock: boolean
@@ -24,9 +24,6 @@ export const categoryTranslations = {
   schnullerketten: 'Schnullerketten',
   beissketten: 'Beißketten',
   kinderwagenketten: 'Kinderwagenketten',
-  schlüsselanhänger: 'Schlüsselanhänger',
-  babysocken: 'Babysocken',
-  mützen: 'Mützen',
 }
 
 export const products: Product[] = [
@@ -37,16 +34,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in sanften Rosatönen mit kindersicheren Holzperlen. Perfekt für Ihr Baby.',
     category: 'schnullerketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Rosa', 'Weiß'],
     inStock: true,
@@ -60,16 +48,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in Blautönen mit kindersicheren Holzperlen. Ideal für kleine Jungs.',
     category: 'schnullerketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Blau', 'Weiß'],
     inStock: true,
     quantity: 1,
@@ -82,16 +61,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette mit niedlichen Tiermotiven und verschiedenen Holzperlen.',
     category: 'schnullerketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Grün', 'Braun'],
     inStock: true,
     quantity: 1,
@@ -104,16 +74,7 @@ export const products: Product[] = [
     description:
       'Sanfte Beißkette mit Wolkenmotiv, sicher für Babys Zahnungsphase und aus lebensmittelechtem Silikon.',
     category: 'beissketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Grau', 'Weiß'],
     inStock: true,
@@ -127,16 +88,7 @@ export const products: Product[] = [
     description:
       'Farbenfrohe Beißkette mit Regenbogenmotiv, aus lebensmittelechtem Silikon für empfindliches Zahnfleisch.',
     category: 'beissketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Mehrfarbig'],
     inStock: true,
     quantity: 1,
@@ -149,16 +101,7 @@ export const products: Product[] = [
     description:
       'Bezaubernde Kinderwagenkette mit Sternen- und Mondmotiven, handgefertigt für unterwegs.',
     category: 'kinderwagenketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Grau', 'Weiß'],
     inStock: true,
@@ -172,16 +115,7 @@ export const products: Product[] = [
     description:
       'Abenteuerliche Kinderwagenkette mit niedlichen Tiermotiven für kleine Entdecker.',
     category: 'kinderwagenketten',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Gelb', 'Grün'],
     inStock: true,
     quantity: 1,
@@ -194,16 +128,7 @@ export const products: Product[] = [
     description:
       'Süßer handgefertigter Schlüsselanhänger mit Pilzmotiv, der perfekte Glücksbringer.',
     category: 'schlüsselanhänger',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Rot', 'Weiß'],
     inStock: true,
     quantity: 1,
@@ -216,16 +141,7 @@ export const products: Product[] = [
     description:
       'Liebevoller Schlüsselanhänger mit Herzmotiv, ein perfektes Geschenk für jeden Anlass.',
     category: 'schlüsselanhänger',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Pink', 'Weiß'],
     inStock: true,
@@ -239,16 +155,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babysocken aus weicher Merinowolle, warm und komfortabel für kleine Füße.',
     category: 'babysocken',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Blau', 'Rosa', 'Gelb'],
     inStock: true,
@@ -262,16 +169,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Streifensocken für Babys aus hautfreundlicher Baumwolle.',
     category: 'babysocken',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Mehrfarbig'],
     inStock: true,
     quantity: 1,
@@ -284,16 +182,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babymütze mit niedlichen Bärenohren aus weicher Merinowolle.',
     category: 'mützen',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     featured: true,
     colors: ['Braun', 'Beige'],
     inStock: true,
@@ -307,16 +196,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Zipfelmütze für Babys und Kleinkinder, warm und niedlich zugleich.',
     category: 'mützen',
-    images: [
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-      'https://picsum.photos/200',
-    ],
+    folderPath: 'fynly',
     colors: ['Blau', 'Rot', 'Grün'],
     inStock: true,
     quantity: 1,
@@ -332,27 +212,6 @@ export const getProductsByCategory = (category: ProductCategory) =>
 
 export const getProductById = (id: string) =>
   products.find(product => product.id === id)
-
-export const getImagesById = (id: string) => {
-  const product = products.find(product => product.id === id)
-
-  const images = product.images
-
-  const mapImages = images.map(image => ({
-    src: image,
-  }))
-
-  return mapImages
-}
-
-export const getAllImages = () => {
-  return products.flatMap(product =>
-    product.images.map(image => ({
-      src: image,
-      alt: product.name,
-    }))
-  )
-}
 
 export const getAllCategories = (): ProductCategory[] => [
   'schnullerketten',
