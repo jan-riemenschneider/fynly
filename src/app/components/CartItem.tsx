@@ -1,7 +1,7 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import { useProductsUrls } from '@/hooks/useProductUrls'
-import { Trash2 } from 'lucide-react'
+import { Loader2Icon, Trash2 } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useCart } from '../context/CartContext'
@@ -45,8 +45,8 @@ const CartItem = ({
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gray-200">
-              <span className="text-gray-500">Lädt...</span>
+            <div className="flex h-full w-full items-center justify-center bg-white">
+              <Loader2Icon className="animate-spin" />
             </div>
           )}
         </div>

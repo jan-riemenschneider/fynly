@@ -1,5 +1,5 @@
 import NextJsImage from '@/components/ui/nextJsImage'
-import { X } from 'lucide-react'
+import { Loader2Icon, X } from 'lucide-react'
 import * as React from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import Inline from 'yet-another-react-lightbox/plugins/inline'
@@ -37,39 +37,46 @@ export default function LightBoxCarousel({ slides }: LightBoxCarouselProps) {
 
   return (
     <>
-      <div className="relative mb-6">
-        <InlineCustomCounter />
-        <Lightbox
-          index={index}
-          slides={slides}
-          render={{ slide: NextJsImage }}
-          plugins={[Inline]}
-          on={{
-            view: updateIndex(false),
-            click: toggleOpen(true),
-          }}
-          carousel={{}}
-          inline={{
-            style: {
-              width: '100%',
-              height: '100%',
-              maxWidth: '100%',
-              aspectRatio: '4 / 4',
-            },
-          }}
-          styles={{
-            container: {
-              backgroundColor: 'rgba(0, 0, 0, 0)',
-            },
-            navigationPrev: {
-              display: 'none',
-            },
-            navigationNext: {
-              display: 'none',
-            },
-          }}
-        />
-      </div>
+      {slides.length > 0 ? (
+        <div className="relative mb-6 bg-gray-50">
+          <InlineCustomCounter />
+          <Lightbox
+            index={index}
+            slides={slides}
+            render={{ slide: NextJsImage }}
+            plugins={[Inline]}
+            on={{
+              view: updateIndex(false),
+              click: toggleOpen(true),
+            }}
+            carousel={{}}
+            inline={{
+              style: {
+                width: '100%',
+                height: '100%',
+                maxWidth: '100%',
+                aspectRatio: '4 / 4',
+                backgroundColor: 'oklch(98.5% 0.002 247.839)',
+              },
+            }}
+            styles={{
+              container: {
+                backgroundColor: 'oklch(98.5% 0.002 247.839)',
+              },
+              navigationPrev: {
+                display: 'none',
+              },
+              navigationNext: {
+                display: 'none',
+              },
+            }}
+          />
+        </div>
+      ) : (
+        <div className="flex h-full w-full items-center justify-center bg-gray-50">
+          <Loader2Icon className="animate-spin" />
+        </div>
+      )}
       <Lightbox
         open={open}
         close={toggleOpen(false)}

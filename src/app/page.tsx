@@ -30,12 +30,14 @@ export default function HomePage() {
 
       <section className="py-16">
         <div className="container mx-auto flex flex-col items-center px-6">
-          <h2 className="mb-4 md:mb-6">Unsere beliebtesten Produkte</h2>
+          <h2 className="mb-4 text-center md:mb-6">
+            Unsere beliebtesten Produkte
+          </h2>
           <p className="font-body mb-8 text-center md:mb-10">
             Entdecken Sie unsere meistverkauften handgefertigten
             Babyaccessoires, die mit Liebe hergestellt wurden.
           </p>
-          <SeparatingLine className={'mb-8 md:mb-10'} />  
+          <SeparatingLine className={'mb-8 md:mb-10'} />
         </div>
         <ProductGrid products={featuredProducts} />
       </section>
@@ -97,7 +99,9 @@ export default function HomePage() {
       <section>
         <div className="container mx-auto px-6">
           <div className="mb-8 flex flex-col items-center md:mb-10">
-            <h2 className="mb-8 md:mb-10">Was unsere Kunden sagen</h2>
+            <h2 className="mb-8 text-center md:mb-10">
+              Was unsere Kunden sagen
+            </h2>
             <SeparatingLine />
           </div>
 

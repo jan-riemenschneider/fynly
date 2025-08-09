@@ -68,7 +68,7 @@ export function NavigationBar() {
       </NavigationMenu>
 
       <NavigationMenu className="sticky top-0 z-10 hidden w-full bg-white/85 shadow-sm backdrop-blur-sm lg:block">
-        <NavigationMenuList className="mx-auto max-w-6xl">
+        <NavigationMenuList className="container mx-auto">
           <div className="flex w-full items-center justify-between">
             <Link href={'/'}>
               <Logo className="h-25 w-25" />
