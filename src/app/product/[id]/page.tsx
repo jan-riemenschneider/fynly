@@ -27,6 +27,10 @@ export default function Product() {
   const handleAddToCart = () => {
     addItem(product, amount, custom)
     setAmount(1)
+  }
+
+  const handleToggle = () => {
+    setShowInput(prev => !prev)
     setCustom('')
   }
 
@@ -85,10 +89,7 @@ export default function Product() {
             </div>
             <div className="mb-4 flex w-full flex-col gap-3">
               <div className="flex items-center gap-3">
-                <Switch
-                  id="personalize"
-                  onCheckedChange={() => setShowInput(prev => !prev)}
-                />
+                <Switch id="personalize" onCheckedChange={handleToggle} />
                 <label
                   htmlFor="personalize"
                   className="text-base font-semibold"
