@@ -22,7 +22,10 @@ type CartAction =
       type: 'ADD_ITEM'
       payload: { product: Product; quantity: number; customization?: string }
     }
-  | { type: 'REMOVE_ITEM'; payload: string }
+  | {
+      type: 'REMOVE_ITEM'
+      payload: { id: string; customization: string }
+    }
   | { type: 'CLEAR_CART' }
   | {
       type: 'SET_QUANTITY'
@@ -100,9 +103,17 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     }
 
     case 'REMOVE_ITEM': {
-      const updatedItems = state.items.filter(
-        item => item.product.id !== action.payload
-      )
+      const { id, customization } = action.payload
+
+      const updatedItems = state.items.filter(item => {
+        if (customization) {
+          return !(
+            item.product.id === id && item.customization?.name === customization
+          )
+        } else {
+          return !(item.product.id === id && !item.customization)
+        }
+      })
 
       return {
         ...state,
@@ -113,11 +124,20 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     }
 
     case 'SET_QUANTITY': {
-      const updatedItems = state.items.map(item =>
-        item.product.id === action.payload.id
-          ? { ...item, quantity: action.payload.quantity }
-          : item
-      )
+      const { quantity, customization, id } = action.payload
+
+      const updatedItems = state.items.map(item => {
+        if (customization) {
+          return item.product.id === id &&
+            item.customization?.name === customization
+            ? { ...item, quantity }
+            : item
+        } else {
+          return item.product.id === id && !item.customization
+            ? { ...item, quantity }
+            : item
+        }
+      })
 
       return {
         ...state,
@@ -137,7 +157,7 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 
 interface CartContextType extends CartState {
   addItem: (product: Product, quantity: number, customization?: string) => void
-  removeItem: (id: string) => void
+  removeItem: (id: string, customization?: string) => void
   setQuantity: (id: string, quantity: number, customization?: string) => void
   clearCart: () => void
   setCartOpen: (open: boolean) => void
@@ -164,8 +184,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     })
   }
 
-  const removeItem = (id: string) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: id })
+  const removeItem = (id: string, customization: string) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { id, customization } })
   }
 
   const setQuantity = (id: string, quantity: number, customization: string) => {
