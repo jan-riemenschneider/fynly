@@ -34,7 +34,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in sanften Rosatönen mit kindersicheren Holzperlen. Perfekt für Ihr Baby.',
     category: 'schnullerketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Rosa', 'Weiß'],
     inStock: true,
@@ -48,7 +48,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in Blautönen mit kindersicheren Holzperlen. Ideal für kleine Jungs.',
     category: 'schnullerketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Blau', 'Weiß'],
     inStock: true,
     quantity: 1,
@@ -61,7 +61,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette mit niedlichen Tiermotiven und verschiedenen Holzperlen.',
     category: 'schnullerketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Grün', 'Braun'],
     inStock: true,
     quantity: 1,
@@ -74,7 +74,7 @@ export const products: Product[] = [
     description:
       'Sanfte Beißkette mit Wolkenmotiv, sicher für Babys Zahnungsphase und aus lebensmittelechtem Silikon.',
     category: 'beissketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Grau', 'Weiß'],
     inStock: true,
@@ -88,7 +88,7 @@ export const products: Product[] = [
     description:
       'Farbenfrohe Beißkette mit Regenbogenmotiv, aus lebensmittelechtem Silikon für empfindliches Zahnfleisch.',
     category: 'beissketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Mehrfarbig'],
     inStock: true,
     quantity: 1,
@@ -101,7 +101,7 @@ export const products: Product[] = [
     description:
       'Bezaubernde Kinderwagenkette mit Sternen- und Mondmotiven, handgefertigt für unterwegs.',
     category: 'kinderwagenketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Grau', 'Weiß'],
     inStock: true,
@@ -115,7 +115,7 @@ export const products: Product[] = [
     description:
       'Abenteuerliche Kinderwagenkette mit niedlichen Tiermotiven für kleine Entdecker.',
     category: 'kinderwagenketten',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Gelb', 'Grün'],
     inStock: true,
     quantity: 1,
@@ -128,7 +128,7 @@ export const products: Product[] = [
     description:
       'Süßer handgefertigter Schlüsselanhänger mit Pilzmotiv, der perfekte Glücksbringer.',
     category: 'schlüsselanhänger',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Rot', 'Weiß'],
     inStock: true,
     quantity: 1,
@@ -141,7 +141,7 @@ export const products: Product[] = [
     description:
       'Liebevoller Schlüsselanhänger mit Herzmotiv, ein perfektes Geschenk für jeden Anlass.',
     category: 'schlüsselanhänger',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Pink', 'Weiß'],
     inStock: true,
@@ -155,7 +155,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babysocken aus weicher Merinowolle, warm und komfortabel für kleine Füße.',
     category: 'babysocken',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Blau', 'Rosa', 'Gelb'],
     inStock: true,
@@ -169,7 +169,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Streifensocken für Babys aus hautfreundlicher Baumwolle.',
     category: 'babysocken',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Mehrfarbig'],
     inStock: true,
     quantity: 1,
@@ -182,7 +182,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babymütze mit niedlichen Bärenohren aus weicher Merinowolle.',
     category: 'mützen',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     featured: true,
     colors: ['Braun', 'Beige'],
     inStock: true,
@@ -196,7 +196,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Zipfelmütze für Babys und Kleinkinder, warm und niedlich zugleich.',
     category: 'mützen',
-    folderPath: 'fynly',
+    folderPath: 'fynlyTest',
     colors: ['Blau', 'Rot', 'Grün'],
     inStock: true,
     quantity: 1,

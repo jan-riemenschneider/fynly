@@ -2,6 +2,8 @@
 import CartItem from '@/components/CartItem'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { ButtonLoading } from '@/components/ui/loadingButton'
+import { NavigationMenuLink } from '@/components/ui/navigation-menu'
 import {
   Sheet,
   SheetContent,
@@ -10,17 +12,25 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { useCart } from '@/context/CartContext'
-import { ShoppingBag } from 'lucide-react'
+import { handleCheckout } from '@/lib/handleCheckout'
+import { ArrowRight, ShoppingBag } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
-import { handleCheckout } from '../../lib/handleCheckout'
-import { ButtonLoading } from '../ui/loadingButton'
-import { NavigationMenuLink } from '../ui/navigation-menu'
+import { useEffect, useState } from 'react'
+import { FaStripe } from 'react-icons/fa'
 
 const CartSlideoverContent = () => {
   const [isLoading, setIsLoading] = useState(false)
+  const [customizationCost, setCustomizationCost] = useState(0)
   const { totalItems, items, clearCart, total, setCartOpen, isCartOpen } =
     useCart()
+
+  useEffect(() => {
+    const cost = items.reduce(
+      (cost, item) => (item.customization ? cost + 5 * item.quantity : cost),
+      0
+    )
+    setCustomizationCost(cost)
+  }, [items])
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
@@ -60,7 +70,11 @@ const CartSlideoverContent = () => {
 
             {items.map(item => (
               <CartItem
-                key={item.product.id}
+                key={
+                  item.customization
+                    ? `${item.product.id}-custom`
+                    : `${item.product.id}`
+                }
                 id={item.product.id}
                 name={item.product.name}
                 price={item.product.price}
@@ -86,6 +100,14 @@ const CartSlideoverContent = () => {
                   <span className="text-muted-foreground">Zwischensumme</span>
                   <span>{total.toFixed(2)} €</span>
                 </div>
+                {customizationCost > 0 && (
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">
+                      Individualisierung
+                    </span>
+                    <span>{customizationCost.toFixed(2)} €</span>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Versand</span>
                   <span>4.99 €</span>
@@ -94,13 +116,14 @@ const CartSlideoverContent = () => {
               <hr className="my-4 border-gray-200"></hr>
               <div className="flex items-center justify-between text-lg font-medium">
                 <span>Gesamtsumme</span>
-                <span>{(total + 4.99).toFixed(2)} €</span>
+                <span>{(total + 4.99 + customizationCost).toFixed(2)} €</span>
               </div>
               <p className="text-muted-foreground mt-2 text-xs">inkl. MwSt.</p>
             </div>
 
             <ButtonLoading
-              className="mt-4 w-full px-4 py-3"
+              size="lg"
+              className="mt-4 w-full bg-[#635BFF] px-4 py-3 hover:bg-[#5A54E6]"
               loading={isLoading}
               onClick={async () => {
                 setIsLoading(true)
@@ -114,7 +137,11 @@ const CartSlideoverContent = () => {
                 }
               }}
             >
-              Express Checkout
+              <div className="flex items-center justify-center gap-2">
+                <span className="font-extrabold text-white">Bezahle mit</span>
+                <FaStripe className="size-12" />
+                <ArrowRight className="size-4" />
+              </div>
             </ButtonLoading>
           </div>
         )}

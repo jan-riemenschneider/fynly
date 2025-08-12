@@ -27,7 +27,7 @@ const CartItem = ({
   const { removeItem, setQuantity } = useCart()
 
   const handleQuantityChange = (newAmount: number) => {
-    setQuantity(id, newAmount)
+    setQuantity(id, newAmount, customization)
   }
 
   const urls = useProductsUrls(folderPath)
@@ -74,7 +74,7 @@ const CartItem = ({
               variant="ghost"
               size="icon"
               className="text-muted-foreground hover:text-destructive h-8 w-8"
-              onClick={() => removeItem(id)}
+              onClick={() => removeItem(id, customization)}
               aria-label="Remove"
             >
               <Trash2 className="h-4 w-4" />

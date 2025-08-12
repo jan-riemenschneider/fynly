@@ -1,24 +1,28 @@
-import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
-import { CartItem } from "@/context/CartContext";
+import { CartItem } from '@/context/CartContext'
+import { stripe } from '@/lib/stripe'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const { items } = body;
+    const body = await request.json()
+    const { items } = body
 
-    console.log("Empfangene Items:", items);
+    console.log('Empfangene Items:', items)
 
-    const origin = request.headers.get("origin") || new URL(request.url).origin;
+    const origin = request.headers.get('origin') || new URL(request.url).origin
 
     const line_items = [
       ...items.map((item: CartItem) => ({
         price_data: {
-          currency: "eur",
+          currency: 'eur',
           product_data: {
             name: item.product.name,
-            description: item.product.description,
-            /* images: item.product.images, */
+            description: item.customization
+              ? `${item.product.description} - Customization: ${item.customization.name}`
+              : item.product.description,
+            images: [
+              `https://res.cloudinary.com/fynly/image/upload/w_800,h_600,c_fill/${item.product.folderPath}/main.png`,
+            ],
           },
           unit_amount: Math.round(item.product.price * 100),
         },
@@ -26,43 +30,43 @@ export async function POST(request: NextRequest) {
       })),
       {
         price_data: {
-          currency: "eur",
+          currency: 'eur',
           product_data: {
-            name: "Versandkosten",
+            name: 'Versandkosten',
           },
           unit_amount: 499,
         },
         quantity: 1,
       },
-    ];
+    ]
 
-    console.log("lineItems", line_items);
+    console.log('lineItems', line_items)
 
     const session = await stripe.checkout.sessions.create({
       line_items,
-      mode: "payment",
+      mode: 'payment',
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
       automatic_tax: { enabled: true },
-    });
+    })
 
     return NextResponse.json({
       sessionId: session.id,
       url: session.url,
-    });
+    })
   } catch (error: unknown) {
-    console.error("Stripe error:", error);
+    console.error('Stripe error:', error)
 
     if (error instanceof Error) {
       return NextResponse.json(
         {
-          error: "Internal Server Error",
+          error: 'Internal Server Error',
           message: error.message,
         },
         { status: 500 }
-      );
+      )
     }
 
-    return NextResponse.json({ error: "Unknown error" }, { status: 500 });
+    return NextResponse.json({ error: 'Unknown error' }, { status: 500 })
   }
 }

@@ -1,5 +1,5 @@
 'use client'
-import CartSlideoverContent from '@/components/custom/CartSlideoverContent'
+import CartSlideoverContent from '@/components/CartSlideoverContent'
 import {
   NavigationMenu,
   NavigationMenuItem,
