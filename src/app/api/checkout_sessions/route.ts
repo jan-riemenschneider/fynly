@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
               ? `${item.product.description} - Customization: ${item.customization.name}`
               : item.product.description,
             images: [
-              `https://res.cloudinary.com/fynly/image/upload/w_800,h_600,c_fill/${item.product.folderPath}/main.png`,
+              `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.folderPath}/main.png`,
             ],
           },
           unit_amount: Math.round(item.product.price * 100),
