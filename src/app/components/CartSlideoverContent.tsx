@@ -36,10 +36,10 @@ const CartSlideoverContent = () => {
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger className="">
         <NavigationMenuLink className="relative hover:cursor-pointer">
-          <Badge className="absolute -end-3 -top-4 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
+          <Badge className="absolute -end-2 -top-3.5 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
             {totalItems}
           </Badge>
-          <ShoppingBag className="margin-0 padding-0 relative h-6 w-6 text-gray-900"></ShoppingBag>
+          <ShoppingBag className="margin-0 padding-0 hover:text-primary focus:text-primarys relative h-6 w-6 text-gray-800"></ShoppingBag>
         </NavigationMenuLink>
       </SheetTrigger>
 
@@ -54,7 +54,7 @@ const CartSlideoverContent = () => {
             <p className="text-muted-foreground text-sm">
               Füge jetzt Produkte hinzu und starte deinen Einkauf!
             </p>
-            <Link href="/shop" aria-label="Zur Shop-Seite">
+            <Link href="/" aria-label="Zur Shop-Seite">
               <Button variant={'default'} onClick={() => setCartOpen(false)}>
                 Jetzt einkaufen
               </Button>
