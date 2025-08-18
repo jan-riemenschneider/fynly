@@ -23,31 +23,54 @@ export async function POST(request: NextRequest) {
             images: [
               `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.folderPath}/main.png`,
             ],
+            tax_code: 'txcd_10000000',
           },
           unit_amount: Math.round(item.product.price * 100),
         },
         quantity: item.quantity,
       })),
-      {
-        price_data: {
-          currency: 'eur',
-          product_data: {
-            name: 'Versandkosten',
-          },
-          unit_amount: 499,
-        },
-        quantity: 1,
-      },
     ]
-
-    console.log('lineItems', line_items)
 
     const session = await stripe.checkout.sessions.create({
       line_items,
       mode: 'payment',
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
+
       automatic_tax: { enabled: true },
+
+      billing_address_collection: 'required',
+
+      shipping_address_collection: {
+        allowed_countries: ['DE', 'AT', 'CH'],
+      },
+
+      shipping_options: [
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: { amount: 499, currency: 'eur' },
+            display_name: 'Standard Versand',
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 3 },
+              maximum: { unit: 'business_day', value: 5 },
+            },
+          },
+        },
+        {
+          shipping_rate_data: {
+            type: 'fixed_amount',
+            fixed_amount: { amount: 999, currency: 'eur' },
+            display_name: 'Express Versand',
+            delivery_estimate: {
+              minimum: { unit: 'business_day', value: 1 },
+              maximum: { unit: 'business_day', value: 2 },
+            },
+          },
+        },
+      ],
+
+      payment_method_types: ['card', 'sepa_debit', 'paypal'],
     })
 
     return NextResponse.json({
