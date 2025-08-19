@@ -12,7 +12,7 @@ export function TestinomialCard({
   rating,
 }: TestinomialCardProps) {
   return (
-    <div className="rounded-lg bg-white p-6 shadow-sm">
+    <div className="bg-card rounded-lg p-6 shadow-sm transition-shadow hover:shadow-md">
       <div className="mb-4 flex items-center text-yellow-400">
         {Array.from({ length: rating }, (_, i) => (
           <Star

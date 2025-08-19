@@ -1,29 +1,16 @@
 'use client'
-import DhlLogo from '@/public/dhlLogo.svg'
-import Stripe from '@/public/stripeLogo.svg'
 import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 
 const announcements = [
   {
-    text: '🎉 Kostenloser Versand ab 50€!',
-    icon: <DhlLogo className="h-5 w-5" />,
+    text: 'Made in Germany 🇩🇪',
   },
   {
-    text: '⭐ Handgefertigt mit Liebe',
-    icon: '💝',
+    text: 'Jedes Stück eine Unikat ⭐✨ ',
   },
   {
-    text: '🚀 Schnelle Lieferung in 3-5 Tagen',
-    icon: <DhlLogo className="h-5 w-5" />,
-  },
-  {
-    text: '✨ 14 Tage Rückgaberecht',
-    icon: '📦',
-  },
-  {
-    text: 'Schneller Bezahlung & ohne Anmeldung',
-    icon: <Stripe className="h-5 w-5" />,
+    text: 'Schnelle Lieferung mit DHL 🚀',
   },
 ]
 
@@ -39,7 +26,7 @@ export function AnnouncementBar() {
   }, [])
 
   return (
-    <div className="bg-primary overflow-hidden py-2 text-white">
+    <div className="bg-primary overflow-hidden py-1 text-white">
       <div className="flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
@@ -48,13 +35,10 @@ export function AnnouncementBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="flex items-center gap-2 text-center text-xs whitespace-nowrap md:text-sm"
+            className="flex items-center gap-3 text-center text-xs tracking-widest whitespace-nowrap md:text-sm"
           >
             <span className="text-white">
               {announcements[currentIndex].text}
-            </span>
-            <span className="flex items-center">
-              {announcements[currentIndex].icon}
             </span>
           </motion.div>
         </AnimatePresence>

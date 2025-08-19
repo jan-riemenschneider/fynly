@@ -34,7 +34,7 @@ export function NavigationBar() {
                 size={24}
                 toggled={toggleHamburger}
                 toggle={setToggleHamburger}
-              />  
+              />
             </SheetTrigger>
             <SheetContent className="w-80 gap-0">
               <SheetHeader className="shadow-sm">
