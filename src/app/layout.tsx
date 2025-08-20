@@ -15,12 +15,6 @@ export const metadata: Metadata = {
   },
   description:
     'Handgemachte Schnullerketten, Beißketten & Baby-Zubehör aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!',
-  openGraph: {
-    title: 'fyly - Handgemachte Schnullerketten & Zubehör - Made in Germany',
-    description:
-      'Handgemachte Schnullerketten, Beißketten & Baby-Zubehör aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!',
-    images: ['/og-image.jpg'],
-  },
 }
 
 export default function RootLayout({

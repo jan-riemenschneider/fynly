@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const { addItem } = useCart()
 
   const urls = useProductsUrls(product.folderPath)
-  return (  
+  return (
     <Card className="flex h-full w-full flex-grow flex-col overflow-hidden">
       <Link href={`/product/${product.id}`}>
         <div className="relative mb-4 aspect-square overflow-hidden">
@@ -51,9 +51,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       </Link>
       <CardHeader className="mb-2">
-        <CardTitle className="line-clamp-1">
+        <CardTitle>
           <Link href={`/product/${product.id}`}>
-            <h3>{product.name}</h3>
+            <h3 className="truncate">{product.name}</h3>
           </Link>
         </CardTitle>
       </CardHeader>

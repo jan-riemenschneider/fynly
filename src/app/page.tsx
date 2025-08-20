@@ -41,11 +41,11 @@ export default function HomePage() {
             Unsere handgemachten Favoriten für dich
             <Heart className="text-3xl text-red-700" />
           </h2>
-          <p className="font-body mb-6 text-center md:mb-8">
+          <p className="font-body mb-10 text-center md:mb-12">
             Kleine Lieblingsstücke für dein Baby – handgefertigt, mit Liebe
             gemacht und auf Wunsch personalisierbar
           </p>
-          <SeparatingLine className={'mb-8 md:mb-10'} />
+          <SeparatingLine className={'mb-12 md:mb-14'} />
         </div>
         <ProductGrid products={featuredProducts} />
       </section>
@@ -54,11 +54,11 @@ export default function HomePage() {
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
-            <h2 className="mb-6 flex items-center justify-center gap-2 md:mb-8">
+            <h2 className="mb-10 flex items-center justify-center gap-2 md:mb-12">
               Unsere Versprechen an dich{' '}
               <Handshake className="text-primary text-3xl" />
             </h2>
-            <SeparatingLine className={'mb-8 md:mb-10'} />
+            <SeparatingLine className={'mb-12 md:mb-14'} />
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
@@ -112,11 +112,11 @@ export default function HomePage() {
       {/* Testimonials */}
       <section>
         <div className="container mx-auto px-6">
-          <div className="mb-8 flex flex-col items-center md:mb-10">
-            <h2 className="mb-6 text-center md:mb-8">
+          <div className="flex flex-col items-center">
+            <h2 className="mb-10 text-center md:mb-12">
               Das sagen glückliche Eltern über uns
             </h2>
-            <SeparatingLine />
+            <SeparatingLine className="mb-12 md:mb-14" />
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
