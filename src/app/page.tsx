@@ -1,7 +1,14 @@
 import ProductGrid from '@/components/ProductGrid'
 import { Button } from '@/components/ui/button'
 import { getFeaturedProducts } from '@/data/products'
-import { Gift, Handshake, Heart, Shield, Star, Tag } from 'lucide-react'
+import {
+  HandHeart,
+  Handshake,
+  Heart,
+  Settings,
+  Shield,
+  Star,
+} from 'lucide-react'
 import Link from 'next/link'
 import { SeparatingLine } from './components/custom/SeparatingLine'
 import { TestinomialCard } from './components/custom/testimonialCard'
@@ -30,7 +37,7 @@ export default function HomePage() {
 
       <section>
         <div className="container mx-auto flex flex-col items-center px-6">
-          <h2 className="mb-4 flex flex-wrap text-center items-center justify-center gap-2 md:mb-6">
+          <h2 className="mb-4 flex flex-wrap items-center justify-center gap-2 text-center md:mb-6">
             Unsere handgemachten Favoriten für dich
             <Heart className="text-3xl text-red-700" />
           </h2>
@@ -56,8 +63,8 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
             <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                <Shield className="h-8 w-8" />
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-200">
+                <Shield className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="mb-2">Babysicher</h3>
               <p className="text-muted-foreground">
@@ -67,8 +74,8 @@ export default function HomePage() {
             </div>
 
             <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-pink-200">
-                <Gift className="h-8 w-8" />
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-200">
+                <HandHeart className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="mb-2">Handgemacht</h3>
               <p className="text-muted-foreground">
@@ -78,8 +85,8 @@ export default function HomePage() {
             </div>
 
             <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                <Tag className="h-8 w-8" />
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-200">
+                <Settings className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="mb-2">Personalisierbar</h3>
               <p className="text-muted-foreground">
@@ -89,8 +96,8 @@ export default function HomePage() {
             </div>
 
             <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
-                <Star className="h-8 w-8" />
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-200">
+                <Star className="h-8 w-8 text-gray-700" />
               </div>
               <h3 className="mb-2">Höchste Qualität</h3>
               <p className="text-muted-foreground">

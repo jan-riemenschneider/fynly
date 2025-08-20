@@ -30,7 +30,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <CldImage
               src={urls[0].src}
               alt={product.name}
-              className="h-full w-full object-cover duration-300 hover:scale-95"
+              className="h-full w-full object-cover duration-300 hover:scale-105"
               width={400}
               height={400}
               quality="auto"
