@@ -34,31 +34,37 @@ const CartSlideoverContent = () => {
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
-      <SheetTrigger className="">
+      <SheetTrigger>
         <NavigationMenuLink className="relative hover:cursor-pointer">
           <Badge className="absolute -end-2 -top-3.5 h-5 min-w-5 rounded-full p-1.5 tabular-nums">
             {totalItems}
           </Badge>
-          <ShoppingBag className="margin-0 padding-0 hover:text-primary focus:text-primarys relative h-6 w-6 text-gray-800"></ShoppingBag>
+          <ShoppingBag className="margin-0 padding-0 hover:text-primary focus:text-primary relative h-6 w-6 text-gray-800"></ShoppingBag>
         </NavigationMenuLink>
       </SheetTrigger>
 
       <SheetContent side="right">
-        <SheetHeader className="bg-accentshadow-sm border-b">
+        <SheetHeader className="border-b">
           <SheetTitle>Dein Warenkorb</SheetTitle>
         </SheetHeader>
 
         {items.length === 0 && (
-          <div className="flex h-full flex-col items-center justify-center gap-6 px-4 py-8 text-center">
-            <h2 className="text-xl font-semibold">Dein Warenkorb ist leer</h2>
-            <p className="text-muted-foreground text-sm">
-              Füge jetzt Produkte hinzu und starte deinen Einkauf!
-            </p>
-            <Link href="/" aria-label="Zur Shop-Seite">
-              <Button variant={'default'} onClick={() => setCartOpen(false)}>
-                Jetzt einkaufen
-              </Button>
-            </Link>
+          <div className="flex h-full flex-col items-center justify-center p-6 text-center">
+            <h2 className="mb-4">
+              Dein Warenkorb wartet auf kleine Schätze! ✨
+            </h2>
+            <small className="mb-10">
+              Entdecke unsere liebevoll handgemachten Stücke für dein Baby.
+            </small>
+            <Button
+              asChild
+              className="w-full"
+              onClick={() => setCartOpen(false)}
+            >
+              <Link href="/" aria-label="Zur Shop-Seite">
+                Hier entdecken
+              </Link>
+            </Button>
           </div>
         )}
 

@@ -1,32 +1,29 @@
-"use client";
-import React from "react";
-import { useParams } from "next/navigation";
-import ProductGrid from "@/components/ProductGrid";
+'use client'
+import ProductGrid from '@/components/ProductGrid'
 import {
-  getProductsByCategory,
   categoryTranslations,
+  getProductsByCategory,
   ProductCategory,
-} from "@/data/products";
-import { Button } from "../../components/ui/button";
-import Link from "next/link";
+} from '@/data/products'
+import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { Button } from '../../components/ui/button'
 
 export default function Category() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>()
 
-  const validCategoryId = id as ProductCategory | undefined;
+  const validCategoryId = id as ProductCategory | undefined
 
-  const products = validCategoryId
-    ? getProductsByCategory(validCategoryId)
-    : [];
+  const products = validCategoryId ? getProductsByCategory(validCategoryId) : []
 
   const categoryName = validCategoryId
     ? categoryTranslations[validCategoryId]
-    : "Kategorie";
+    : 'Kategorie'
 
   if (!products) {
     return (
-      <div className="container-custom py-16 text-center bg-gray-50">
-        <h1 className="heading-lg mb-4">Produkt nicht gefunden</h1>
+      <div className="container py-16 text-center">
+        <h1 className="mb-4">Produkt nicht gefunden</h1>
         <p className="mb-8">
           Das gesuchte Produktkategorie konnte leider nicht gefunden werden.
         </p>
@@ -34,19 +31,18 @@ export default function Category() {
           <Link href="/">Zurück zur Startseite</Link>
         </Button>
       </div>
-    );
+    )
   }
   return (
-    <div className="container-custom py-8">
+    <div className="container mx-auto py-6">
       <header className="mb-10 text-center">
         <h1 className="mb-4">{categoryName}</h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-muted-foreground mx-auto">
           Entdecken Sie unsere handgefertigten {categoryName} aus hochwertigen
           Materialien, perfekt für Ihren kleinen Liebling.
         </p>
       </header>
-
       <ProductGrid products={products} />
     </div>
-  );
+  )
 }

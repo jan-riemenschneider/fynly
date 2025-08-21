@@ -34,10 +34,11 @@ export function NavigationBar() {
                 size={24}
                 toggled={toggleHamburger}
                 toggle={setToggleHamburger}
+                color="#1e2939"
               />
             </SheetTrigger>
-            <SheetContent className="w-80 gap-0">
-              <SheetHeader className="shadow-sm">
+            <SheetContent className="w-100 gap-0">
+              <SheetHeader className="border-b">
                 <SheetTitle>Unsere Kategorien</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col">
@@ -46,11 +47,14 @@ export function NavigationBar() {
                     <NavigationMenuLink
                       href={`/category/${key}`}
                       className={clsx(
-                        'flex flex-row justify-between p-5 text-base'
+                        'flex flex-row justify-between p-6 text-base'
                       )}
                     >
                       {value}
-                      <ChevronRight strokeWidth={1} />
+                      <ChevronRight
+                        strokeWidth={1}
+                        className="hover:text-2xl"
+                      />
                     </NavigationMenuLink>
                     <div className="border-b" />
                   </NavigationMenuItem>
