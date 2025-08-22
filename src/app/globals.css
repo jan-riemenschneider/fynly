@@ -127,27 +127,27 @@
   }
 
   h1 {
-    @apply font-roboto text-4xl font-extrabold tracking-tight text-balance text-gray-900;
+    @apply font-roboto text-4xl font-semibold tracking-tight text-balance text-gray-900;
   }
 
   h2 {
-    @apply font-roboto text-3xl font-semibold tracking-tight text-gray-800;
+    @apply font-roboto text-2xl font-normal tracking-tight text-gray-800;
   }
 
   h3 {
-    @apply font-roboto text-2xl font-normal tracking-tight text-gray-700;
+    @apply font-roboto text-xl font-normal tracking-tight text-gray-700;
   }
 
   h4 {
-    @apply font-roboto text-xl font-semibold tracking-tight text-gray-700;
-  }
+    @apply font-roboto text-lg font-normal tracking-tight text-gray-700;
+  } 
 
   p {
     @apply font-roboto text-foreground max-w-xl text-base leading-7;
   }
 
   small {
-    @apply font-roboto text-muted-foreground text-sm;
+    @apply font-roboto text-muted-foreground text-sm leading-7;
   }
 
   span {

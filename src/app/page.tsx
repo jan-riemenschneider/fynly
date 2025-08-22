@@ -18,7 +18,7 @@ export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
-    <div className="flex min-h-screen flex-col space-y-12 md:space-y-16">
+    <div className="flex min-h-screen flex-col gap-16 md:gap-24">
       {/* Hero Section */}
       <section className="realtive flex h-[60vh] flex-col items-center justify-center bg-[url(https://picsum.photos/200)] md:h-[80vh]">
         <div className="flex max-w-lg flex-col items-center">
@@ -37,15 +37,11 @@ export default function HomePage() {
 
       <section>
         <div className="container mx-auto flex flex-col items-center px-6">
-          <h2 className="mb-4 flex flex-wrap items-center justify-center gap-2 text-center md:mb-6">
-            Unsere handgemachten Favoriten für dich
+          <h2 className="mb-12 flex flex-wrap items-center justify-center gap-2 text-center md:mb-14">
+            {'Unsere handgemachten Favoriten für dich'.toUpperCase()}
             <Heart className="text-3xl text-red-700" />
           </h2>
-          <p className="font-body mb-10 text-center md:mb-12">
-            Kleine Lieblingsstücke für dein Baby – handgefertigt, mit Liebe
-            gemacht und auf Wunsch personalisierbar
-          </p>
-          <SeparatingLine className={'mb-12 md:mb-14'} />
+          <SeparatingLine className="mb-12 md:mb-14" />
         </div>
         <ProductGrid products={featuredProducts} />
       </section>
@@ -54,11 +50,11 @@ export default function HomePage() {
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
-            <h2 className="mb-10 flex items-center justify-center gap-2 md:mb-12">
-              Unsere Versprechen an dich{' '}
+            <h2 className="mb-12 flex items-center justify-center gap-2 md:mb-14">
+              {'Unsere Versprechen an dich'.toUpperCase()}
               <Handshake className="text-primary text-3xl" />
             </h2>
-            <SeparatingLine className={'mb-12 md:mb-14'} />
+            <SeparatingLine className="mb-12 md:mb-14" />
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
@@ -113,8 +109,8 @@ export default function HomePage() {
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
-            <h2 className="mb-10 text-center md:mb-12">
-              Das sagen glückliche Eltern über uns
+            <h2 className="mb-12 text-center md:mb-14">
+              {'Das sagen glückliche Eltern über uns'.toUpperCase()}
             </h2>
             <SeparatingLine className="mb-12 md:mb-14" />
           </div>
