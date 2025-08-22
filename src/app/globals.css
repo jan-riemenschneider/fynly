@@ -7,7 +7,7 @@
 :root {
   --background: oklch(1 0 0);
   --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
-  --foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
+  --foreground: oklch(27.8% 0.033 256.848); /* Grey-800 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
   --primary: oklch(71.2% 0.194 13.428); /* Rose-400 */
@@ -135,7 +135,7 @@
   }
 
   h3 {
-    @apply font-roboto text-2xl font-semibold tracking-tight text-gray-700;
+    @apply font-roboto text-2xl font-normal tracking-tight text-gray-700;
   }
 
   h4 {

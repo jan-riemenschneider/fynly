@@ -13,13 +13,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { categoryTranslations } from '@/data/products'
+import Logo from '@/publicLogoFynnly.svg'
 import clsx from 'clsx'
 import Hamburger from 'hamburger-react'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
-import { categoryTranslations } from '../../data/products'
-import Logo from './../../../../public/LogoFynnly.svg'
 
 export function NavigationBar() {
   const [toggleHamburger, setToggleHamburger] = useState(false)
@@ -72,18 +72,35 @@ export function NavigationBar() {
       </NavigationMenu>
 
       <NavigationMenu className="sticky top-0 z-10 hidden w-full bg-white/85 shadow-sm backdrop-blur-sm lg:block">
-        <NavigationMenuList className="container mx-auto">
+        <NavigationMenuList className="mx-auto px-10">
           <div className="flex w-full items-center justify-between">
-            <Link href={'/'}>
-              <Logo className="h-25 w-25" />
-            </Link>
-            {Object.entries(categoryTranslations).map(([key, value]) => (
-              <NavigationMenuItem key={key}>
-                <NavigationMenuLink asChild className="text-lg">
-                  <Link href={`/category/${key}`}>{value}</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
+            <div className="flex space-x-20">
+              <Link href={'/'}>
+                <Logo className="h-20 w-20" />
+              </Link>
+              <div className="flex items-center gap-15">
+                {Object.entries(categoryTranslations).map(([key, value]) => (
+                  <NavigationMenuItem key={key}>
+                    <NavigationMenuLink
+                      asChild
+                      className="text-md text-foreground tracking-wide"
+                    >
+                      <Link href={`/category/${key}`}>
+                        {value.toUpperCase()}
+                      </Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+                <NavigationMenuItem>
+                  <NavigationMenuLink
+                    asChild
+                    className="text-md text-foreground tracking-wide"
+                  >
+                    <Link href="/ueberUns">ÜBER UNS</Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </div>
+            </div>
             <CartSlideoverContent />
           </div>
         </NavigationMenuList>

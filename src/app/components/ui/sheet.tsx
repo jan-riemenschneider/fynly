@@ -58,7 +58,7 @@ function SheetContent({
       <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(
-          'bg-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
+          'bg-main-background data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500',
           side === 'right' &&
             'data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 border-l sm:max-w-sm',
           side === 'left' &&
@@ -72,9 +72,9 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="data-[state=open]:bg-secondary absolute top-7.5 right-6">
+        <SheetPrimitive.Close className="data-[state=open]:bg-secondary absolute top-7 right-6">
           <CircleX
-            className="hover:text-primary size-6 text-gray-800 hover:cursor-pointer"
+            className="hover:text-primary text-foreground size-6 hover:cursor-pointer"
             strokeWidth={1}
           />
         </SheetPrimitive.Close>
@@ -87,7 +87,7 @@ function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sheet-header"
-      className={cn('flex items-center gap-1.5 p-6', className)}
+      className={cn('flex items-center gap-1.5 p-6 bg-gray-100', className)}
       {...props}
     />
   )
@@ -105,12 +105,14 @@ function SheetFooter({ className, ...props }: React.ComponentProps<'div'>) {
 
 function SheetTitle({
   className,
+  asChild,
   ...props
-}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+}: React.ComponentProps<typeof SheetPrimitive.Title> & { asChild?: boolean }) {
   return (
     <SheetPrimitive.Title
+      asChild={asChild}
       data-slot="sheet-title"
-      className={cn('font-bold tracking-tight text-gray-800', className)}
+      className={cn('tracking-wide', className)}
       {...props}
     />
   )

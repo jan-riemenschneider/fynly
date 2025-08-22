@@ -35,10 +35,9 @@ export function AnnouncementBar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
-            className="flex items-center gap-3 text-center text-xs tracking-widest whitespace-nowrap md:text-sm"
           >
-            <span className="text-white">
-              {announcements[currentIndex].text}
+            <span className="flex items-center gap-3 text-center whitespace-nowrap text-white">
+              {announcements[currentIndex].text.toUpperCase()}
             </span>
           </motion.div>
         </AnimatePresence>
