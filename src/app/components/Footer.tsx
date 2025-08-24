@@ -1,4 +1,5 @@
 'use client'
+import { SeparatingLine } from '@/components/custom/SeparatingLine'
 import AmericanExpress from '@/public/payment/american-express.svg'
 import ApplePay from '@/public/payment/apple-pay.svg'
 import GooglePay from '@/public/payment/google-pay.svg'
@@ -18,8 +19,8 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 px-6 py-12 shadow-sm">
       <div className="container mx-auto">
-        <div className="mb-8 flex flex-col gap-8 md:mb-16 md:flex-row md:justify-between">
-          <div className="max-w-sm space-y-4">
+        <div className="mb-8 flex flex-col gap-8 sm:mb-16 md:flex-row md:justify-between">
+          <div className="w-full space-y-4 md:max-w-sm">
             <h4 className="font-semibold">UNSER VERSPRECHEN</h4>
             <small className="block text-gray-600">
               Unser Ziel ist es, mit Dir den ersten Schritt zu meistern. Den
@@ -30,7 +31,6 @@ export const Footer = () => {
             </small>
           </div>
 
-          {/* Produkte */}
           <div className="">
             <h4 className="mb-4 font-semibold">PRODUKTE</h4>
             <nav className="flex flex-col gap-2">
@@ -108,28 +108,28 @@ export const Footer = () => {
           </div>
         </div>
 
-        <section className="mt-20 flex flex-col items-center md:flex-row">
-          <div className="flex flex-1 flex-col justify-start gap-2">
-            <p>FOLGE UNS AUF TIKTOK!</p>
-            <Button size="sm">
-              <FaTiktok />
-            </Button>
+        <section className="mt-16 flex w-full flex-col items-center md:mt-20 md:flex-row">
+          <div className="flex flex-col items-center md:w-1/3 md:items-start">
+            <div className="flex items-center gap-4">
+              <p>FOLGE UNS AUF TIKTOK!</p>
+              <Button size="sm">
+                <FaTiktok />
+              </Button>
+            </div>
           </div>
-          <small className="text-gray-500">
+          <small className="flex justify-center text-gray-500 md:w-1/3">
             © {currentYear} fynly - Alle Rechte vorbehalten
           </small>
-
-          <div className="flex flex-1 flex-col">
-            <div className="flex flex-wrap items-center gap-4">
-              <ApplePay className="h-8 w-auto rounded border border-gray-200 bg-white p-1" />
-              <GooglePay className="h-8 w-auto" />
-              <PayPal className="h-8 w-auto" />
-              <Visa className="h-8 w-auto" />
-              <MasterCard className="h-8 w-auto" />
-              <AmericanExpress className="h-8 w-auto" />
-              <Jcb className="h-8 w-auto" />
-              <UnionPay className="h-8 w-auto" />
-            </div>
+          <SeparatingLine className="my-10 w-full md:hidden" />
+          <div className="flex flex-wrap items-center justify-center gap-4 md:w-1/3">
+            <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />
+            <GooglePay className="h-6 w-auto" />
+            <PayPal className="h-6 w-auto" />
+            <Visa className="h-6 w-auto" />
+            <MasterCard className="h-6 w-auto" />
+            <AmericanExpress className="h-6 w-auto" />
+            <Jcb className="h-6 w-auto" />
+            <UnionPay className="h-6 w-auto" />
           </div>
         </section>
       </div>
