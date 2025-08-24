@@ -19,8 +19,8 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 px-6 py-12 shadow-sm">
       <div className="container mx-auto">
-        <div className="mb-8 flex flex-col gap-8 sm:mb-16 md:flex-row md:justify-between">
-          <div className="w-full space-y-4 md:max-w-sm">
+        <div className="mb-20 flex flex-col gap-8 sm:mb-24 md:flex-row md:justify-between">
+          <section className="w-full space-y-4 md:max-w-sm">
             <h4 className="font-semibold">UNSER VERSPRECHEN</h4>
             <small className="block text-gray-600">
               Unser Ziel ist es, mit Dir den ersten Schritt zu meistern. Den
@@ -29,86 +29,114 @@ export const Footer = () => {
               Qualität schätzen und nicht lange suchen wollen. Echte Handarbeit.
               Sichere Materialien.
             </small>
-          </div>
+          </section>
 
-          <div className="">
+          <section>
             <h4 className="mb-4 font-semibold">PRODUKTE</h4>
-            <nav className="flex flex-col gap-2">
-              <Button variant="link" size="link" className="justify-start">
-                Schnullerketten
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Beißketten
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Kinderwagenketten
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Babysocken
-              </Button>
+            <nav>
+              <ul className="flex flex-col gap-2">
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Schnullerketten
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Beißketten
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Kinderwagenketten
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Babysocken
+                  </Button>
+                </li>
+              </ul>
             </nav>
-          </div>
+          </section>
 
-          {/* Service */}
-          <div className="">
+          <section>
             <h4 className="mb-4 font-semibold">SERVICE</h4>
-            <nav className="flex flex-col gap-2">
-              <Button variant="link" size="link" className="justify-start">
-                Versand & Lieferung
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Größenratgeber
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Pflege-Tipps
-              </Button>
-              <Button variant="link" size="link" className="justify-start">
-                Rückgabe & Umtausch
-              </Button>
+            <nav>
+              <ul className="flex flex-col gap-2">
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Versand & Lieferung
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Größenratgeber
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Pflege-Tipps
+                  </Button>
+                </li>
+                <li>
+                  <Button variant="link" size="link" className="justify-start">
+                    Rückgabe & Umtausch
+                  </Button>
+                </li>
+              </ul>
             </nav>
-          </div>
+          </section>
 
-          {/* Rechtliches */}
-          <div className="">
+          <section>
             <h4 className="mb-4 font-semibold">RECHTLICHES</h4>
-            <nav className="flex flex-col gap-2">
-              <Button
-                onClick={() => router.push('/privacyPolicy')}
-                variant="link"
-                size="link"
-                className="justify-start"
-              >
-                Datenschutz
-              </Button>
-              <Button
-                onClick={() => router.push('/agb')}
-                variant="link"
-                size="link"
-                className="justify-start"
-              >
-                AGB
-              </Button>
-              <Button
-                onClick={() => router.push('/contact')}
-                variant="link"
-                size="link"
-                className="justify-start"
-              >
-                Kontakt
-              </Button>
-              <Button
-                onClick={() => router.push('/shipping')}
-                variant="link"
-                size="link"
-                className="justify-start"
-              >
-                Versand
-              </Button>
+            <nav>
+              <ul className="flex flex-col gap-2">
+                <li>
+                  <Button
+                    onClick={() => router.push('/privacyPolicy')}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Datenschutz
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    onClick={() => router.push('/agb')}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    AGB
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    onClick={() => router.push('/contact')}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Kontakt
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    onClick={() => router.push('/shipping')}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Versand
+                  </Button>
+                </li>
+              </ul>
             </nav>
-          </div>
+          </section>
         </div>
 
-        <section className="mt-16 flex w-full flex-col items-center md:mt-20 md:flex-row">
+        <div className="flex w-full flex-col items-center md:flex-row">
           <div className="flex flex-col items-center md:w-1/3 md:items-start">
             <div className="flex items-center gap-4">
               <p>FOLGE UNS AUF TIKTOK!</p>
@@ -121,7 +149,7 @@ export const Footer = () => {
             © {currentYear} fynly - Alle Rechte vorbehalten
           </small>
           <SeparatingLine className="my-10 w-full md:hidden" />
-          <div className="flex flex-wrap items-center justify-center gap-4 md:w-1/3">
+          <section className="flex flex-wrap items-center justify-center gap-4 md:w-1/3 md:justify-end">
             <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />
             <GooglePay className="h-6 w-auto" />
             <PayPal className="h-6 w-auto" />
@@ -130,8 +158,8 @@ export const Footer = () => {
             <AmericanExpress className="h-6 w-auto" />
             <Jcb className="h-6 w-auto" />
             <UnionPay className="h-6 w-auto" />
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </footer>
   )
