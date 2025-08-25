@@ -1,7 +1,6 @@
 import ProductGrid from '@/components/ProductGrid'
 import { getFeaturedProducts } from '@/data/products'
-import { HandHeart, Handshake, Settings, Shield, Star } from 'lucide-react'
-import { SeparatingLine } from './components/custom/SeparatingLine'
+import { HandHeart, Settings, Shield, Star } from 'lucide-react'
 import { TestinomialCard } from './components/custom/testimonialCard'
 import { testimonials } from './data/testimonials'
 
@@ -21,12 +20,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container mx-auto">
-        <div className="flex flex-col px-6 md:px-0">
-          <h2 className="mb-4 flex flex-wrap items-center gap-2">
-            Unsere handgemachten Favoriten für dich
-          </h2>
-          <p className="text-muted-foreground mb-8">
+      <section className="container mx-auto px-6">
+        <div className="text-center md:text-left">
+          <h2 className="mb-4">Unsere handgemachten Favoriten</h2>
+          <p className="text-muted-foreground mb-10">
             Jedes Stück erzählt eine Geschichte und wird mit Liebe zum Detail
             gefertigt.
           </p>
@@ -36,13 +33,9 @@ export default function HomePage() {
 
       <section>
         <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center">
-            <h2 className="mb-12 flex items-center justify-center gap-2 md:mb-14">
-              {'Unsere Versprechen an dich'.toUpperCase()}
-              <Handshake className="text-primary text-3xl" />
-            </h2>
-            <SeparatingLine className="mb-12 md:mb-14" />
-          </div>
+          <h2 className="mb-10 text-center md:text-left">
+            Unsere Versprechen an dich
+          </h2>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
             <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
@@ -94,12 +87,9 @@ export default function HomePage() {
 
       <section>
         <div className="container mx-auto px-6">
-          <div className="flex flex-col items-center">
-            <h2 className="mb-12 text-center md:mb-14">
-              {'Das sagen glückliche Eltern über uns'.toUpperCase()}
-            </h2>
-            <SeparatingLine className="mb-12 md:mb-14" />
-          </div>
+          <h2 className="mb-10 text-center md:text-left">
+            Das sagen glückliche Eltern über uns
+          </h2>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
             {testimonials.map(testimonial => (

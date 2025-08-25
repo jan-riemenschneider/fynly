@@ -135,7 +135,7 @@
   }
 
   h3 {
-    @apply font-inter text-xl font-normal tracking-tight text-gray-700;
+    @apply font-inter text-xl font-medium tracking-tight text-gray-700;
   }
 
   h4 {
