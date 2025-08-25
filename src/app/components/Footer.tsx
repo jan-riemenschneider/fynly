@@ -1,5 +1,6 @@
 'use client'
 import { SeparatingLine } from '@/components/custom/SeparatingLine'
+import { Button } from '@/components/ui/button'
 import AmericanExpress from '@/public/payment/american-express.svg'
 import ApplePay from '@/public/payment/apple-pay.svg'
 import GooglePay from '@/public/payment/google-pay.svg'
@@ -10,7 +11,6 @@ import UnionPay from '@/public/payment/unionpay.svg'
 import Visa from '@/public/payment/visa.svg'
 import { useRouter } from 'next/navigation'
 import { FaTiktok } from 'react-icons/fa'
-import { Button } from './ui/button'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
