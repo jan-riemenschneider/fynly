@@ -131,7 +131,7 @@
   }
 
   h2 {
-    @apply font-inter text-2xl font-normal tracking-tight text-gray-800;
+    @apply font-inter text-2xl font-semibold tracking-tight text-gray-800;
   }
 
   h3 {
@@ -143,7 +143,7 @@
   }
 
   p {
-    @apply font-inter text-foreground max-w-xl text-base leading-7;
+    @apply font-inter text-foreground text-base leading-7;
   }
 
   small {

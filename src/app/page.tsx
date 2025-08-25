@@ -1,15 +1,6 @@
 import ProductGrid from '@/components/ProductGrid'
-import { Button } from '@/components/ui/button'
 import { getFeaturedProducts } from '@/data/products'
-import {
-  HandHeart,
-  Handshake,
-  Heart,
-  Settings,
-  Shield,
-  Star,
-} from 'lucide-react'
-import Link from 'next/link'
+import { HandHeart, Handshake, Settings, Shield, Star } from 'lucide-react'
 import { SeparatingLine } from './components/custom/SeparatingLine'
 import { TestinomialCard } from './components/custom/testimonialCard'
 import { testimonials } from './data/testimonials'
@@ -27,26 +18,22 @@ export default function HomePage() {
             Entdecke unsere handgemachten Schnullerketten – liebevoll gefertigt
             und jedes Stück ein echtes Unikat.
           </p>
-          <Button asChild size={'lg'} className="mb-8" variant={'default'}>
-            <Link href="/category/schnullerketten">Jetzt entdecken</Link>
-          </Button>
         </div>
       </section>
 
-      {/* Featured Products */}
-
-      <section>
-        <div className="container mx-auto flex flex-col items-center px-6">
-          <h2 className="mb-12 flex flex-wrap items-center justify-center gap-2 text-center md:mb-14">
-            {'Unsere handgemachten Favoriten für dich'.toUpperCase()}
-            <Heart className="text-3xl text-red-700" />
+      <section className="container mx-auto">
+        <div className="flex flex-col px-6 md:px-0">
+          <h2 className="mb-4 flex flex-wrap items-center gap-2">
+            Unsere handgemachten Favoriten für dich
           </h2>
-          <SeparatingLine className="mb-12 md:mb-14" />
+          <p className="text-muted-foreground mb-8">
+            Jedes Stück erzählt eine Geschichte und wird mit Liebe zum Detail
+            gefertigt.
+          </p>
         </div>
         <ProductGrid products={featuredProducts} />
       </section>
 
-      {/* Features Section */}
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
@@ -105,7 +92,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section>
         <div className="container mx-auto px-6">
           <div className="flex flex-col items-center">
