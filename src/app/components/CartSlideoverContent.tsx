@@ -45,13 +45,15 @@ const CartSlideoverContent = () => {
       <SheetContent side="right">
         <SheetHeader className="border-b">
           <SheetTitle asChild>
-            <h3>WARENKORB</h3>
+            <h3>Warenkorb</h3>
           </SheetTitle>
         </SheetHeader>
 
         {items.length === 0 && (
           <div className="flex h-full flex-col items-center justify-center p-6 text-center">
-            <span className="mb-4">{'Dein Warenkorb ist leer'.toUpperCase()}</span>
+            <span className="mb-4">
+              {'Dein Warenkorb ist leer'.toUpperCase()}
+            </span>
           </div>
         )}
 

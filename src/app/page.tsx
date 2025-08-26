@@ -8,7 +8,7 @@ export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
-    <div className="flex min-h-screen flex-col gap-16 md:gap-24">
+    <div className="flex min-h-screen flex-col gap-16 md:gap-24 lg:gap-28">
       {/* Hero Section */}
       <section className="realtive flex h-[60vh] flex-col items-center justify-center bg-[url(https://picsum.photos/200)] md:h-[80vh]">
         <div className="flex max-w-lg flex-col items-center">
