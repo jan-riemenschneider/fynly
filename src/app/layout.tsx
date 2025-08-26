@@ -1,5 +1,4 @@
 import { Footer } from '@/components/Footer'
-import { AnnouncementBar } from '@/components/custom/AnnouncementBar'
 import { NavigationBar } from '@/components/custom/NavigationBar'
 import { CartProvider } from '@/context/CartContext'
 import type { Metadata } from 'next'
@@ -33,8 +32,8 @@ export default function RootLayout({
       <body className="mx-auto flex min-h-screen flex-col overflow-x-hidden scroll-smooth">
         <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
-          <AnnouncementBar />
           <NavigationBar />
+          <div className="h-20" />
           <main className="bg-main-background flex flex-1 flex-col pb-16 md:pb-24">
             {children}
           </main>

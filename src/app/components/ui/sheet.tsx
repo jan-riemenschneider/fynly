@@ -4,7 +4,7 @@ import * as SheetPrimitive from '@radix-ui/react-dialog'
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
-import { CircleX } from 'lucide-react'
+import { CircleX, X } from 'lucide-react'
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -73,7 +73,7 @@ function SheetContent({
       >
         {children}
         <SheetPrimitive.Close className="data-[state=open]:bg-secondary absolute top-7 right-6">
-          <CircleX
+          <X
             className="hover:text-primary text-foreground size-6 hover:cursor-pointer"
             strokeWidth={1}
           />

@@ -23,7 +23,7 @@ export default function Category() {
   if (!products) {
     return (
       <div className="container py-16 text-center">
-        <h1 className="mb-4">Produkt nicht gefunden</h1>
+        <h1 className="mb-4 text-3xl">Produkt nicht gefunden</h1>
         <p className="mb-8">
           Das gesuchte Produktkategorie konnte leider nicht gefunden werden.
         </p>
@@ -34,15 +34,15 @@ export default function Category() {
     )
   }
   return (
-    <div className="container mx-auto py-6">
-      <header className="mb-10 text-center">
-        <h1 className="mb-4">{categoryName}</h1>
+    <section className="container mx-auto px-6 pt-16 md:pt-20">
+      <div className="mb-10 text-center">
+        <h1 className="mb-4 text-3xl lg:text-4xl">{categoryName}</h1>
         <p className="text-muted-foreground mx-auto">
           Entdecken Sie unsere handgefertigten {categoryName} aus hochwertigen
           Materialien, perfekt für Ihren kleinen Liebling.
         </p>
-      </header>
+      </div>
       <ProductGrid products={products} />
-    </div>
+    </section>
   )
 }
