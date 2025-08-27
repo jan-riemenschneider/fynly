@@ -29,14 +29,12 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
-      <body className="mx-auto flex min-h-screen flex-col overflow-x-hidden scroll-smooth">
+      <body className="bg-main-background overflow-x-hidden scroll-smooth">
         <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
           <NavigationBar />
           <div className="h-20" />
-          <main className="bg-main-background flex flex-1 flex-col pb-16 md:pb-24">
-            {children}
-          </main>
+          <main className="grid grid-cols-12 gap-8">{children}</main>
           <Footer />
         </CartProvider>
       </body>

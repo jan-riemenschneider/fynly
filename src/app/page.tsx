@@ -1,4 +1,6 @@
+import { Section } from '@/components/custom/Section'
 import ProductGrid from '@/components/ProductGrid'
+import { Button } from '@/components/ui/button'
 import { getFeaturedProducts } from '@/data/products'
 import { HandHeart, Settings, Shield, Star } from 'lucide-react'
 import { TestinomialCard } from './components/custom/testimonialCard'
@@ -8,28 +10,38 @@ export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
-    <div className="flex min-h-screen flex-col gap-16 md:gap-24 lg:gap-28">
-      {/* Hero Section */}
-      <section className="realtive flex h-[60vh] flex-col items-center justify-center bg-[url(https://picsum.photos/200)] md:h-[80vh]">
-        <div className="flex max-w-lg flex-col items-center">
-          <h1 className="mb-4 text-white md:mb-6">Hey ich bin Lisa!</h1>
-          <p className="mb-6 text-center text-white md:mb-8">
-            Entdecke unsere handgemachten Schnullerketten – liebevoll gefertigt
-            und jedes Stück ein echtes Unikat.
+    <>
+      <Section className="py-16">
+        <div className="col-span-12 items-center md:col-span-6">
+          <h1 className="mb-4 text-3xl font-bold md:mb-6 md:text-5xl">
+            Produktname
+          </h1>
+          <p className="mb-4 text-base text-gray-600 md:mb-6 md:text-xl">
+            Kurze Beschreibung oder Slogan
           </p>
+          <Button className="">Jetzt bestellen</Button>
         </div>
-      </section>
+        <div className="col-span-12 md:col-span-6">
+          <h1 className="mb-4 text-3xl font-bold md:mb-6 md:text-5xl">
+            Produktname
+          </h1>
+          <p className="mb-4 text-base text-gray-600 md:mb-6 md:text-xl">
+            Kurze Beschreibung oder Slogan
+          </p>
+          <Button className="">Jetzt bestellen</Button>
+        </div>
+      </Section>
 
-      <section className="container mx-auto px-6">
-        <div className="text-center md:text-left">
+      <Section fullWidth background={'bg-white'} className="py-16">
+        <div className="col-span-12 text-center md:text-left">
           <h2 className="mb-4">Unsere handgemachten Favoriten</h2>
-          <p className="text-muted-foreground mb-10">
+          <p className="text-muted-foreground mb-8">
             Jedes Stück erzählt eine Geschichte und wird mit Liebe zum Detail
             gefertigt.
           </p>
         </div>
         <ProductGrid products={featuredProducts} />
-      </section>
+      </Section>
 
       <section>
         <div className="container mx-auto px-6">
@@ -103,6 +115,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
