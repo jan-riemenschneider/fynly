@@ -29,7 +29,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         </div>
       )}
       <h3 className="mt-2 text-base">{product.name}</h3>
-      <span className="block text-lg font-medium text-gray-900">
+      <span className="block text-lg font-semibold text-gray-900">
         {product.price}€
       </span>
       <div className="absolute top-3 right-3">

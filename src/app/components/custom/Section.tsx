@@ -14,7 +14,7 @@ export function Section({
   if (fullWidth) {
     return (
       <section className={`col-span-12 w-screen ${background} ${className}`}>
-        <div className="container mx-auto grid grid-cols-12 items-center gap-8 px-6">
+        <div className="container mx-auto grid grid-cols-12 items-center px-6 py-16 md:py-24 lg:py-32">
           {children}
         </div>
       </section>
@@ -23,7 +23,7 @@ export function Section({
 
   return (
     <section className={`col-span-12 ${background} ${className}`}>
-      <div className="container mx-auto grid grid-cols-12 items-center gap-8 px-6">
+      <div className="container mx-auto grid grid-cols-12 items-center px-6 py-16 md:py-24 lg:py-32">
         {children}
       </div>
     </section>

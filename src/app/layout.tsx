@@ -34,7 +34,7 @@ export default function RootLayout({
         <CartProvider>
           <NavigationBar />
           <div className="h-20" />
-          <main className="grid grid-cols-12 gap-8">{children}</main>
+          <main className="grid grid-cols-12">{children}</main>
           <Footer />
         </CartProvider>
       </body>
