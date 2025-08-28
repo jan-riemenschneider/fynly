@@ -125,14 +125,17 @@ export function NavigationBar() {
                   <NavigationMenuItem key={key}>
                     <NavigationMenuLink
                       asChild
-                      className="text-base tracking-wide"
+                      className="text-base font-medium tracking-wide"
                     >
                       <Link href={`/category/${key}`}>{value}</Link>
                     </NavigationMenuLink>
                   </NavigationMenuItem>
                 ))}
                 <NavigationMenuItem>
-                  <NavigationMenuLink asChild className="text-md tracking-wide">
+                  <NavigationMenuLink
+                    asChild
+                    className="text-md font-medium tracking-wide"
+                  >
                     <Link href="/ueberUns">Über uns</Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>

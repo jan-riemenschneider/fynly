@@ -28,7 +28,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <Loader2Icon className="animate-spin" />
         </div>
       )}
-      <h3 className="mt-2 text-base">{product.name}</h3>
+      <h3 className="mt-2 text-base font-normal">{product.name}</h3>
       <span className="block text-lg font-semibold text-gray-900">
         {product.price}€
       </span>
