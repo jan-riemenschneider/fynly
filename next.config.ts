@@ -27,10 +27,10 @@ const nextConfig: NextConfig = {
                     params: {
                       overrides: {
                         removeViewBox: false,
-                        removeDimensions: true,
                       },
                     },
                   },
+                  'removeDimensions',
                 ],
               },
             },
@@ -58,10 +58,10 @@ const nextConfig: NextConfig = {
                     params: {
                       overrides: {
                         removeViewBox: false,
-                        removeDimensions: true,
                       },
                     },
                   },
+                  'removeDimensions',
                 ],
               },
             },

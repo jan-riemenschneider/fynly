@@ -4,7 +4,7 @@ import * as SheetPrimitive from '@radix-ui/react-dialog'
 import * as React from 'react'
 
 import { cn } from '@/lib/utils'
-import { CircleX, X } from 'lucide-react'
+import { X } from 'lucide-react'
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -87,7 +87,7 @@ function SheetHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="sheet-header"
-      className={cn('flex items-center gap-1.5 p-6 bg-gray-100', className)}
+      className={cn('flex items-center gap-1.5 bg-gray-100 p-6', className)}
       {...props}
     />
   )
