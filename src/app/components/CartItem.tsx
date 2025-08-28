@@ -23,6 +23,7 @@ const CartItem = ({ id, name, price, image, quantity }: CartItemProps) => {
     } else {
       setQuantity(id, newAmount)
     }
+    setQuantity(id, newAmount)
   }
 
   return (
