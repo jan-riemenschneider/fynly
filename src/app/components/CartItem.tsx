@@ -27,12 +27,6 @@ const CartItem = ({
   const { removeItem, setQuantity } = useCart()
 
   const handleQuantityChange = (newAmount: number) => {
-    if (newAmount === 0) {
-      removeItem(id)
-    } else {
-      setQuantity(id, newAmount)
-    }
-
     setQuantity(id, newAmount, customization)
   }
 
