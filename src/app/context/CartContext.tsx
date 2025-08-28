@@ -22,9 +22,15 @@ type CartAction =
       type: 'ADD_ITEM'
       payload: { product: Product; quantity: number; customization?: string }
     }
-  | { type: 'REMOVE_ITEM'; payload: string }
+  | {
+      type: 'REMOVE_ITEM'
+      payload: { id: string; customization: string }
+    }
   | { type: 'CLEAR_CART' }
-  | { type: 'SET_QUANTITY'; payload: { id: string; quantity: number } }
+  | {
+      type: 'SET_QUANTITY'
+      payload: { id: string; quantity: number; customization?: string }
+    }
   | { type: 'INCREASE_QUANTITY'; payload: { id: string; quantity: number } }
   | { type: 'DECREASE_QUANTITY'; payload: { id: string; quantity: number } }
 
@@ -51,53 +57,63 @@ const calculateTotalItems = (items: CartItem[]): number => {
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_ITEM': {
-      const existingItemIndex = state.items.findIndex(
-        item => item.product.id === action.payload.product.id
-      )
+      const { quantity = 1, customization, product } = action.payload
 
-      if (existingItemIndex !== -1) {
-        const updatedItems = [...state.items]
-        updatedItems[existingItemIndex] = {
-          ...updatedItems[existingItemIndex],
-          quantity:
-            updatedItems[existingItemIndex].quantity +
-              action.payload.quantity || 1,
+      const existingItem = state.items.find(item => {
+        if (customization) {
+          return (
+            item.customization?.name === customization &&
+            item.product.id === product.id
+          )
+        } else {
+          return item.product.id === product.id && !item.customization
         }
+      })
 
-        return {
-          ...state,
-          items: updatedItems,
-          total: calculateTotal(updatedItems),
-          totalItems: calculateTotalItems(updatedItems),
-        }
+      let updatedItems
+
+      if (existingItem) {
+        updatedItems = state.items.map(item =>
+          item === existingItem
+            ? { ...item, quantity: item.quantity + quantity }
+            : item
+        )
       } else {
-        const updatedItems = [
+        updatedItems = [
           ...state.items,
           {
-            product: action.payload.product,
-            quantity: action.payload.quantity,
-            ...(action.payload.customization && {
+            product: product,
+            quantity: quantity,
+            ...(customization && {
               customization: {
-                name: action.payload.customization,
+                name: customization,
                 price: 5,
               },
             }),
           },
         ]
+      }
 
-        return {
-          ...state,
-          items: updatedItems,
-          total: calculateTotal(updatedItems),
-          totalItems: calculateTotalItems(updatedItems),
-        }
+      return {
+        ...state,
+        items: updatedItems,
+        total: calculateTotal(updatedItems),
+        totalItems: calculateTotalItems(updatedItems),
       }
     }
 
     case 'REMOVE_ITEM': {
-      const updatedItems = state.items.filter(
-        item => item.product.id !== action.payload
-      )
+      const { id, customization } = action.payload
+
+      const updatedItems = state.items.filter(item => {
+        if (customization) {
+          return !(
+            item.product.id === id && item.customization?.name === customization
+          )
+        } else {
+          return !(item.product.id === id && !item.customization)
+        }
+      })
 
       return {
         ...state,
@@ -108,11 +124,20 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
     }
 
     case 'SET_QUANTITY': {
-      const updatedItems = state.items.map(item =>
-        item.product.id === action.payload.id
-          ? { ...item, quantity: action.payload.quantity }
-          : item
-      )
+      const { quantity, customization, id } = action.payload
+
+      const updatedItems = state.items.map(item => {
+        if (customization) {
+          return item.product.id === id &&
+            item.customization?.name === customization
+            ? { ...item, quantity }
+            : item
+        } else {
+          return item.product.id === id && !item.customization
+            ? { ...item, quantity }
+            : item
+        }
+      })
 
       return {
         ...state,
@@ -132,8 +157,8 @@ const cartReducer = (state: CartState, action: CartAction): CartState => {
 
 interface CartContextType extends CartState {
   addItem: (product: Product, quantity: number, customization?: string) => void
-  removeItem: (id: string) => void
-  setQuantity: (id: string, quantity: number) => void
+  removeItem: (id: string, customization?: string) => void
+  setQuantity: (id: string, quantity: number, customization?: string) => void
   clearCart: () => void
   setCartOpen: (open: boolean) => void
   isCartOpen: boolean
@@ -159,12 +184,12 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     })
   }
 
-  const removeItem = (id: string) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: id })
+  const removeItem = (id: string, customization: string) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { id, customization } })
   }
 
-  const setQuantity = (id: string, quantity: number) => {
-    dispatch({ type: 'SET_QUANTITY', payload: { id, quantity } })
+  const setQuantity = (id: string, quantity: number, customization: string) => {
+    dispatch({ type: 'SET_QUANTITY', payload: { id, quantity, customization } })
   }
 
   const clearCart = () => {

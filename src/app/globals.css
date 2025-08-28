@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -7,11 +7,12 @@
 :root {
   --background: oklch(1 0 0);
   --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
-  --foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
+  --foreground: oklch(27.8% 0.033 256.848); /* Grey-800 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
-  --primary: oklch(71.2% 0.194 13.428);
+  --primary: oklch(71.2% 0.194 13.428); /* Rose-400 */
   --primary-foreground: oklch(1 0 0);
+  --primary-hover: oklch(64.5% 0.246 16.439); /* Rose-500 */
   --secondary: oklch(0.9 0 0);
   --secondary-foreground: oklch(44.6% 0.03 256.802);
   --muted: oklch(0.95 0 0);
@@ -80,6 +81,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -111,7 +113,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-hover-card: var(--hover-card);
-  --font-roboto: 'Roboto';
+  --font-inter: 'Inter';
   --color-main-background: var(--mainBackground);
 }
 
@@ -121,41 +123,45 @@
   }
 
   body {
-    @apply bg-background font-roboto antialiased;
+    @apply bg-background font-inter antialiased;
   }
 
   h1 {
-    @apply font-roboto text-4xl font-extrabold tracking-tight text-balance text-gray-900;
+    @apply font-inter text-5xl font-bold tracking-tight text-balance text-gray-950 lg:text-6xl;
   }
 
   h2 {
-    @apply font-roboto text-3xl font-semibold tracking-tight text-gray-800;
+    @apply font-inter text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl;
   }
 
   h3 {
-    @apply font-roboto text-2xl font-semibold tracking-tight text-gray-700;
+    @apply font-inter text-lg font-medium tracking-tight text-gray-800 lg:text-xl;
   }
 
   h4 {
-    @apply font-roboto text-xl font-semibold tracking-tight text-gray-700;
+    @apply font-inter text-lg font-medium tracking-tight text-gray-700;
   }
 
   p {
-    @apply font-roboto text-foreground max-w-xl text-base leading-7;
+    @apply font-inter text-foreground text-base leading-relaxed;
   }
 
   small {
-    @apply font-roboto text-muted-foreground text-sm;
+    @apply font-inter text-muted-foreground text-sm leading-relaxed;
   }
 
   span {
-    @apply font-roboto text-foreground text-base font-normal tracking-normal;
+    @apply font-inter text-foreground text-base font-normal tracking-normal;
   }
+
   ul {
-    @apply font-roboto text-foreground list-disc leading-8;
+    @apply font-inter text-foreground list-disc leading-8;
+  }
+
+  li {
+    @apply text-base list-none;
   }
 }
-
 @layer components {
   .price {
     @apply text-xl font-bold text-gray-800;

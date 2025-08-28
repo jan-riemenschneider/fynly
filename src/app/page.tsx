@@ -1,9 +1,8 @@
+import { Section } from '@/components/custom/Section'
 import ProductGrid from '@/components/ProductGrid'
 import { Button } from '@/components/ui/button'
 import { getFeaturedProducts } from '@/data/products'
-import { Baby, Gift, Star, Tag } from 'lucide-react'
-import Link from 'next/link'
-import { SeparatingLine } from './components/custom/SeparatingLine'
+import { HandHeart, Settings, Shield, Star } from 'lucide-react'
 import { TestinomialCard } from './components/custom/testimonialCard'
 import { testimonials } from './data/testimonials'
 
@@ -11,108 +10,107 @@ export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
-    <div className="flex min-h-screen flex-col space-y-16 md:space-y-24">
-      {/* Hero Section */}
-      <section className="realtive flex h-[60vh] flex-col items-center justify-center bg-[url(https://picsum.photos/200)] md:h-[80vh]">
-        <div className="flex max-w-lg flex-col items-center">
-          <h1 className="mb-4 text-white md:mb-6">Hey ich bin Lisa!</h1>
-          <p className="mb-6 text-center text-white md:mb-8">
-            Das sind unsere selbstgemachten Schnullerketten – jede mit viel
-            Liebe und Sorgfalt gefertigt. Jede Kette ist ein echtes Unikat.
+    <>
+      <Section>
+        <div className="col-span-12 items-center md:col-span-6">
+          <h1 className="mb-4 text-3xl font-bold md:mb-6 md:text-5xl">
+            Produktname
+          </h1>
+          <p className="mb-4 text-base text-gray-600 md:mb-6 md:text-xl">
+            Kurze Beschreibung oder Slogan
           </p>
-          <Button asChild size={'lg'} className="mb-8" variant={'default'}>
-            <Link href="/category/schnullerketten">Jetzt entdecken</Link>
-          </Button>
+          <Button className="">Jetzt bestellen</Button>
         </div>
-      </section>
-
-      {/* Featured Products */}
-
-      <section className="py-16">
-        <div className="container mx-auto flex flex-col items-center px-6">
-          <h2 className="mb-4 md:mb-6">Unsere beliebtesten Produkte</h2>
-          <p className="font-body mb-8 text-center md:mb-10">
-            Entdecken Sie unsere meistverkauften handgefertigten
-            Babyaccessoires, die mit Liebe hergestellt wurden.
+        <div className="col-span-12 md:col-span-6">
+          <h1 className="mb-4 text-3xl font-bold md:mb-6 md:text-5xl">
+            Produktname
+          </h1>
+          <p className="mb-4 text-base text-gray-600 md:mb-6 md:text-xl">
+            Kurze Beschreibung oder Slogan
           </p>
-          <SeparatingLine className={'mb-8 md:mb-10'} />  
+          <Button className="">Jetzt bestellen</Button>
+        </div>
+      </Section>
+
+      <Section fullWidth background={'bg-white'} className="">
+        <div className="col-span-12 text-center md:text-left">
+          <h2 className="mb-4">Unsere handgemachten Favoriten</h2>
+          <p className="text-muted-foreground mb-14">
+            Jedes Stück erzählt eine Geschichte und wird mit Liebe zum Detail
+            gefertigt.
+          </p>
         </div>
         <ProductGrid products={featuredProducts} />
-      </section>
+      </Section>
 
-      {/* Features Section */}
-      <section>
-        <div className="container mx-auto px-6">
-          <div className="mb-8 flex flex-col items-center md:mb-10">
-            <h2 className="mb-8 md:mb-10">Warum unsere Produkte?</h2>
-            <SeparatingLine />
+      <Section>
+        <h2 className="col-span-12 mb-14 text-center md:text-left">
+          Unsere Versprechen an dich
+        </h2>
+
+        <div className="col-span-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
+          <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-200">
+              <Shield className="h-8 w-8 text-gray-800" />
+            </div>
+            <h3 className="mb-2">Babysicher</h3>
+            <p className="text-muted-foreground">
+              100% schadstofffrei, speichelfest und nach höchsten
+              Sicherheitsstandards geprüft – für unbeschwertes Spielen.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-4">
-            <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-amber-200">
-                <Baby className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2">Babysicher</h3>
-              <p className="text-muted-foreground">
-                Alle Materialien sind babyfreundlich und entsprechen den
-                höchsten Sicherheitsstandards.
-              </p>
+          <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-orange-200">
+              <HandHeart className="h-8 w-8 text-gray-800" />
             </div>
-            <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-pink-200">
-                <Gift className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2">Handgemacht</h3>
-              <p className="text-muted-foreground">
-                Jedes Stück wird mit Liebe von Hand gefertigt und ist ein
-                einzigartiges Unikat.
-              </p>
-            </div>
-            <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                <Tag className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2">Personalisierbar</h3>
-              <p className="text-muted-foreground">
-                Viele unserer Produkte können nach Ihren Wünschen personalisiert
-                werden.
-              </p>
-            </div>
-            <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-all">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
-                <Star className="h-8 w-8" />
-              </div>
-              <h3 className="mb-2">Qualität</h3>
-              <p className="text-muted-foreground">
-                Wir verwenden nur hochwertige Materialien für langlebige
-                Produkte.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section>
-        <div className="container mx-auto px-6">
-          <div className="mb-8 flex flex-col items-center md:mb-10">
-            <h2 className="mb-8 md:mb-10">Was unsere Kunden sagen</h2>
-            <SeparatingLine />
+            <h3 className="mb-2">Handgemacht</h3>
+            <p className="text-muted-foreground">
+              Jedes Stück wird mit Liebe von Hand gefertigt und bleibt ein
+              echtes Unikat.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
-            {testimonials.map(testimonial => (
-              <TestinomialCard
-                comment={testimonial.comment}
-                name={testimonial.name}
-                key={testimonial.id}
-                rating={testimonial.rating}
-              />
-            ))}
+          <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-200">
+              <Settings className="h-8 w-8 text-gray-800" />
+            </div>
+            <h3 className="mb-2">Personalisierbar</h3>
+            <p className="text-muted-foreground">
+              Gestalte dein Accessoire mit Namen oder Initialen – so einzigartig
+              wie dein Baby.
+            </p>
+          </div>
+
+          <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-200">
+              <Star className="h-8 w-8 text-gray-800" />
+            </div>
+            <h3 className="mb-2">Höchste Qualität</h3>
+            <p className="text-muted-foreground">
+              Hochwertige Materialien für langlebige Produkte, perfekt für den
+              Alltag mit deinem Kind.
+            </p>
           </div>
         </div>
-      </section>
-    </div>
+      </Section>
+
+      <Section fullWidth background="bg-white">
+        <h2 className="col-span-12 mb-14 text-center md:text-left">
+          Das sagen glückliche Eltern über uns
+        </h2>
+
+        <div className="col-span-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
+          {testimonials.map(testimonial => (
+            <TestinomialCard
+              comment={testimonial.comment}
+              name={testimonial.name}
+              key={testimonial.id}
+              rating={testimonial.rating}
+            />
+          ))}
+        </div>
+      </Section>
+    </>
   )
 }
