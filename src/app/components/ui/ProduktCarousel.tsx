@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 import {
   Carousel,
   CarouselContent,
@@ -8,9 +6,9 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-import { cn } from '../../lib/utils'
 import { Product } from '../../data/products'
-import ProductCard from '../ProductCart'
+import { cn } from '../../lib/utils'
+import ProductCard from '../cards/productCard'
 
 interface ProduktCarouselProps {
   products: Product[]
@@ -25,7 +23,7 @@ function ProduktCarousel({
 }: ProduktCarouselProps) {
   return (
     <Carousel
-      className={cn('mx-auto w-100%', className)}
+      className={cn('w-100% mx-auto', className)}
       plugins={
         autoplay
           ? [

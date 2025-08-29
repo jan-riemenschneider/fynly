@@ -1,5 +1,5 @@
 'use client'
-import ProductGrid from '@/components/ProductGrid'
+import ProductGrid from '@/components/grids/productGrid'
 import {
   categoryTranslations,
   getProductsByCategory,

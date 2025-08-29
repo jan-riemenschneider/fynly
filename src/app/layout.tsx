@@ -1,5 +1,5 @@
-import { Footer } from '@/components/Footer'
-import { NavigationBar } from '@/components/custom/NavigationBar'
+import { Footer } from '@/components/layout/Footer'
+import { NavigationBar } from '@/components/layout/NavigationBar'
 import { CartProvider } from '@/context/CartContext'
 import type { Metadata } from 'next'
 import { Toaster } from 'react-hot-toast'

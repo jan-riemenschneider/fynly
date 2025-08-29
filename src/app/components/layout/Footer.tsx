@@ -1,5 +1,5 @@
 'use client'
-import { SeparatingLine } from '@/components/custom/SeparatingLine'
+import { SeparatingLine } from '@/components/ui/SeparatingLine'
 import { Button } from '@/components/ui/button'
 import AmericanExpress from '@/public/payment/american-express.svg'
 import ApplePay from '@/public/payment/apple-pay.svg'

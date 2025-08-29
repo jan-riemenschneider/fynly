@@ -1,5 +1,5 @@
 'use client'
-import CartItem from '@/components/CartItem'
+import CartItem from '@/components/cart/cartItem'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ButtonLoading } from '@/components/ui/loadingButton'

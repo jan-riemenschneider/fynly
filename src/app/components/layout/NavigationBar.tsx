@@ -1,6 +1,6 @@
 'use client'
-import CartSlideoverContent from '@/components/CartSlideoverContent'
-import { AnnouncementBar } from '@/components/custom/AnnouncementBar'
+import CartSlideoverContent from '@/components/cart/cartSlideoverContent'
+import { AnnouncementBar } from '@/components/layout/AnnouncementBar'
 import {
   NavigationMenu,
   NavigationMenuItem,

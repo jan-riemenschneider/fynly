@@ -4,8 +4,8 @@ import { useProductsUrls } from '@/hooks/useProductUrls'
 import { Loader2Icon, Trash2 } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
-import { useCart } from '../context/CartContext'
-import { QuantitySelector } from './custom/QuantitySelector'
+import { useCart } from '../../context/CartContext'
+import { QuantitySelector } from '../business/QuantitySelector'
 
 interface CartItemProps {
   id: string
