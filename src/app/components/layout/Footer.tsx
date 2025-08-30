@@ -22,8 +22,8 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 px-6 py-12 shadow-sm">
       <div className="container mx-auto">
-        <div className="mb-24 flex flex-col gap-8 px-6 md:mb-28 md:flex-row md:justify-between">
-          <section className="w-full md:max-w-sm">
+        <div className="mb-24 flex flex-col flex-wrap gap-10 px-6 md:mb-28 md:justify-between lg:flex-row">
+          <section className="w-full lg:max-w-sm">
             <Heading level={4} variant="footer" className="mb-4">
               UNSER VERSPRECHEN
             </Heading>
@@ -147,9 +147,9 @@ export const Footer = () => {
           </section>
         </div>
 
-        <div className="flex w-full flex-col items-center px-6 md:flex-row">
-          <div className="flex flex-col items-center md:w-1/3 md:items-start">
-            <div className="flex items-center gap-4">
+        <div className="flex w-full flex-col items-center px-6 lg:flex-row">
+          <div className="flex flex-col items-center lg:w-1/3 lg:items-start">
+            <div className="flex items-center gap-2">
               <Text variant="body" level="p">
                 FOLGE UNS AUF TIKTOK!
               </Text>
@@ -161,12 +161,12 @@ export const Footer = () => {
           <Text
             variant="small"
             level="small"
-            className="flex justify-center md:w-1/3"
+            className="flex justify-center lg:w-1/3"
           >
             © {currentYear} fynly - Alle Rechte vorbehalten
           </Text>
-          <SeparatingLine className="my-10 w-full md:hidden" />
-          <section className="flex flex-wrap items-center justify-center gap-4 md:w-1/3 md:justify-end">
+          <SeparatingLine className="my-10 w-full lg:hidden" />
+          <section className="flex items-center gap-4 lg:w-1/3 lg:justify-end">
             <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />
             <GooglePay className="h-6 w-auto" />
             <PayPal className="h-6 w-auto" />

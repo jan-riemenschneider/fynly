@@ -1,5 +1,8 @@
 'use client'
 import ProductGrid from '@/components/grids/productGrid'
+import { Section } from '@/components/sections/Section'
+import { Heading } from '@/components/typography/heading'
+import { Text } from '@/components/typography/text'
 import {
   categoryTranslations,
   getProductsByCategory,
@@ -34,15 +37,17 @@ export default function Category() {
     )
   }
   return (
-    <section className="col-span-12 container mx-auto px-6 pt-16 md:pt-20">
-      <div className="mb-10 text-center">
-        <He className="mb-4 text-3xl lg:text-4xl">{categoryName}</He>
-        <p className="text-muted-foreground mx-auto">
+    <Section>
+      <div className="col-span-12 mb-14 text-center md:text-left">
+        <Heading level={1} variant="lg" className="mb-4">
+          {categoryName}
+        </Heading>
+        <Text level="p" variant="muted">
           Entdecken Sie unsere handgefertigten {categoryName} aus hochwertigen
           Materialien, perfekt für Ihren kleinen Liebling.
-        </p>
+        </Text>
       </div>
       <ProductGrid products={products} />
-    </section>
+    </Section>
   )
 }
