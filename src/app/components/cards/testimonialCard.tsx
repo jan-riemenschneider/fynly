@@ -1,3 +1,4 @@
+import { Text } from '@/components/typography/text'
 import { Star } from 'lucide-react'
 
 interface TestinomialCardProps {
@@ -12,7 +13,7 @@ export function TestinomialCard({
   rating,
 }: TestinomialCardProps) {
   return (
-    <div className="rounded-lg bg-gray-50 p-6 shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex flex-col rounded-lg bg-gray-50 p-6 shadow-sm transition-shadow hover:shadow-md">
       <div className="mb-4 flex items-center text-yellow-400">
         {Array.from({ length: rating }, (_, i) => (
           <Star
@@ -21,8 +22,12 @@ export function TestinomialCard({
           />
         ))}
       </div>
-      <p className="text-muted-foreground mb-4">{comment}</p>
-      <p className="text-card-foreground font-medium">- {name}.</p>
+      <Text level="p" variant="muted" className="mb-4">
+        {comment}
+      </Text>
+      <Text level="p" variant="card" className="mt-auto">
+        {name}
+      </Text>
     </div>
   )
 }

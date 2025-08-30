@@ -9,7 +9,7 @@
   --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
   --foreground: oklch(27.8% 0.033 256.848); /* Grey-800 */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(44.6% 0.03 256.802); /* Grey-600 */
+  --card-foreground: oklch(37.3% 0.034 259.733); /* Grey-700 */
   --primary: oklch(71.2% 0.194 13.428); /* Rose-400 */
   --primary-foreground: oklch(1 0 0);
   --primary-hover: oklch(64.5% 0.246 16.439); /* Rose-500 */
@@ -117,6 +117,50 @@
   --color-main-background: var(--mainBackground);
 }
 
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background font-inter antialiased;
+  }
+
+  h1 {
+    @apply font-inter text-5xl font-bold tracking-tight text-balance text-gray-950 lg:text-6xl;
+  }
+
+  h2 {
+    @apply font-inter text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl;
+  }
+
+  h3 {
+    @apply font-inter text-lg font-medium tracking-tight text-gray-800 lg:text-xl;
+  }
+  ul {
+    @apply font-inter text-foreground list-disc leading-8;
+  }
+
+  li {
+    @apply list-none text-base;
+  }
+
+  h4 {
+    @apply font-inter text-lg font-medium tracking-tight text-gray-700;
+  }
+
+  p {
+    @apply font-inter text-foreground text-base leading-relaxed;
+  }
+
+  small {
+    @apply font-inter text-muted-foreground text-sm leading-relaxed;
+  }
+
+  span {
+    @apply font-inter text-foreground text-base font-normal tracking-normal;
+  }
+}
 @layer components {
   .price {
     @apply text-xl font-bold text-gray-800;

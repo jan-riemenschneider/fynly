@@ -1,3 +1,4 @@
+import ProductCard from '@/components/cards/productCard'
 import {
   Carousel,
   CarouselContent,
@@ -5,10 +6,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Product } from '@/data/products'
+import { cn } from '@/lib/utils'
 import Autoplay from 'embla-carousel-autoplay'
-import { Product } from '../../data/products'
-import { cn } from '../../lib/utils'
-import ProductCard from '../cards/productCard'
 
 interface ProduktCarouselProps {
   products: Product[]
@@ -32,10 +32,10 @@ function ProduktCarousel({
                 stopOnInteraction: true,
               }),
             ]
-          : undefined
+          : []
       }
     >
-      <CarouselContent className="">
+      <CarouselContent>
         {products.map(product => (
           <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/5">
             <ProductCard key={product.id} product={product} />

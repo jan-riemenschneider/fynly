@@ -1,5 +1,5 @@
-import { Heading } from '@/components/ui/heading'
-import { Text } from '@/components/ui/text'
+import { Heading } from '@/components/typography/heading'
+import { Text } from '@/components/typography/text'
 import clsx from 'clsx'
 import { LucideIcon } from 'lucide-react'
 interface FeatureProps {

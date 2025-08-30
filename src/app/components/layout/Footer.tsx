@@ -1,4 +1,7 @@
 'use client'
+import { Heading } from '@/components/typography/heading'
+import { List } from '@/components/typography/list'
+import { Text } from '@/components/typography/text'
 import { SeparatingLine } from '@/components/ui/SeparatingLine'
 import { Button } from '@/components/ui/button'
 import AmericanExpress from '@/public/payment/american-express.svg'
@@ -19,79 +22,87 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 px-6 py-12 shadow-sm">
       <div className="container mx-auto">
-        <div className="mb-20 flex flex-col gap-8 sm:mb-24 md:flex-row md:justify-between">
-          <section className="w-full space-y-4 md:max-w-sm">
-            <h4 className="font-semibold">UNSER VERSPRECHEN</h4>
-            <small className="block text-gray-600">
+        <div className="mb-24 flex flex-col gap-8 px-6 md:mb-28 md:flex-row md:justify-between">
+          <section className="w-full md:max-w-sm">
+            <Heading level={4} variant="footer" className="mb-4">
+              UNSER VERSPRECHEN
+            </Heading>
+            <Text level="p" variant="small">
               Unser Ziel ist es, mit Dir den ersten Schritt zu meistern. Den
               ersten Schritt dahin, Dein Baby mit liebevoll handgefertigten
               Schnullerketten zu verwöhnen. Wir richten uns daher an Eltern, die
               Qualität schätzen und nicht lange suchen wollen. Echte Handarbeit.
               Sichere Materialien.
-            </small>
+            </Text>
           </section>
 
-          <section>
-            <h4 className="mb-4 font-semibold">PRODUKTE</h4>
-            <nav>
-              <ul className="flex flex-col gap-2">
-                <li>
+          <section className="flex flex-col">
+            <Heading level={4} variant="footer" className="mb-4">
+              PRODUKTE
+            </Heading>
+            <nav className="flex-1">
+              <List className="flex h-full flex-col justify-between">
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Schnullerketten
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Beißketten
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Kinderwagenketten
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Babysocken
                   </Button>
-                </li>
-              </ul>
+                </List.Item>
+              </List>
             </nav>
           </section>
 
-          <section>
-            <h4 className="mb-4 font-semibold">SERVICE</h4>
-            <nav>
-              <ul className="flex flex-col gap-2">
-                <li>
+          <section className="flex flex-col">
+            <Heading level={4} variant="footer" className="mb-4">
+              SERVICE
+            </Heading>
+            <nav className="flex-1">
+              <List className="flex h-full flex-col justify-between">
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Versand & Lieferung
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Größenratgeber
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Pflege-Tipps
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button variant="link" size="link" className="justify-start">
                     Rückgabe & Umtausch
                   </Button>
-                </li>
-              </ul>
+                </List.Item>
+              </List>
             </nav>
           </section>
 
-          <section>
-            <h4 className="mb-4 font-semibold">RECHTLICHES</h4>
-            <nav>
-              <ul className="flex flex-col gap-2">
-                <li>
+          <section className="flex flex-col">
+            <Heading level={4} variant="footer" className="mb-4">
+              RECHTLICHES
+            </Heading>
+            <nav className="flex-1">
+              <List className="flex h-full flex-col justify-between">
+                <List.Item>
                   <Button
                     onClick={() => router.push('/privacyPolicy')}
                     variant="link"
@@ -100,8 +111,8 @@ export const Footer = () => {
                   >
                     Datenschutz
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button
                     onClick={() => router.push('/agb')}
                     variant="link"
@@ -110,8 +121,8 @@ export const Footer = () => {
                   >
                     AGB
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button
                     onClick={() => router.push('/contact')}
                     variant="link"
@@ -120,8 +131,8 @@ export const Footer = () => {
                   >
                     Kontakt
                   </Button>
-                </li>
-                <li>
+                </List.Item>
+                <List.Item>
                   <Button
                     onClick={() => router.push('/shipping')}
                     variant="link"
@@ -130,24 +141,30 @@ export const Footer = () => {
                   >
                     Versand
                   </Button>
-                </li>
-              </ul>
+                </List.Item>
+              </List>
             </nav>
           </section>
         </div>
 
-        <div className="flex w-full flex-col items-center md:flex-row">
+        <div className="flex w-full flex-col items-center px-6 md:flex-row">
           <div className="flex flex-col items-center md:w-1/3 md:items-start">
             <div className="flex items-center gap-4">
-              <p>FOLGE UNS AUF TIKTOK!</p>
+              <Text variant="body" level="p">
+                FOLGE UNS AUF TIKTOK!
+              </Text>
               <Button size="sm">
                 <FaTiktok />
               </Button>
             </div>
           </div>
-          <small className="flex justify-center text-gray-500 md:w-1/3">
+          <Text
+            variant="small"
+            level="small"
+            className="flex justify-center md:w-1/3"
+          >
             © {currentYear} fynly - Alle Rechte vorbehalten
-          </small>
+          </Text>
           <SeparatingLine className="my-10 w-full md:hidden" />
           <section className="flex flex-wrap items-center justify-center gap-4 md:w-1/3 md:justify-end">
             <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />
