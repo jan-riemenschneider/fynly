@@ -14,7 +14,7 @@ const variants = {
   lg: 'font-inter text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl',
   md: 'font-inter text-lg font-medium tracking-tight text-gray-800 lg:text-xl',
   sm: 'font-inter text-lg font-medium tracking-tight text-gray-700',
-  footer: 'font-inter text-lg font-semibold tracking-tight text-gray-700',
+  footer: 'font-inter text-lg font-semibold tracking-tight text-gray-800',
 } as const
 
 export function Heading({

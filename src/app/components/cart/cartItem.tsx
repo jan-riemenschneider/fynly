@@ -1,6 +1,5 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { useProductsUrls } from '@/hooks/useProductUrls'
 import { Loader2Icon, Trash2 } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
@@ -12,8 +11,8 @@ interface CartItemProps {
   name: string
   price: number
   quantity: number
-  folderPath: string
   customization?: string
+  publicId: string[]
 }
 
 const CartItem = ({
@@ -21,7 +20,7 @@ const CartItem = ({
   name,
   price,
   quantity,
-  folderPath,
+  publicId,
   customization,
 }: CartItemProps) => {
   const { removeItem, setQuantity } = useCart()
@@ -30,15 +29,14 @@ const CartItem = ({
     setQuantity(id, newAmount, customization)
   }
 
-  const urls = useProductsUrls(folderPath)
 
   return (
     <>
       <div className="mt-4 flex h-auto items-center space-x-6">
         <div className="bg-muted flex-1/3 overflow-hidden rounded">
-          {urls.length > 0 ? (
+          {publicId.length > 0 ? (
             <CldImage
-              src={urls[0].src}
+              src={publicId[0]}
               alt={name}
               width={50}
               height={50}

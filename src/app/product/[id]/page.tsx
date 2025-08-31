@@ -4,13 +4,12 @@ import { Button } from '@/components/ui/button'
 import { Checkmark } from '@/components/ui/checkmark'
 import { InfoAccordion } from '@/components/ui/InfoAccordion'
 import { Input } from '@/components/ui/input'
-import LightBoxCarousel from '@/components/ui/LightBoxCarousel'
 import ProduktCarousel from '@/components/ui/ProduktCarousel'
 import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById, products } from '@/data/products'
-import { useProductsUrls } from '@/hooks/useProductUrls'
-import { ArrowLeft, ShoppingBag } from 'lucide-react'
+import { ArrowLeft, Loader2Icon, ShoppingBag } from 'lucide-react'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -34,8 +33,6 @@ export default function Product() {
     setCustom('')
   }
 
-  const urls = useProductsUrls(product.folderPath)
-
   if (!product) {
     return (
       <div className="text-center">
@@ -52,19 +49,39 @@ export default function Product() {
 
   return (
     <>
-      <div className="container mx-auto max-w-6xl p-6">
-        <div className="max-w-6xl grid-cols-2 gap-4 lg:grid">
-          <div className="relative">
-            <Button
-              variant="link"
-              size="link"
-              className="absolute top-2 left-2"
-              onClick={router.back}
-            >
-              <ArrowLeft className="h-4 w-4" /> Zurück
-            </Button>
-            <LightBoxCarousel slides={urls} />
+      <div className="col-span-12 container mx-auto max-w-6xl p-6">
+        <div className="max-w-6xl grid-cols-12 gap-4 lg:grid">
+          <div className="flex flex-col-reverse gap-3 sm:flex-row">
+            <div className="flex w-full justify-between overflow-x-auto sm:flex-col sm:justify-normal sm:overflow-y-scroll">
+              {product.publicId.length > 0 ? (
+                product.publicId.map((url, index) => (
+                  <CldImage
+                    key={index}
+                    src={url}
+                    alt={product.name}
+                    className="mb-3 aspect-square w-full flex-shrink-0 cursor-pointer rounded-lg bg-gray-200 object-cover xl:aspect-7/8"
+                    width={500}
+                    height={500}
+                    quality="auto"
+                    format="auto"
+                    loading="eager"
+                  />
+                ))
+              ) : (
+                <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8">
+                  <Loader2Icon className="animate-spin" />
+                </div>
+              )}
+            </div>
           </div>
+          <Button
+            variant="link"
+            size="link"
+            className="absolute top-2 left-2"
+            onClick={router.back}
+          >
+            <ArrowLeft className="h-4 w-4" /> Zurück
+          </Button>
 
           <div className="flex w-full flex-col items-start justify-start">
             <Button variant="link" size="link" className="mt-2 mb-4">
@@ -141,7 +158,7 @@ export default function Product() {
           />
         </div>
       </div>
-      <div className="w-full px-6">
+      <div className="col-span-12 w-full px-6">
         <ProduktCarousel products={products} autoplay={true} />
       </div>
     </>

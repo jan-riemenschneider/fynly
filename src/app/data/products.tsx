@@ -12,7 +12,7 @@ export interface Product {
   price: number
   description: string
   category: ProductCategory
-  folderPath: string
+  publicId: string[]
   featured?: boolean
   inStock: boolean
   quantity: number
@@ -33,7 +33,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in sanften Rosatönen mit kindersicheren Holzperlen. Perfekt für Ihr Baby.',
     category: 'schnullerketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -46,7 +46,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette in Blautönen mit kindersicheren Holzperlen. Ideal für kleine Jungs.',
     category: 'schnullerketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -58,7 +58,7 @@ export const products: Product[] = [
     description:
       'Handgefertigte Schnullerkette mit niedlichen Tiermotiven und verschiedenen Holzperlen.',
     category: 'schnullerketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -70,7 +70,7 @@ export const products: Product[] = [
     description:
       'Sanfte Beißkette mit Wolkenmotiv, sicher für Babys Zahnungsphase und aus lebensmittelechtem Silikon.',
     category: 'beissketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -83,7 +83,7 @@ export const products: Product[] = [
     description:
       'Farbenfrohe Beißkette mit Regenbogenmotiv, aus lebensmittelechtem Silikon für empfindliches Zahnfleisch.',
     category: 'beissketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -95,7 +95,7 @@ export const products: Product[] = [
     description:
       'Bezaubernde Kinderwagenkette mit Sternen- und Mondmotiven, handgefertigt für unterwegs.',
     category: 'kinderwagenketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -108,7 +108,7 @@ export const products: Product[] = [
     description:
       'Abenteuerliche Kinderwagenkette mit niedlichen Tiermotiven für kleine Entdecker.',
     category: 'kinderwagenketten',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -120,7 +120,7 @@ export const products: Product[] = [
     description:
       'Süßer handgefertigter Schlüsselanhänger mit Pilzmotiv, der perfekte Glücksbringer.',
     category: 'schlüsselanhänger',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -132,7 +132,7 @@ export const products: Product[] = [
     description:
       'Liebevoller Schlüsselanhänger mit Herzmotiv, ein perfektes Geschenk für jeden Anlass.',
     category: 'schlüsselanhänger',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -145,7 +145,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babysocken aus weicher Merinowolle, warm und komfortabel für kleine Füße.',
     category: 'babysocken',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -158,7 +158,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Streifensocken für Babys aus hautfreundlicher Baumwolle.',
     category: 'babysocken',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',
@@ -170,7 +170,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Babymütze mit niedlichen Bärenohren aus weicher Merinowolle.',
     category: 'mützen',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     featured: true,
     inStock: true,
     quantity: 1,
@@ -183,7 +183,7 @@ export const products: Product[] = [
     description:
       'Handgestrickte Zipfelmütze für Babys und Kleinkinder, warm und niedlich zugleich.',
     category: 'mützen',
-    folderPath: 'fynlyTest',
+    publicId: ['fynlyTest/secondary', 'fynlyTest/main'],
     inStock: true,
     quantity: 1,
     technicalDetails: '',

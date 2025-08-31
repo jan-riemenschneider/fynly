@@ -73,7 +73,7 @@ const CartSlideoverContent = () => {
                 id={item.product.id}
                 name={item.product.name}
                 price={item.product.price}
-                folderPath={item.product.folderPath}
+                publicId={item.product.publicId}
                 quantity={item.quantity}
                 customization={item.customization?.name}
               />
