@@ -1,14 +1,20 @@
 'use client'
 import { QuantitySelector } from '@/components/business/QuantitySelector'
+import { Section } from '@/components/sections/Section'
+import { Heading } from '@/components/typography/heading'
+import { Text } from '@/components/typography/text'
 import { Button } from '@/components/ui/button'
-import { Checkmark } from '@/components/ui/checkmark'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel'
 import { InfoAccordion } from '@/components/ui/InfoAccordion'
 import { Input } from '@/components/ui/input'
-import ProduktCarousel from '@/components/ui/ProduktCarousel'
 import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
-import { categoryTranslations, getProductById, products } from '@/data/products'
-import { ArrowLeft, Loader2Icon, ShoppingBag } from 'lucide-react'
+import { categoryTranslations, getProductById } from '@/data/products'
+import { CircleCheck, ShoppingBag } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
@@ -49,62 +55,81 @@ export default function Product() {
 
   return (
     <>
-      <div className="col-span-12 container mx-auto max-w-6xl p-6">
-        <div className="max-w-6xl grid-cols-12 gap-4 lg:grid">
-          <div className="flex flex-col-reverse gap-3 sm:flex-row">
-            <div className="flex w-full justify-between overflow-x-auto sm:flex-col sm:justify-normal sm:overflow-y-scroll">
-              {product.publicId.length > 0 ? (
-                product.publicId.map((url, index) => (
-                  <CldImage
-                    key={index}
-                    src={url}
-                    alt={product.name}
-                    className="mb-3 aspect-square w-full flex-shrink-0 cursor-pointer rounded-lg bg-gray-200 object-cover xl:aspect-7/8"
-                    width={500}
-                    height={500}
-                    quality="auto"
-                    format="auto"
-                    loading="eager"
-                  />
-                ))
-              ) : (
-                <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8">
-                  <Loader2Icon className="animate-spin" />
-                </div>
-              )}
+      <Section>
+        <div className="col-span-12 grid max-w-6xl grid-cols-2 gap-4 lg:grid">
+          <div className="col-span-12 grid gap-4 md:col-span-1">
+            <div className="flex flex-col gap-4">
+              <CldImage
+                src={product.publicId[0]}
+                alt={product.name}
+                className="aspect-square w-full rounded-lg bg-gray-200 object-cover"
+                width={500}
+                height={500}
+                quality="auto"
+                format="auto"
+                loading="eager"
+              />
+
+              <Carousel className="w-full">
+                <CarouselContent className="flex gap-4">
+                  {product.publicId.map((slide, index) => (
+                    <CarouselItem
+                      key={index}
+                      className="basis-1/4 sm:basis-1/6 md:basis-1/8"
+                    >
+                      <CldImage
+                        src={slide}
+                        alt={product.name}
+                        className="aspect-square h-full w-full cursor-pointer rounded-lg bg-gray-200 object-cover"
+                        width={200}
+                        height={200}
+                        quality="auto"
+                        format="auto"
+                        loading="eager"
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
             </div>
           </div>
-          <Button
-            variant="link"
-            size="link"
-            className="absolute top-2 left-2"
-            onClick={router.back}
-          >
-            <ArrowLeft className="h-4 w-4" /> Zurück
-          </Button>
 
-          <div className="flex w-full flex-col items-start justify-start">
-            <Button variant="link" size="link" className="mt-2 mb-4">
+          <div className="flex grid-cols-12 flex-col items-start justify-start">
+            <Button variant="link" size="link" className="mb-2">
               {categoryTranslations[product.category]}
             </Button>
-            <h1 className="mb-4 md:mb-6">{product.name}</h1>
-            <div className="mb-6 space-x-2 md:mb-8">
-              <span className="price">{product.price.toFixed(2)}€</span>
-              <small>inkl. MwSt.</small>
+            <Heading level={1} variant="lg" className="mb-4">
+              {product.name}
+            </Heading>
+            <div className="mb-2 space-x-2">
+              <Text level="span" variant="price">
+                {product.price.toFixed(2)}€
+              </Text>
+              <Text variant="small" level="small">
+                inkl. MwSt.
+              </Text>
             </div>
-            <div className="mb-8 flex w-full items-center space-x-4 md:mb-10">
-              <QuantitySelector amount={amount} setAmount={setAmount} />
-              <Button
-                variant="default"
-                size="lg"
-                className="flex-1"
-                onClick={() => handleAddToCart()}
+
+            <div className="mb-4 flex items-center gap-4">
+              <Text
+                level="span"
+                variant="inline"
+                className="flex items-center gap-2"
               >
-                <ShoppingBag className="h-8 w-8" />
-                {product.inStock}In den Warenkorb
-              </Button>
+                <CircleCheck className="text-primary size-4" />
+                Kostenloser Versand ab 29€
+              </Text>
+              <Text
+                level="span"
+                variant="inline"
+                className="flex items-center gap-2"
+              >
+                <CircleCheck className="text-primary size-4" />
+                Geschenkverpackung verfügbar
+              </Text>
             </div>
-            <div className="mb-4 flex w-full flex-col gap-3">
+
+            <div className="mb-4 flex w-full flex-col gap-3 rounded-sm bg-gray-50 p-4 shadow-sm border">
               <div className="flex items-center gap-3">
                 <Switch id="personalize" onCheckedChange={handleToggle} />
                 <label
@@ -124,43 +149,32 @@ export default function Product() {
                 />
               )}
             </div>
-            <div className="mt-4 flex flex-col space-y-1">
-              <span className="">Kostenloser Versand ab 29€</span>
-              <span className="mb-4 md:mb-6">Geschenkverpackung verfügbar</span>
+            <div className="mb-6 flex w-full items-center space-x-4">
+              <QuantitySelector amount={amount} setAmount={setAmount} />
+              <Button
+                variant="default"
+                size="lg"
+                className="flex-1"
+                onClick={() => handleAddToCart()}
+              >
+                <ShoppingBag className="h-8 w-8" />
+                {product.inStock}In den Warenkorb
+              </Button>
             </div>
             <small className="mb-4 md:mb-6">
               Voraussichtliche Lieferung 3-5 Tage
             </small>
-            <div className="bg-card flex w-full flex-col gap-6 rounded-lg p-4 shadow-sm transition-all hover:shadow-md">
-              <div className="flex gap-2">
-                <Checkmark />
-                <p> Aus hochwertigen Materialien</p>
-              </div>
-              <div className="flex gap-2">
-                <Checkmark />
-                <p>Sicher für Babys und Kleinkinder</p>
-              </div>
-              <div className="flex gap-2">
-                <Checkmark />
-                <p>Individuell personalisierbar</p>
-              </div>
-            </div>
+            <InfoAccordion
+              firstTitle="Produktbeschreibung"
+              firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
+              secondTitle="Größe & Maße"
+              secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
+              thirdTitle="Versand & Rückgabe"
+              thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
+            />
           </div>
         </div>
-        <div className="mb-8 w-full md:mb-10">
-          <InfoAccordion
-            firstTitle="Produktbeschreibung"
-            firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
-            secondTitle="Größe & Maße"
-            secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
-            thirdTitle="Versand & Rückgabe"
-            thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
-          />
-        </div>
-      </div>
-      <div className="col-span-12 w-full px-6">
-        <ProduktCarousel products={products} autoplay={true} />
-      </div>
+      </Section>
     </>
   )
 }
