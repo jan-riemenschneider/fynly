@@ -3,8 +3,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel'
 import { Product } from '@/data/products'
 import { cn } from '@/lib/utils'
@@ -35,15 +33,13 @@ function ProduktCarousel({
           : []
       }
     >
-      <CarouselContent>
+      <CarouselContent className="flex gap-4">
         {products.map(product => (
-          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/5">
+          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/4">
             <ProductCard key={product.id} product={product} />
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-2" />
-      <CarouselNext className="right-2" />
     </Carousel>
   )
 }

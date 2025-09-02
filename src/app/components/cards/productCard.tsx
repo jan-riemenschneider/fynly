@@ -16,7 +16,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <CldImage
           src={publicId[0]}
           alt={name}
-          className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8"
+          className="aspect-square w-full rounded-sm bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8"
           width={500}
           height={500}
           quality="auto"
@@ -32,8 +32,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <span className="block text-lg font-semibold text-gray-900">
         {price}€
       </span>
-      <div className="absolute top-3 right-3">
-        <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium text-green-800">
+      <div className="absolute top-3 right-4.5">
+        <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium whitespace-nowrap text-green-800">
           <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
           Auf Lager
         </span>

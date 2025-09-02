@@ -43,7 +43,7 @@ export default function HomePage() {
         <Heading
           level={2}
           variant="lg"
-          className="col-span-12 mb-14 text-center md:text-left"
+          className="col-span-12 mb-14  text-center md:text-left"
         >
           Unsere Versprechen an dich
         </Heading>
