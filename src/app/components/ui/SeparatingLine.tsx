@@ -5,5 +5,5 @@ interface SeparatingLineProps {
 }
 
 export function SeparatingLine({ className }: SeparatingLineProps) {
-  return <div className={clsx('border-gray-400/50  w-full border-b-1', className)} />
+  return <div className={clsx('border-gray-400/40  w-full border-b-1', className)} />
 }
