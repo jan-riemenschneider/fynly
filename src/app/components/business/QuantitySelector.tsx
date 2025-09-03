@@ -16,11 +16,10 @@ export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
   }
 
   return (
-    <div className="flex h-10 w-fit items-center justify-center rounded-md border">
+    <div className="flex h-10 w-fit items-center justify-center rounded-xs border">
       <Button
         variant="ghost"
         size="icon"
-        className="h-10 w-10"
         onClick={handleDecreaseQuantity}
         aria-label="Reduce quantity"
       >
@@ -30,7 +29,6 @@ export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
       <Button
         variant="ghost"
         size="icon"
-        className="h-10 w-10"
         onClick={handleIncreaseQuantity}
         aria-label="Increase quantity"
       >

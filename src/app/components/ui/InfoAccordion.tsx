@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-
+import clsx from 'clsx'
 interface AccordionProps {
   firstTitle: string
   firstText?: string
@@ -21,6 +21,8 @@ interface AccordionProps {
   thirdText?: string
   thirdButtonText?: string
   thirdButtonAction?: () => void
+
+  className?: string
 }
 
 export function InfoAccordion({
@@ -36,12 +38,13 @@ export function InfoAccordion({
   thirdText,
   thirdButtonText,
   thirdButtonAction,
+  className,
 }: AccordionProps) {
   return (
     <Accordion
       type="single"
       collapsible
-      className="w-full"
+      className={clsx('w-full', className)}
       defaultValue="item-1"
     >
       <AccordionItem value="item-1">
