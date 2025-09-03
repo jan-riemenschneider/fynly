@@ -11,7 +11,7 @@ export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
   }
 
   const handleDecreaseQuantity = () => {
-    if (amount === 0) return
+    if (amount === 1) return
     setAmount(amount - 1)
   }
 
