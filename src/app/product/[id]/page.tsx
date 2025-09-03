@@ -77,7 +77,7 @@ export default function Product() {
             Voraussichtliche Lieferung 3-5 Tage
           </Text>
 
-          <div className="mb-8 flex w-full flex-col gap-3 rounded-xs border bg-gray-50 p-4 shadow-sm">
+          <div className="mb-10 flex w-full flex-col gap-3 rounded-xs border bg-gray-50 p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <Switch id="personalize" onCheckedChange={handleToggle} />
               <label htmlFor="personalize" className="text-base font-semibold">
@@ -88,13 +88,13 @@ export default function Product() {
             {showInput && (
               <Input
                 className="w-full"
-                placeholder="Hier eingeben..."
+                placeholder="Hier Name eingeben..."
                 maxLength={8}
                 onChange={e => setCustom(e.target.value)}
               />
             )}
           </div>
-          <div className="mb-8 flex w-full items-center space-x-4">
+          <div className="mb-10 flex w-full items-center space-x-4">
             <QuantitySelector amount={amount} setAmount={setAmount} />
             <Button
               variant="default"

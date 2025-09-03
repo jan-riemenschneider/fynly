@@ -1,3 +1,4 @@
+import { Text } from '@/components/typography/text'
 import { Minus, Plus } from 'lucide-react'
 import { Button } from '../ui/button'
 
@@ -25,7 +26,9 @@ export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
       >
         <Minus className="h-5 w-5" />
       </Button>
-      <span className="w-6 text-center">{amount}</span>
+      <Text variant="span" level="span" className="w-6 text-center">
+        {amount}
+      </Text>
       <Button
         variant="ghost"
         size="icon"
