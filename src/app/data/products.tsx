@@ -7,6 +7,7 @@ export type ProductCategory =
   | 'mützen'
 
 export interface Product {
+  folderPath: any
   id: string
   name: string
   price: number

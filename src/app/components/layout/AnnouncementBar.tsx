@@ -31,13 +31,13 @@ export function AnnouncementBar() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
             <span className="flex items-center gap-3 text-center whitespace-nowrap text-white">
-              {announcements[currentIndex].text.toUpperCase()}
+              {announcements[currentIndex].text}
             </span>
           </motion.div>
         </AnimatePresence>

@@ -8,11 +8,12 @@ interface QuantitySelectorProps {
 }
 export function QuantitySelector({ amount, setAmount }: QuantitySelectorProps) {
   const handleIncreaseQuantity = () => {
+    if (amount === 10) return
     setAmount(amount + 1)
   }
 
   const handleDecreaseQuantity = () => {
-    if (amount === 1) return
+    if (amount === 1 && 10) return
     setAmount(amount - 1)
   }
 
