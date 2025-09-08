@@ -11,25 +11,39 @@ import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById } from '@/data/products'
 import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 import { motion } from 'motion/react'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useRef, useState } from 'react'
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Product() {
-  const galleryRef = useRef(null)
-  const detailsRef = useRef(null)
   const [amount, setAmount] = useState<number>(1)
   const [custom, setCustom] = useState<string>('')
   const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
   const { addItem } = useCart()
   const product = id ? getProductById(id) : null
+  const containerRef = useRef<HTMLDivElement>(null)
+  const rightRef = useRef<HTMLDivElement>(null)
+  gsap.registerPlugin(ScrollTrigger)
 
-    useGSAP(() => {
-      
+  useGSAP(() => {
+    const container = containerRef.current
+    const right = rightRef.current
 
+    ScrollTrigger.create({
+      trigger: container,
+      start: 'top top',
+      pin: right,
+      pinSpacing: true,
+      scrub: false,
     })
+  })
 
   const handleAddToCart = () => {
     addItem(product, amount, custom)
@@ -59,18 +73,21 @@ export default function Product() {
 
   return (
     <>
-      <div className="col-span-12 grid grid-cols-12">
+      <div className="col-span-12 grid grid-cols-12 pb-16 md:pb-24 lg:pb-32">
         <div className="col-span-12 md:col-span-6 md:hidden">
           <ProduktCarousel product={product} />
         </div>
 
         <div className="hidden md:col-span-6 md:block">
-          <ProduktGallery product={product} galleryRef={galleryRef} />
+          <ProduktGallery product={product} />
         </div>
 
-        <div className="col-span-12 flex flex-col items-start justify-start px-6 md:col-span-6">
-          <div ref={detailsRef}>
-            <Button variant="link" size="link" className="mt-4 mb-2">
+        <div
+          className="col-span-12 flex h-screen flex-col items-start justify-start bg-white px-6 md:col-span-6 md:items-center md:justify-center md:p-40"
+          ref={rightRef}
+        >
+          <div>
+            <Button variant="link" size="link" className="mb:mt-0 mt-4 mb-2">
               {categoryTranslations[product.category]}
             </Button>
             <Heading level={1} variant="lg" className="mb-4">
@@ -107,6 +124,7 @@ export default function Product() {
                 />
               )}
             </div>
+
             <div className="mb-10 flex w-full items-center space-x-4">
               <QuantitySelector amount={amount} setAmount={setAmount} />
               <MotionButton
@@ -119,16 +137,30 @@ export default function Product() {
                 {product.inStock} In den Warenkorb
               </MotionButton>
             </div>
-            <InfoAccordion
-              className="pb-16 md:pb-24 lg:pb-32"
-              firstTitle="Produktbeschreibung"
-              firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
-              secondTitle="Größe & Maße"
-              secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
-              thirdTitle="Versand & Rückgabe"
-              thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
-            />
           </div>
+        </div>
+        <div className="hidden h-screen md:col-span-6 md:block">
+          <CldImage
+            src={product.publicId[0]}
+            alt={product.name}
+            className="aspect-square h-screen w-full cursor-pointer bg-white   object-cover"
+            width={200}
+            height={200}
+            quality="auto"
+            format="auto"
+            loading="eager"
+          />
+        </div>
+        <div className="col-span-12 flex h-screen items-center justify-center bg-gray-50 px-6 md:col-span-6 md:p-40">
+          <InfoAccordion
+            className="pb-16 md:pb-0"
+            firstTitle="Produktbeschreibung"
+            firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
+            secondTitle="Größe & Maße"
+            secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
+            thirdTitle="Versand & Rückgabe"
+            thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
+          />
         </div>
       </div>
     </>
