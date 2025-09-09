@@ -26,7 +26,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section fullWidth background={'bg-white'} className="">
+      <Section fullWidth background={'bg-gray-50'} className="">
         <div className="col-span-12 text-center md:text-left">
           <Heading level={2} variant="lg" className="mb-4">
             Unsere handgemachten Favoriten
@@ -43,7 +43,7 @@ export default function HomePage() {
         <Heading
           level={2}
           variant="lg"
-          className="col-span-12 mb-14  text-center md:text-left"
+          className="col-span-12 mb-14 text-center md:text-left"
         >
           Unsere Versprechen an dich
         </Heading>
@@ -61,7 +61,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section fullWidth background="bg-white">
+      <Section fullWidth background="bg-gray-50">
         <Heading
           level={2}
           variant="lg"

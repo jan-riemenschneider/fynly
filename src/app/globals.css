@@ -6,7 +6,7 @@
 
 :root {
   --background: oklch(1 0 0);
-  --mainBackground: oklch(98.5% 0.002 247.839); /* Grey-50 */
+  --mainBackground: oklch(1 0 0); /* Grey-50 */
   --foreground: oklch(27.8% 0.033 256.848); /* Grey-800 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(37.3% 0.034 259.733); /* Grey-700

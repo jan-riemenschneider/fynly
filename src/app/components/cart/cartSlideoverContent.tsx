@@ -118,7 +118,7 @@ const CartSlideoverContent = () => {
 
             <ButtonLoading
               size="lg"
-              className="mt-4 w-full bg-[#635BFF] px-4 py-3 hover:bg-[#5A54E6]"
+              className="mt-4 bg-[#635BFF] hover:bg-[#5A54E6]"
               loading={isLoading}
               onClick={async () => {
                 setIsLoading(true)

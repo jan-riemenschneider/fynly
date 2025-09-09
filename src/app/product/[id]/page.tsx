@@ -13,7 +13,6 @@ import { categoryTranslations, getProductById } from '@/data/products'
 import { useGSAP } from '@gsap/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
-import { motion } from 'motion/react'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -41,7 +40,6 @@ export default function Product() {
         start: 'top top',
         pin: right,
         pinSpacing: true,
-        markers: true,
       })
       return () => st.kill()
     }
@@ -56,8 +54,6 @@ export default function Product() {
     setShowInput(prev => !prev)
     setCustom('')
   }
-
-  const MotionButton = motion(Button)
 
   if (!product) {
     return (
@@ -75,7 +71,7 @@ export default function Product() {
 
   return (
     <>
-      <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:bg-gray-50 md:pb-24 lg:pb-32">
+      <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:bg-gray-50 md:pb-0">
         <div className="col-span-12 md:col-span-6 md:hidden">
           <ProduktCarousel product={product} />
         </div>
@@ -130,15 +126,14 @@ export default function Product() {
 
             <div className="mb-10 flex w-full items-center space-x-4">
               <QuantitySelector amount={amount} setAmount={setAmount} />
-              <MotionButton
+              <Button
                 variant="default"
                 size="lg"
                 className="flex-1"
                 onClick={() => handleAddToCart()}
-                whileTap={{ scale: 0.95 }}
               >
                 {product.inStock} In den Warenkorb
-              </MotionButton>
+              </Button>
             </div>
           </div>
         </div>
