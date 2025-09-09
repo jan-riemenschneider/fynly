@@ -26,7 +26,7 @@ export function AnnouncementBar() {
   }, [])
 
   return (
-    <div className="bg-primary overflow-hidden py-1 text-white">
+    <div className="bg-primary overflow-hidden text-white">
       <div className="flex items-center justify-center">
         <AnimatePresence mode="wait">
           <motion.div
@@ -36,7 +36,7 @@ export function AnnouncementBar() {
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
-            <span className="flex items-center gap-3 text-center whitespace-nowrap text-white">
+            <span className="flex items-center text-center whitespace-nowrap text-white">
               {announcements[currentIndex].text}
             </span>
           </motion.div>

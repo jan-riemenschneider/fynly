@@ -71,7 +71,7 @@ export default function Product() {
 
   return (
     <>
-      <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:bg-gray-50 md:pb-0">
+      <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:pb-0">
         <div className="col-span-12 md:col-span-6 md:hidden">
           <ProduktCarousel product={product} />
         </div>

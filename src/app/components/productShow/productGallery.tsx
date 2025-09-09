@@ -9,13 +9,13 @@ interface ProduktGalleryProps {
 
 export function ProduktGallery({ product, className }: ProduktGalleryProps) {
   return (
-    <div className={clsx('flex flex-col gap-1', className)}>
+    <div className={clsx(className)}>
       {product.publicId.map((slide, index) => (
         <CldImage
           key={index}
           src={slide}
           alt={product.name}
-          className="h-screen w-full cursor-pointer bg-gray-50 object-cover"
+          className="mb-1 h-screen w-full cursor-pointer bg-gray-50 object-cover last:mb-0"
           width={200}
           height={200}
           quality="auto"
