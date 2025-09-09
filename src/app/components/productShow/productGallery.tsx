@@ -1,19 +1,21 @@
 import { Product } from '@/data/products'
+import clsx from 'clsx'
 import { CldImage } from 'next-cloudinary'
 
 interface ProduktGalleryProps {
   product: Product
+  className: string
 }
 
-export function ProduktGallery({ product }: ProduktGalleryProps) {
+export function ProduktGallery({ product, className }: ProduktGalleryProps) {
   return (
-    <div className="flex flex-col gap-1">
+    <div className={clsx('flex flex-col gap-1', className)}>
       {product.publicId.map((slide, index) => (
         <CldImage
           key={index}
           src={slide}
           alt={product.name}
-          className="aspect-square h-screen w-full cursor-pointer bg-gray-100 object-cover"
+          className="h-screen w-full cursor-pointer bg-gray-50 object-cover"
           width={200}
           height={200}
           quality="auto"

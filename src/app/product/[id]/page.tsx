@@ -30,19 +30,21 @@ export default function Product() {
   const product = id ? getProductById(id) : null
   const containerRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
-  gsap.registerPlugin(ScrollTrigger)
 
   useGSAP(() => {
     const container = containerRef.current
     const right = rightRef.current
 
-    ScrollTrigger.create({
-      trigger: container,
-      start: 'top top',
-      pin: right,
-      pinSpacing: true,
-      scrub: false,
-    })
+    if (window.innerWidth >= 768) {
+      const st = ScrollTrigger.create({
+        trigger: container,
+        start: 'top top',
+        pin: right,
+        pinSpacing: true,
+        markers: true,
+      })
+      return () => st.kill()
+    }
   })
 
   const handleAddToCart = () => {
@@ -73,17 +75,18 @@ export default function Product() {
 
   return (
     <>
-      <div className="col-span-12 grid grid-cols-12 pb-16 md:pb-24 lg:pb-32">
+      <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:bg-gray-50 md:pb-24 lg:pb-32">
         <div className="col-span-12 md:col-span-6 md:hidden">
           <ProduktCarousel product={product} />
         </div>
 
-        <div className="hidden md:col-span-6 md:block">
-          <ProduktGallery product={product} />
-        </div>
+        <ProduktGallery
+          product={product}
+          className={'hidden md:col-span-6 md:block'}
+        />
 
         <div
-          className="col-span-12 flex h-screen flex-col items-start justify-start bg-white px-6 md:col-span-6 md:items-center md:justify-center md:p-40"
+          className="col-span-12 flex flex-col items-start justify-start bg-white px-6 md:col-span-6 md:h-screen md:items-center md:justify-center md:p-40"
           ref={rightRef}
         >
           <div>
@@ -139,11 +142,12 @@ export default function Product() {
             </div>
           </div>
         </div>
+
         <div className="hidden h-screen md:col-span-6 md:block">
           <CldImage
             src={product.publicId[0]}
             alt={product.name}
-            className="aspect-square h-screen w-full cursor-pointer bg-white   object-cover"
+            className="aspect-square h-screen w-full cursor-pointer bg-white object-cover"
             width={200}
             height={200}
             quality="auto"
@@ -151,7 +155,8 @@ export default function Product() {
             loading="eager"
           />
         </div>
-        <div className="col-span-12 flex h-screen items-center justify-center bg-gray-50 px-6 md:col-span-6 md:p-40">
+
+        <div className="col-span-12 flex items-center justify-center bg-white px-6 md:col-span-6 md:h-screen md:bg-gray-50 md:p-40">
           <InfoAccordion
             className="pb-16 md:pb-0"
             firstTitle="Produktbeschreibung"
