@@ -33,7 +33,7 @@ export default function RootLayout({
         <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
           <NavigationBar />
-          <div className="h-28" />
+          <div className="h-26" />
           <main className="grid grid-cols-12">{children}</main>
           <Footer />
         </CartProvider>

@@ -22,8 +22,8 @@ export function ProduktCarousel({ product }: ProduktCarouselProps) {
               src={slide}
               alt={product.name}
               className="aspect-square h-full w-full cursor-pointer bg-gray-100 object-cover"
-              width={200}
-              height={200}
+              width={600}
+              height={800}
               quality="auto"
               format="auto"
               loading="eager"

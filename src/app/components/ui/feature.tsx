@@ -16,7 +16,7 @@ export function Feature({
   color,
 }: FeatureProps) {
   return (
-    <div className="bg-card flex flex-col items-center rounded-lg p-6 text-center shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex flex-col items-center rounded-lg bg-gray-50 p-6 text-center shadow-sm transition-shadow hover:shadow-md">
       <div
         className={clsx(
           'mb-4 flex h-16 w-16 items-center justify-center rounded-full',
