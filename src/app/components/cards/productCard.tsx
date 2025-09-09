@@ -17,10 +17,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
           src={publicId[0]}
           alt={name}
           className="aspect-square w-full rounded-sm bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8"
-          width={500}
-          height={500}
+          width={600}
+          height={600}
           quality="auto"
           format="auto"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
           loading="lazy"
         />
       ) : (

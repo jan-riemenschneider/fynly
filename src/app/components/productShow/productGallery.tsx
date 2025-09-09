@@ -16,11 +16,12 @@ export function ProduktGallery({ product, className }: ProduktGalleryProps) {
           src={slide}
           alt={product.name}
           className="mb-1 h-screen w-full cursor-pointer bg-gray-50 object-cover last:mb-0"
-          width={200}
-          height={200}
+          width={1200}
+          height={1600}
           quality="auto"
           format="auto"
-          loading="eager"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       ))}
     </div>

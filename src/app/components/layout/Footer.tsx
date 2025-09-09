@@ -147,8 +147,8 @@ export const Footer = () => {
           </section>
         </div>
 
-        <div className="flex w-full flex-col items-center px-6 lg:flex-row">
-          <div className="flex flex-col items-center gap-2 mb-4 lg:w-1/3 lg:items-start">
+        <div className="flex w-full flex-col items-center lg:flex-row">
+          <div className="mb-4 flex flex-col items-center gap-2 lg:w-1/3 lg:items-start">
             <div className="flex items-center gap-2">
               <Text variant="body" level="p">
                 FOLGE UNS AUF TIKTOK!
@@ -157,14 +157,14 @@ export const Footer = () => {
                 <FaTiktok />
               </Button>
             </div>
-            </div>
-            <Text
-              variant="small"
-              level="small"
-              className="flex justify-center lg:w-1/3"
-            >
-              © {currentYear} fynly - Alle Rechte vorbehalten
-            </Text>
+          </div>
+          <Text
+            variant="small"
+            level="small"
+            className="flex justify-center lg:w-1/3"
+          >
+            © {currentYear} fynly - Alle Rechte vorbehalten
+          </Text>
           <SeparatingLine className="my-10 w-full lg:hidden" />
           <section className="flex items-center gap-4 lg:w-1/3 lg:justify-end">
             <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />

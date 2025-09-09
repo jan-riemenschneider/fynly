@@ -16,13 +16,14 @@ import { ScrollTrigger } from 'gsap/all'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Product() {
   const [amount, setAmount] = useState<number>(1)
   const [custom, setCustom] = useState<string>('')
+  const [isClient, setIsClient] = useState(false)
   const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
   const { addItem } = useCart()
@@ -30,7 +31,12 @@ export default function Product() {
   const containerRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   useGSAP(() => {
+    if (!isClient) return
     const container = containerRef.current
     const right = rightRef.current
 
@@ -43,7 +49,9 @@ export default function Product() {
       })
       return () => st.kill()
     }
-  })
+  },
+{ scope: containerRef, dependencies: [isClient] }
+)
 
   const handleAddToCart = () => {
     addItem(product, amount, custom)
