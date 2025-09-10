@@ -16,7 +16,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <CldImage
           src={publicId[0]}
           alt={name}
-          className="aspect-square w-full rounded-sm bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8"
+          className="aspect-square w-full rounded-sm bg-gray-200 object-contain group-hover:opacity-90 xl:aspect-7/8"
           width={600}
           height={600}
           quality="auto"

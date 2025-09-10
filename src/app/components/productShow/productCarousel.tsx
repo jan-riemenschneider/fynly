@@ -21,7 +21,7 @@ export function ProduktCarousel({ product }: ProduktCarouselProps) {
             <CldImage
               src={slide}
               alt={product.name}
-              className="aspect-square h-full w-full cursor-pointer bg-gray-100 object-cover"
+              className="aspect-square h-full w-full cursor-pointer bg-gray-100 object-scale-down"
               width={600}
               height={800}
               quality="auto"

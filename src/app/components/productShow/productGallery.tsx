@@ -15,7 +15,7 @@ export function ProduktGallery({ product, className }: ProduktGalleryProps) {
           key={index}
           src={slide}
           alt={product.name}
-          className="mb-1 h-screen w-full cursor-pointer bg-gray-50 object-cover last:mb-0"
+          className="mb-1 h-screen w-full cursor-pointer bg-gray-50 object-scale-down last:mb-0"
           width={1200}
           height={1600}
           quality="auto"

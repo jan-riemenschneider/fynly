@@ -12,7 +12,7 @@ export function Text({ level, children, className, variant }: TextProps) {
   const Tag = level as keyof JSX.IntrinsicElements
 
   const VARIANTS = {
-    body: 'font-inter text-foreground text-base leading-relaxed',
+    body: 'font-inter text-foreground text-base leading-relaxed text-balance',
     muted: 'font-inter text-muted-foreground text-base leading-relaxed',
     small: 'font-inter text-muted-foreground text-sm leading-relaxed block',
     inline: 'font-inter text-foreground text-base font-normal tracking-normal',

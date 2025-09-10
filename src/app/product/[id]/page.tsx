@@ -35,23 +35,24 @@ export default function Product() {
     setIsClient(true)
   }, [])
 
-  useGSAP(() => {
-    if (!isClient) return
-    const container = containerRef.current
-    const right = rightRef.current
+  useGSAP(
+    () => {
+      if (!isClient) return
+      const container = containerRef.current
+      const right = rightRef.current
 
-    if (window.innerWidth >= 768) {
-      const st = ScrollTrigger.create({
-        trigger: container,
-        start: 'top top',
-        pin: right,
-        pinSpacing: true,
-      })
-      return () => st.kill()
-    }
-  },
-{ scope: containerRef, dependencies: [isClient] }
-)
+      if (window.innerWidth >= 768) {
+        const st = ScrollTrigger.create({
+          trigger: container,
+          start: 'top top',
+          pin: right,
+          pinSpacing: true,
+        })
+        return () => st.kill()
+      }
+    },
+    { scope: containerRef, dependencies: [isClient] }
+  )
 
   const handleAddToCart = () => {
     addItem(product, amount, custom)
@@ -104,7 +105,7 @@ export default function Product() {
               {product.price.toFixed(2)}€
             </Text>
 
-            <Text level="p" variant="body" className="mb-2">
+            <Text level="p" variant="body" className="mb-4">
               {product.description}
             </Text>
             <Text level="small" variant="small" className="mb-8">
@@ -150,9 +151,9 @@ export default function Product() {
           <CldImage
             src={product.publicId[0]}
             alt={product.name}
-            className="aspect-square h-screen w-full cursor-pointer bg-white object-cover"
-            width={200}
-            height={200}
+            className="h-screen w-full cursor-pointer bg-white object-scale-down"
+            width={1200}
+            height={1600}
             quality="auto"
             format="auto"
             loading="eager"
@@ -163,11 +164,11 @@ export default function Product() {
           <InfoAccordion
             className="pb-16 md:pb-0"
             firstTitle="Produktbeschreibung"
-            firstText="Detaillierte Beschreibung des Produkts, Materialien, Besonderheiten, Verwendungszweck und warum es einzigartig ist."
-            secondTitle="Größe & Maße"
-            secondText="Abmessungen: 15cm x 10cm x 2cm. Gewicht: 150g. Verfügbare Größen: S, M, L, XL. Größentabelle beachten."
+            firstText={product.description}
+            secondTitle="Technische Details"
+            secondText={product.technicalDetails}
             thirdTitle="Versand & Rückgabe"
-            thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 30 Tage Rückgaberecht. Originalverpackung erforderlich."
+            thirdText="Kostenloser Versand ab 50€. Lieferzeit 2-5 Werktage. 14 Tage gesetzliche Rückgaberecht. Ausgenommen sind Sonderanfertigungen. Originalverpackung erforderlich."
           />
         </div>
       </div>
