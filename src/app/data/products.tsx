@@ -1,10 +1,4 @@
-export type ProductCategory =
-  | 'schnullerketten'
-  | 'beissketten'
-  | 'kinderwagenketten'
-  | 'schlüsselanhänger'
-  | 'babysocken'
-  | 'mützen'
+export type ProductCategory = 'schnullerketten' | 'schluesselanhaenger'
 
 export interface Product {
   id: string
@@ -19,13 +13,9 @@ export interface Product {
   technicalDetails: string
 }
 
-export const categoryTranslations: Record<ProductCategory, string> = {
+export const categoryTranslations = {
   schnullerketten: 'Schnullerketten',
-  beissketten: 'Beißketten',
-  kinderwagenketten: 'Kinderwagenketten',
-  schlüsselanhänger: 'Schlüsselanhänger',
-  babysocken: 'Babysocken',
-  mützen: 'Mützen',
+  schluesselanhaenger: 'Schlüsselanhänger',
 }
 
 export const products: Product[] = [
@@ -34,134 +24,134 @@ export const products: Product[] = [
     name: 'Maus Blue',
     price: 19.9,
     description:
-      'Nie wieder Schnuller suchen – mit unserer handgemachten, personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ab 0 Jahren und nach individuellen Wünschen verfügbar.',
+      'Nie wieder Schnuller suchen – mit unserer handgemachten personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ist die Schnullerkette ab 0 Jahren und nach individuellen Wünschen verfügbar.',
     category: 'schnullerketten',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     featured: true,
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Die Materialien bestehen aus 100% Silikon, 100% Holz und 100% Baumwolle (gemäß DIN EN 71-3). Die Anfertigung erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch-/speichelfest und schadstofffrei sind. Der nickelfreie Clip ist mit 3 Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf sie bei ersten Anzeichen von Beschädigungen weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung.',
+      'Die Materialien bestehen immer aus 100% Silikon, 100% Holz und 100% Baumwolle (gem. DIN EN 71-3). Die Anfertigung der Schnullerkette erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch- und speichelfest sowie völlig schadstofffrei sind. Die Schnullerkette kann vom Baby unbedenklich in den Mund genommen werden. Der nickelfreie Clip ist mit drei Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf die Schnullerkette bereits bei den ersten Anzeichen von Beschädigungen oder Mängeln weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung, da sich dein Kind sonst erdrosseln kann.',
   },
   {
     id: 'schnullerkette-2',
     name: 'Flower Ivory',
     price: 16.9,
     description:
-      'Nie wieder Schnuller suchen – mit unserer handgemachten, personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ab 0 Jahren und nach individuellen Wünschen verfügbar.',
+      'Nie wieder Schnuller suchen – mit unserer handgemachten personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ist die Schnullerkette ab 0 Jahren und nach individuellen Wünschen verfügbar.',
     category: 'schnullerketten',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Die Materialien bestehen aus 100% Silikon, 100% Holz und 100% Baumwolle (gemäß DIN EN 71-3). Herstellung und Sicherheit wie oben beschrieben.',
+      'Die Materialien bestehen immer aus 100% Silikon, 100% Holz und 100% Baumwolle (gem. DIN EN 71-3). Die Anfertigung der Schnullerkette erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch- und speichelfest sowie völlig schadstofffrei sind. Die Schnullerkette kann vom Baby unbedenklich in den Mund genommen werden. Der nickelfreie Clip ist mit drei Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf die Schnullerkette bereits bei den ersten Anzeichen von Beschädigungen oder Mängeln weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung, da sich dein Kind sonst erdrosseln kann.',
   },
   {
-    id: 'schnullerkette-3',
+    id: 'Schnullerkette-3',
     name: 'Daisy Pink Dust',
     price: 19.9,
     description:
-      'Nie wieder Schnuller suchen – handgemachte, personalisierte Schnullerkette mit Holzclip und Holz-, Silikon- sowie Häkelperlen. Geeignet ab 0 Jahren.',
+      'Nie wieder Schnuller suchen – mit unserer handgemachten personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ist die Schnullerkette ab 0 Jahren und nach individuellen Wünschen verfügbar.',
     category: 'schnullerketten',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Materialien: 100% Silikon, 100% Holz, 100% Baumwolle (DIN EN 71-3). Länge max. 22 cm. Warnhinweise wie oben.',
+      'Die Materialien bestehen immer aus 100% Silikon, 100% Holz und 100% Baumwolle (gem. DIN EN 71-3). Die Anfertigung der Schnullerkette erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch- und speichelfest sowie völlig schadstofffrei sind. Die Schnullerkette kann vom Baby unbedenklich in den Mund genommen werden. Der nickelfreie Clip ist mit drei Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf die Schnullerkette bereits bei den ersten Anzeichen von Beschädigungen oder Mängeln weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung, da sich dein Kind sonst erdrosseln kann.',
   },
   {
-    id: 'schnullerkette-4',
+    id: 'Schnullerkette-4',
     name: 'Daisy Soft Brown',
     price: 19.9,
     description:
-      'Nie wieder Schnuller suchen – handgemachte, personalisierte Schnullerkette.',
+      'Nie wieder Schnuller suchen – mit unserer handgemachten personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ist die Schnullerkette ab 0 Jahren und nach individuellen Wünschen verfügbar.',
     category: 'schnullerketten',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     featured: true,
     inStock: true,
     quantity: 1,
-    technicalDetails: 'Materialien und Warnhinweise wie oben.',
+    technicalDetails:
+      'Die Materialien bestehen immer aus 100% Silikon, 100% Holz und 100% Baumwolle (gem. DIN EN 71-3). Die Anfertigung der Schnullerkette erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch- und speichelfest sowie völlig schadstofffrei sind. Die Schnullerkette kann vom Baby unbedenklich in den Mund genommen werden. Der nickelfreie Clip ist mit drei Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf die Schnullerkette bereits bei den ersten Anzeichen von Beschädigungen oder Mängeln weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung, da sich dein Kind sonst erdrosseln kann.',
   },
   {
-    id: 'schnullerkette-5',
-    name: 'Daisy Butter Yellow',
+    id: 'Schnullerkette-5',
+    name: 'Daisy Butter-Yellow',
     price: 19.9,
     description:
-      'Nie wieder Schnuller suchen – handgemachte, personalisierte Schnullerkette.',
+      'Nie wieder Schnuller suchen – mit unserer handgemachten personalisierten Schnullerkette geht kein Schnuller mehr verloren. Die BPA-freie Schnullerkette besteht aus einem Holzclip mit Metallverschluss sowie aus bunten Holz-, Silikon- und Häkelperlen. Der Silikonring am Ende dient zur Befestigung des Schnullers. Geeignet ist die Schnullerkette ab 0 Jahren und nach individuellen Wünschen verfügbar.',
     category: 'schnullerketten',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     inStock: true,
     quantity: 1,
-    technicalDetails: 'Materialien und Warnhinweise wie oben.',
+    technicalDetails:
+      'Die Materialien bestehen immer aus 100% Silikon, 100% Holz und 100% Baumwolle (gem. DIN EN 71-3). Die Anfertigung der Schnullerkette erfolgt mit hoher Sorgfalt unter Beachtung der gesetzlichen Vorschriften. Es werden ausschließlich qualitativ hochwertige Materialien aus Deutschland verwendet, die lutsch- und speichelfest sowie völlig schadstofffrei sind. Die Schnullerkette kann vom Baby unbedenklich in den Mund genommen werden. Der nickelfreie Clip ist mit drei Ventilationslöchern ausgestattet, um eine Erstickungsgefahr zu reduzieren. Die Länge der Schnullerkette beträgt max. 22 cm (ab Clip), da sonst Strangulationsgefahr besteht. Warnhinweis: Kontrolliere die Schnullerkette vor jedem Gebrauch. Wirf die Schnullerkette bereits bei den ersten Anzeichen von Beschädigungen oder Mängeln weg. Befestige die Schnullerkette niemals an Schnüren, Bändern, Trägern oder losen Teilen der Kleidung, da sich dein Kind sonst erdrosseln kann.',
   },
   {
-    id: 'schlüsselanhänger-1',
+    id: 'schluesselanhaenger-1',
     name: 'MOM',
-    price: 7.99,
+    price: 7.9,
     description:
-      'Dieser handgefertigte Schlüsselanhänger ist nicht nur eine emotionale Überraschung, sondern auch eine bleibende Erinnerung für alle Mamas. Ob am Schlüsselbund oder an der Handtasche – ein besonderes Stück, das dich begleitet.',
-    category: 'schlüsselanhänger',
+      'Dieser handgefertigte Schlüsselanhänger ist nicht nur eine emotionale Überraschung, sondern auch eine bleibende Erinnerung für alle Mamas. Egal, ob am Schlüsselbund oder an der Handtasche – dieser Anhänger wird für dich ein ganz besonderer sein und dich immer begleiten.',
+    category: 'schluesselanhaenger',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Materialien: hochwertiges Holz, Silikon- und Häkelperlen sowie ein Karabiner aus Edelstahl.',
+      'Als Materialien werden hochwertiges Holz, Silikon und Häkelperlen verwendet sowie ein Karabiner aus Edelstahl.',
   },
   {
-    id: 'schlüsselanhänger-2',
+    id: 'schluesselanhaenger-2',
     name: 'Patentante Rose',
-    price: 7.99,
+    price: 7.9,
     description:
-      'Manche Fragen sind so besonders, dass sie ein einzigartiges Geschenk verdienen. Mit unserem liebevoll gestalteten Schlüsselanhänger kannst du wunderschön fragen: „Willst du meine Patentante werden?“',
-    category: 'schlüsselanhänger',
+      'Manche Fragen sind so besonders, dass sie ein einzigartiges Geschenk verdienen. Mit unserem liebevoll gestalteten Schlüsselanhänger kannst du auf wunderschöne Weise fragen: WILLST DU MEINE PATENTANTE WERDEN?',
+    category: 'schluesselanhaenger',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     featured: true,
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Materialien: hochwertiges Holz, Silikon- und Häkelperlen sowie ein Karabiner aus Edelstahl.',
+      'Als Materialien werden hochwertiges Holz, Silikon und Häkelperlen verwendet sowie ein Karabiner aus Edelstahl.',
   },
   {
-    id: 'schlüsselanhänger-3',
+    id: 'schluesselanhaenger-3',
     name: 'Patentante Blue',
-    price: 7.99,
+    price: 7.9,
     description:
-      'Liebevoll gestalteter Schlüsselanhänger – „Willst du meine Patentante werden?“',
-    category: 'schlüsselanhänger',
+      'Manche Fragen sind so besonders, dass sie ein einzigartiges Geschenk verdienen. Mit unserem liebevoll gestalteten Schlüsselanhänger kannst du auf wunderschöne Weise fragen: WILLST DU MEINE PATENTANTE WERDEN?',
+    category: 'schluesselanhaenger',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     featured: true,
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Materialien: hochwertiges Holz, Silikon- und Häkelperlen sowie ein Karabiner aus Edelstahl.',
+      'Als Materialien werden hochwertiges Holz, Silikon und Häkelperlen verwendet sowie ein Karabiner aus Edelstahl.',
   },
   {
-    id: 'schlüsselanhänger-4',
+    id: 'schluesselanhaenger-4',
     name: 'Patentante Green',
-    price: 7.99,
+    price: 7.9,
     description:
-      'Liebevoll gestalteter Schlüsselanhänger – „Willst du meine Patentante werden?“',
-    category: 'schlüsselanhänger',
+      'Manche Fragen sind so besonders, dass sie ein einzigartiges Geschenk verdienen. Mit unserem liebevoll gestalteten Schlüsselanhänger kannst du auf wunderschöne Weise fragen: WILLST DU MEINE PATENTANTE WERDEN?',
+    category: 'schluesselanhaenger',
     publicId: ['fynlyTest/secondary', 'fynlyTest/main', 'fynlyTest/third'],
     inStock: true,
     quantity: 1,
     technicalDetails:
-      'Materialien: hochwertiges Holz, Silikon- und Häkelperlen sowie ein Karabiner aus Edelstahl.',
+      'Als Materialien werden hochwertiges Holz, Silikon und Häkelperlen verwendet sowie ein Karabiner aus Edelstahl.',
   },
 ]
 
-export const getFeaturedProducts = () => products.filter(p => p.featured)
+export const getFeaturedProducts = () =>
+  products.filter(product => product.featured)
 
 export const getProductsByCategory = (category: ProductCategory) =>
-  products.filter(p => p.category === category)
+  products.filter(product => product.category === category)
 
-export const getProductById = (id: string) => products.find(p => p.id === id)
+export const getProductById = (id: string) =>
+  products.find(product => product.id === id)
 
 export const getAllCategories = (): ProductCategory[] => [
   'schnullerketten',
-  'beissketten',
-  'kinderwagenketten',
-  'schlüsselanhänger',
-  'babysocken',
-  'mützen',
+  'schluesselanhaenger',
 ]

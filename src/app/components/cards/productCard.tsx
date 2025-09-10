@@ -12,33 +12,36 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
   return (
     <a href={`/product/${id}`} className="group relative">
-      {publicId.length > 0 ? (
-        <CldImage
-          src={publicId[0]}
-          alt={name}
-          className="aspect-square w-full rounded-sm bg-gray-200 object-contain group-hover:opacity-90 xl:aspect-7/8"
-          width={600}
-          height={600}
-          quality="auto"
-          format="auto"
-          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          loading="lazy"
-        />
-      ) : (
-        <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8">
-          <Loader2Icon className="animate-spin" />
+      <div className="group relative transition-all duration-200 ease-out hover:scale-103">
+        {publicId.length > 0 ? (
+          <CldImage
+            src={publicId[0]}
+            alt={name}
+            className="aspect-square w-full rounded-sm bg-gray-200 object-contain xl:aspect-7/8"
+            width={600}
+            height={600}
+            quality="auto"
+            format="auto"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8">
+            <Loader2Icon className="animate-spin" />
+          </div>
+        )}
+        <div className="absolute top-3 right-4.5">
+          <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium whitespace-nowrap text-green-800">
+            <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
+            Auf Lager
+          </span>
         </div>
-      )}
-      <h3 className="mt-2 text-base font-normal">{name}</h3>
+      </div>
+
+      <h3 className="mt-4 text-base font-normal">{name}</h3>
       <span className="block text-lg font-semibold text-gray-900">
         {price}€
       </span>
-      <div className="absolute top-3 right-4.5">
-        <span className="inline-flex items-center gap-2 rounded-full bg-green-100 px-2.5 py-1 text-xs font-medium whitespace-nowrap text-green-800">
-          <div className="h-1.5 w-1.5 animate-pulse rounded-full bg-green-500" />
-          Auf Lager
-        </span>
-      </div>
     </a>
   )
 }

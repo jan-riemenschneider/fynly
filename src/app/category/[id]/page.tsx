@@ -19,6 +19,8 @@ export default function Category() {
 
   const products = validCategoryId ? getProductsByCategory(validCategoryId) : []
 
+  console.log(validCategoryId)
+
   const categoryName = validCategoryId
     ? categoryTranslations[validCategoryId]
     : 'Kategorie'
