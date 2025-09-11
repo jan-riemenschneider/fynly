@@ -2,9 +2,12 @@ import { Footer } from '@/components/layout/Footer'
 import { NavigationBar } from '@/components/layout/NavigationBar'
 import { CartProvider } from '@/context/CartContext'
 import type { Metadata } from 'next'
-import { Toaster } from 'react-hot-toast'
-import 'yet-another-react-lightbox/styles.css'
+import { Inter } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+})
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de">
+    <html lang="de" className={inter.className}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,7 +33,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="bg-main-background overflow-x-hidden scroll-smooth">
-        <Toaster position="top-right" reverseOrder={false} />
         <CartProvider>
           <NavigationBar />
           <div className="h-26" />
