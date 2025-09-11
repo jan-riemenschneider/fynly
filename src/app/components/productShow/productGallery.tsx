@@ -1,27 +1,36 @@
 import { Product } from '@/data/products'
 import clsx from 'clsx'
 import { CldImage } from 'next-cloudinary'
+import { RefObject } from 'react'
 
 interface ProduktGalleryProps {
   product: Product
   className: string
+  containerRef: RefObject<HTMLDivElement>
+  handleImageLoad: () => void
 }
 
-export function ProduktGallery({ product, className }: ProduktGalleryProps) {
+export function ProduktGallery({
+  product,
+  className,
+  containerRef,
+  handleImageLoad,
+}: ProduktGalleryProps) {
   return (
-    <div className={clsx(className)}>
+    <div className={clsx(className)} ref={containerRef}>
       {product.publicId.map((slide, index) => (
         <CldImage
           key={index}
           src={slide}
           alt={product.name}
-          className="mb-1 h-screen w-full cursor-pointer bg-gray-50 object-scale-down last:mb-0"
+          className="mb-1 h-screen cursor-pointer bg-gray-50 object-scale-down last:mb-0"
           width={1200}
           height={1600}
           quality="auto"
           format="auto"
           loading={index === 0 ? 'eager' : 'lazy'}
           sizes="(max-width: 768px) 100vw, 50vw"
+          onLoad={handleImageLoad}
         />
       ))}
     </div>

@@ -35,6 +35,12 @@ export default function Product() {
     setIsClient(true)
   }, [])
 
+  const handleImageLoad = () => {
+    setTimeout(() => {
+      ScrollTrigger.refresh()
+    }, 100)
+  }
+
   useGSAP(
     () => {
       if (!isClient) return
@@ -45,8 +51,9 @@ export default function Product() {
         const st = ScrollTrigger.create({
           trigger: container,
           start: 'top top',
+          end: 'bottom bottom',
           pin: right,
-          pinSpacing: true,
+          pinSpacing: false,
         })
         return () => st.kill()
       }
@@ -81,12 +88,13 @@ export default function Product() {
   return (
     <>
       <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:pb-0">
-        <div className="col-span-12 md:col-span-6 md:hidden">
+        <div className="col-span-12 md:hidden">
           <ProduktCarousel product={product} />
         </div>
-
         <ProduktGallery
+          handleImageLoad={handleImageLoad}
           product={product}
+          containerRef={containerRef}
           className={'hidden md:col-span-6 md:block'}
         />
 
