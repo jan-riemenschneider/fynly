@@ -7,14 +7,14 @@ interface ProduktGalleryProps {
   product: Product
   className: string
   containerRef: RefObject<HTMLDivElement>
-  handleImageLoad: () => void
+  onImageClick: (imageIndex: number, imageSrc: string) => void
 }
 
 export function ProduktGallery({
   product,
   className,
   containerRef,
-  handleImageLoad,
+  onImageClick,
 }: ProduktGalleryProps) {
   return (
     <div className={clsx(className)} ref={containerRef}>
@@ -24,13 +24,16 @@ export function ProduktGallery({
           src={slide}
           alt={product.name}
           className="mb-1 h-screen cursor-pointer bg-gray-50 object-scale-down last:mb-0"
-          width={1200}
-          height={1600}
+          width={1000}
+          height={1400}
           quality="auto"
           format="auto"
           loading={index === 0 ? 'eager' : 'lazy'}
           sizes="(max-width: 768px) 100vw, 50vw"
-          onLoad={handleImageLoad}
+          onClick={event => {
+            event.preventDefault()
+            onImageClick?.(index, slide)
+          }}
         />
       ))}
     </div>

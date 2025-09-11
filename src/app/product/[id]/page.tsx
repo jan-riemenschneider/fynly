@@ -7,6 +7,7 @@ import { Text } from '@/components/typography/text'
 import { Button } from '@/components/ui/button'
 import { InfoAccordion } from '@/components/ui/InfoAccordion'
 import { Input } from '@/components/ui/input'
+import { LightBox } from '@/components/ui/lightbox'
 import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById } from '@/data/products'
@@ -24,6 +25,8 @@ export default function Product() {
   const [amount, setAmount] = useState<number>(1)
   const [custom, setCustom] = useState<string>('')
   const [isClient, setIsClient] = useState(false)
+  const [aktiveImage, setAktiveImage] = useState<number | null>(null)
+  const [lightboxOpen, setLightboxOpen] = useState(false)
   const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
   const { addItem } = useCart()
@@ -34,12 +37,6 @@ export default function Product() {
   useEffect(() => {
     setIsClient(true)
   }, [])
-
-  const handleImageLoad = () => {
-    setTimeout(() => {
-      ScrollTrigger.refresh()
-    }, 100)
-  }
 
   useGSAP(
     () => {
@@ -71,6 +68,15 @@ export default function Product() {
     setCustom('')
   }
 
+  const onImageClick = (index: number) => {
+    setAktiveImage(index)
+    setLightboxOpen(true)
+  }
+
+  const closeLightbox = () => {
+    setLightboxOpen(false)
+  }
+
   if (!product) {
     return (
       <div className="text-center">
@@ -89,15 +95,23 @@ export default function Product() {
     <>
       <div className="col-span-12 grid grid-cols-12 bg-white pb-16 md:pb-0">
         <div className="col-span-12 md:hidden">
-          <ProduktCarousel product={product} />
+          <ProduktCarousel product={product} onImageClick={onImageClick} />
         </div>
         <ProduktGallery
-          handleImageLoad={handleImageLoad}
+          onImageClick={onImageClick}
           product={product}
           containerRef={containerRef}
           className={'hidden md:col-span-6 md:block'}
         />
-
+        {lightboxOpen && aktiveImage !== null && (
+          <LightBox
+            publicId={product.publicId}
+            name={product.name}
+            startIndex={aktiveImage}
+            isOpen={lightboxOpen}
+            onClose={closeLightbox}
+          />
+        )}
         <div
           className="col-span-12 flex flex-col items-start justify-start bg-white px-6 md:col-span-6 md:h-screen md:items-center md:justify-center md:p-40"
           ref={rightRef}
@@ -165,6 +179,10 @@ export default function Product() {
             quality="auto"
             format="auto"
             loading="eager"
+            onClick={event => {
+              event.preventDefault()
+              onImageClick?.(0)
+            }}
           />
         </div>
 

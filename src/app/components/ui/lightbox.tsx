@@ -2,60 +2,52 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel'
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { CldImage } from 'next-cloudinary'
 
 interface LightBoxProps {
   publicId: string[]
   name: string
+  startIndex: number
+  isOpen: boolean
+  onClose: () => void
 }
 
-export function LightBox({ publicId, name }: LightBoxProps) {
+export function LightBox({
+  publicId,
+  name,
+  startIndex,
+  isOpen,
+  onClose,
+}: LightBoxProps) {
   return (
-    <Dialog>
-      <DialogContent className="max-w-7xl border-none bg-transparent p-0">
-        {/* <DialogTitle></DialogTitle> */}
-        <Carousel className="h-full w-full pr-4">
-          <CarouselContent className="h-full w-full">
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-w-7xl border-none bg-transparent pr-4 pl-4">
+        <DialogTitle className="sr-only">{name}</DialogTitle>
+        <Carousel
+          opts={{
+            startIndex: startIndex,
+            loop: true,
+          }}
+        >
+          <CarouselContent>
             {publicId.map((slide, index) => (
-              <CarouselItem key={index} className="h-full w-full">
+              <CarouselItem key={index} className="flex h-full justify-center">
                 <CldImage
                   src={slide}
-                  alt={name}
-                  className="aspect-square h-full w-full rounded-lg bg-gray-200 object-cover"
-                  width={500}
-                  height={500}
+                  alt={`${name} - Bild ${index + 1}`}
+                  className="aspect-square rounded-lg bg-gray-50 object-contain"
+                  width={900}
+                  height={900}
                   quality="auto"
-                  format="auto"
                   loading="eager"
                 />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious variant="secondary" />
-          <CarouselNext variant="secondary" />
         </Carousel>
       </DialogContent>
-      <DialogTrigger>Open</DialogTrigger>
     </Dialog>
   )
 }
-
-/*   <CldImage
-          src={publicId[0]}
-          alt={name}
-          className="aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8"
-          width={500}
-          height={500}
-          quality="auto"
-          format="auto"
-          loading="lazy"
-        />
-      ) : (
-        <div className="flex aspect-square w-full items-center justify-center rounded-lg bg-gray-200 object-cover group-hover:opacity-90 xl:aspect-7/8">
-          <Loader2Icon className="animate-spin" />
-        </div>
-      )} */

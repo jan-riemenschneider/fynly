@@ -10,9 +10,13 @@ import { CldImage } from 'next-cloudinary'
 
 interface ProduktCarouselProps {
   product: Product
+  onImageClick?: (imageIndex: number, imageSrc: string) => void
 }
 
-export function ProduktCarousel({ product }: ProduktCarouselProps) {
+export function ProduktCarousel({
+  product,
+  onImageClick,
+}: ProduktCarouselProps) {
   return (
     <Carousel>
       <CarouselContent>
@@ -27,6 +31,10 @@ export function ProduktCarousel({ product }: ProduktCarouselProps) {
               quality="auto"
               format="auto"
               loading="eager"
+              onClick={event => {
+                event.preventDefault()
+                onImageClick?.(index, slide)
+              }}
             />
           </CarouselItem>
         ))}
