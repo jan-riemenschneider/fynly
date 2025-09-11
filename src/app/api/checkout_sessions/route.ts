@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
               ? `${item.product.description} - Deine Personalisierung: ${item.customization.name}`
               : item.product.description,
             images: [
-              `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.folderPath}/main.png`,
+              `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.publicId[0]}/main.png`,
             ],
             tax_code: 'txcd_10000000',
           },
