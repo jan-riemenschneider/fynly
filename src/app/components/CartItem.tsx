@@ -1,10 +1,10 @@
 'use client'
+import { QuantitySelector } from '@/components/business/QuantitySelector'
 import { Button } from '@/components/ui/button'
 import { Trash2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useCart } from '../context/CartContext'
-import { QuantitySelector } from './custom/QuantitySelector'
 
 interface CartItemProps {
   id: string
