@@ -38,8 +38,8 @@ export function LightBox({
                   src={slide}
                   alt={`${name} - Bild ${index + 1}`}
                   className="aspect-square rounded-lg bg-gray-50 object-contain"
-                  width={900}
-                  height={900}
+                  width={1000}
+                  height={1000}
                   quality="80"
                   loading="eager"
                 />

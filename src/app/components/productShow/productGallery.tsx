@@ -25,7 +25,7 @@ export function ProduktGallery({
           alt={product.name}
           className="mb-1 h-screen cursor-pointer bg-gray-50 object-scale-down last:mb-0"
           width={1000}
-          height={1000}
+          height={1200}
           quality="80"
           format="auto"
           loading='eager'

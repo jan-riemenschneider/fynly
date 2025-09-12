@@ -1,10 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { Loader2Icon, Trash2 } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
-import Link from 'next/link'
-import { useCart } from '../../context/CartContext'
-import { QuantitySelector } from '../business/QuantitySelector'
 
 interface CartItemProps {
   id: string
@@ -13,6 +9,7 @@ interface CartItemProps {
   quantity: number
   customization?: string
   publicId: string[]
+  clearCart: () => void
 }
 
 const CartItem = ({
@@ -21,72 +18,47 @@ const CartItem = ({
   price,
   quantity,
   publicId,
-  customization,
+  clearCart,
 }: CartItemProps) => {
-  const { removeItem, setQuantity } = useCart()
+  /* const { removeItem, setQuantity } = useCart() */
 
-  const handleQuantityChange = (newAmount: number) => {
+  /*  const handleQuantityChange = (newAmount: number) => {
     setQuantity(id, newAmount, customization)
-  }
-
+  } */
 
   return (
-    <>
-      <div className="mt-4 flex h-auto items-center space-x-6">
-        <div className="bg-muted flex-1/3 overflow-hidden rounded">
-          {publicId.length > 0 ? (
-            <CldImage
-              src={publicId[0]}
-              alt={name}
-              width={50}
-              height={50}
-              className="h-full w-full object-cover"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center bg-white">
-              <Loader2Icon className="animate-spin" />
-            </div>
-          )}
+    <li className="flex py-6">
+      <div className="size-24 shrink-0 overflow-hidden rounded-md border bg-gray-50">
+        <CldImage
+          alt={name}
+          src={publicId[0]}
+          width={300}
+          height={300}
+          quality={60}
+          className="size-full object-cover"
+        />
+      </div>
+
+      <div className="ml-4 flex flex-1 flex-col justify-between">
+        <div className="flex items-center justify-between">
+          <h3>
+            <a href={`/product/${id}`}>{name}</a>
+          </h3>
+          <p className="ml-4">{price.toFixed(2)} €</p>
         </div>
-
-        <div className="flex flex-2/3 flex-col gap-3">
-          <Link
-            className="hover:text-primary max-w-[200px] truncate text-base font-medium text-wrap"
-            href={`/product/${id}`}
+        <div className="flex items-center justify-between">
+          <p className="text-gray-500">Stück {quantity}</p>
+          <Button
+            variant="link"
+            size="link"
+            className="text-primary font-medium"
+            onClick={clearCart}
           >
-            {name}
-          </Link>
-
-          <QuantitySelector
-            amount={quantity}
-            setAmount={handleQuantityChange}
-          />
-
-          <div className="flex items-center space-x-1">
-            <div className="text-right font-medium">
-              {(price * quantity).toFixed(2)} €
-            </div>
-
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              className="text-muted-foreground hover:text-destructive h-8 w-8"
-              onClick={() => removeItem(id, customization)}
-              aria-label="Remove"
-            >
-              <Trash2 className="h-4 w-4" />
-            </Button>
-          </div>
+            Remove
+          </Button>
         </div>
       </div>
-      {customization && (
-        <div className="flex items-center space-x-2">
-          <small>Deine Personalisierung:</small>
-          <p className="text-primary">{customization}</p>
-        </div>
-      )}
-    </>
+    </li>
   )
 }
 

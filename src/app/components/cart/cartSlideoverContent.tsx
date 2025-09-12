@@ -1,7 +1,6 @@
 'use client'
 import CartItem from '@/components/cart/cartItem'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { ButtonLoading } from '@/components/ui/loadingButton'
 import { NavigationMenuLink } from '@/components/ui/navigation-menu'
 import {
@@ -56,34 +55,70 @@ const CartSlideoverContent = () => {
         )}
 
         {items.length > 0 && (
-          <div className="flex flex-col space-y-5 overflow-auto p-6">
-            <h2 className="mb-4 text-lg font-medium">
-              Artikel ({items.length})
-            </h2>
-
-            {items.map(item => (
-              <CartItem
-                key={
-                  item.customization
-                    ? `${item.product.id}-custom`
-                    : `${item.product.id}`
-                }
-                id={item.product.id}
-                name={item.product.name}
-                price={item.product.price}
-                publicId={item.product.publicId}
-                quantity={item.quantity}
-                customization={item.customization?.name}
-              />
-            ))}
-
-            <div className="flex justify-between">
-              <Button variant="outline" onClick={clearCart}>
-                Warenkorb leeren
-              </Button>
+          <>
+            <div className="flow-root px-6">
+              <ul role="list" className="my-6 divide-gray-200">
+                {items.map(item => (
+                  <CartItem
+                    key={
+                      item.customization
+                        ? `${item.product.id}-custom`
+                        : `${item.product.id}`
+                    }
+                    id={item.product.id}
+                    name={item.product.name}
+                    price={item.product.price}
+                    publicId={item.product.publicId}
+                    quantity={item.quantity}
+                    customization={item.customization?.name}
+                    clearCart={clearCart}
+                  />
+                ))}
+              </ul>
             </div>
+            <div className="mb-6 flex flex-1 flex-col justify-end">
+              <div className="border-t border-gray-200 p-6 sm:px-6">
+                <div className="flex justify-between text-base font-medium text-gray-900">
+                  <p>Total</p>
+                  <p>{total.toFixed(2)} €</p>
+                </div>
+                <p className="mt-4 text-sm text-gray-500">
+                  Shipping and taxes calculated at checkout.
+                </p>
+                <ButtonLoading
+                  size="lg"
+                  className="mt-6 w-full bg-[#635BFF] hover:bg-[#625de4]"
+                  loading={isLoading}
+                  onClick={async () => {
+                    setIsLoading(true)
+                    try {
+                      await handleCheckout(items)
+                    } catch (err) {
+                      console.error('Checkout fehlgeschlagen', err)
+                    } finally {
+                      setCartOpen(false)
+                      setIsLoading(false)
+                    }
+                  }}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="font-extrabold text-white">
+                      Bezahle mit
+                    </span>
+                    <FaStripe className="size-12" />
+                    <ArrowRight className="size-4" />
+                  </div>
+                </ButtonLoading>
+              </div>
+            </div>
+          </>
+        )}
+      </SheetContent>
+    </Sheet>
+  )
+}
 
-            <div className="mt-3 flex flex-col">
+/*  <div className="mt-3 flex flex-col">
               <h2 className="text-primary-foreground pb-3 text-lg font-semibold">
                 Bestellübersicht
               </h2>
@@ -114,33 +149,6 @@ const CartSlideoverContent = () => {
               <p className="text-muted-foreground mt-2 text-xs">inkl. MwSt.</p>
             </div>
 
-            <ButtonLoading
-              size="lg"
-              className="mt-4 bg-[#635BFF] hover:bg-[#5A54E6]"
-              loading={isLoading}
-              onClick={async () => {
-                setIsLoading(true)
-                try {
-                  await handleCheckout(items)
-                } catch (err) {
-                  console.error('Checkout fehlgeschlagen', err)
-                } finally {
-                  setCartOpen(false)
-                  setIsLoading(false)
-                }
-              }}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <span className="font-extrabold text-white">Bezahle mit</span>
-                <FaStripe className="size-12" />
-                <ArrowRight className="size-4" />
-              </div>
-            </ButtonLoading>
-          </div>
-        )}
-      </SheetContent>
-    </Sheet>
-  )
-}
+ */
 
 export default CartSlideoverContent

@@ -26,9 +26,9 @@ export function ProduktCarousel({
               src={slide}
               alt={product.name}
               className="aspect-square h-full w-full cursor-pointer bg-gray-100 object-scale-down"
-              width={600}
-              height={800}
-              quality="80"
+              width={900}
+              height={700}
+              quality="85"
               format="auto"
               loading="eager"
               onClick={event => {
