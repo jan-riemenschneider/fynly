@@ -25,10 +25,10 @@ export function ProduktGallery({
           alt={product.name}
           className="mb-1 h-screen cursor-pointer bg-gray-50 object-scale-down last:mb-0"
           width={1000}
-          height={1400}
-          quality="auto"
+          height={1000}
+          quality="80"
           format="auto"
-          loading={index === 0 ? 'eager' : 'lazy'}
+          loading='eager'
           sizes="(max-width: 768px) 100vw, 50vw"
           onClick={event => {
             event.preventDefault()

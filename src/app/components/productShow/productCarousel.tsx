@@ -28,7 +28,7 @@ export function ProduktCarousel({
               className="aspect-square h-full w-full cursor-pointer bg-gray-100 object-scale-down"
               width={600}
               height={800}
-              quality="auto"
+              quality="80"
               format="auto"
               loading="eager"
               onClick={event => {

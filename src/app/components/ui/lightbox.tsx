@@ -40,7 +40,7 @@ export function LightBox({
                   className="aspect-square rounded-lg bg-gray-50 object-contain"
                   width={900}
                   height={900}
-                  quality="auto"
+                  quality="80"
                   loading="eager"
                 />
               </CarouselItem>

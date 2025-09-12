@@ -116,7 +116,7 @@ export default function Product() {
           className="col-span-12 flex flex-col items-start justify-start bg-white px-6 md:col-span-6 md:h-screen md:items-center md:justify-center md:p-40"
           ref={rightRef}
         >
-          <div>
+          <div className="max-w-3xl">
             <Button variant="link" size="link" className="mb:mt-0 mt-4 mb-2">
               {categoryTranslations[product.category]}
             </Button>

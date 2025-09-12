@@ -118,6 +118,13 @@
   --color-main-background: var(--mainBackground);
 }
 
+@layer components {
+  .debug {
+    outline-style: var(--tw-outline-style); 
+    outline-color: var(--color-red-500);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50 font-inter;
