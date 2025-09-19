@@ -1,4 +1,6 @@
 'use client'
+import { Heading } from '@/components/typography/heading'
+import { Text } from '@/components/typography/text'
 import { Button } from '@/components/ui/button'
 import { CldImage } from 'next-cloudinary'
 
@@ -16,6 +18,7 @@ const CartItem = ({
   id,
   name,
   price,
+  customization,
   quantity,
   publicId,
   clearCart,
@@ -35,16 +38,28 @@ const CartItem = ({
           width={300}
           height={300}
           quality={60}
-          className="size-full object-cover"
+          className="size-full object-contain"
         />
       </div>
 
       <div className="ml-4 flex flex-1 flex-col justify-between">
-        <div className="flex items-center justify-between">
-          <h3>
-            <a href={`/product/${id}`}>{name}</a>
-          </h3>
-          <p className="ml-4">{price.toFixed(2)} €</p>
+        <div>
+          <div className="flex items-center justify-between">
+            <Heading variant="sm" level={3}>
+              {name}
+            </Heading>
+            <Text level="span" variant="price">
+              {price.toFixed(2)} €
+            </Text>
+          </div>
+          <div className="flex flex-wrap space-x-1">
+            <Text level="span" variant="muted">
+              Wunschname:
+            </Text>
+            <Text level="span" variant="inline">
+              {customization}
+            </Text>
+          </div>
         </div>
         <div className="flex items-center justify-between">
           <p className="text-gray-500">Stück {quantity}</p>
