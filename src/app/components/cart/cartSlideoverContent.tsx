@@ -1,5 +1,6 @@
 'use client'
 import CartItem from '@/components/cart/cartItem'
+import { Text } from '@/components/typography/text'
 import { Badge } from '@/components/ui/badge'
 import { ButtonLoading } from '@/components/ui/loadingButton'
 import { NavigationMenuLink } from '@/components/ui/navigation-menu'
@@ -19,8 +20,15 @@ import { FaStripe } from 'react-icons/fa'
 const CartSlideoverContent = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [customizationCost, setCustomizationCost] = useState(0)
-  const { totalItems, items, clearCart, total, setCartOpen, isCartOpen } =
-    useCart()
+  const {
+    totalItems,
+    items,
+    clearCart,
+    total,
+    setCartOpen,
+    isCartOpen,
+    calculateTaxes,
+  } = useCart()
 
   useEffect(() => {
     const cost = items.reduce(
@@ -29,6 +37,23 @@ const CartSlideoverContent = () => {
     )
     setCustomizationCost(cost)
   }, [items])
+
+  const tax = calculateTaxes(total)
+
+  const summary = [
+    { label: 'Zwischensumme', value: total.toFixed(2) + ' €', styling: '' },
+    {
+      label: 'Sonderanfertigung',
+      value: customizationCost.toFixed(2) + ' €',
+      styling: '',
+    },
+    { label: 'Steuer (19%)', value: tax.toFixed(2) + ' €', styling: '' },
+    {
+      label: 'Total',
+      value: (total + tax + customizationCost).toFixed(2) + ' €',
+      styling: '',
+    },
+  ]
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
@@ -78,10 +103,26 @@ const CartSlideoverContent = () => {
             </div>
             <div className="mb-6 flex flex-1 flex-col justify-end">
               <div className="border-t border-gray-200 p-6 sm:px-6">
-                <div className="flex justify-between text-base font-medium text-gray-900">
-                  <p>Total</p>
-                  <p>{total.toFixed(2)} €</p>
-                </div>
+                <dl className="space-y-4 text-base font-medium text-gray-900">
+                  {summary.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between border-b border-gray-200 pb-2"
+                    >
+                      <Text level="p" variant="body" className=''>
+                        {item.label}
+                      </Text>
+                      <Text
+                        level="span"
+                        variant="price"
+                        className="text-right slashed-zero tabular-nums"
+                      >
+                        {item.value}
+                      </Text>
+                    </div>
+                  ))}
+                </dl>
+
                 <p className="mt-4 text-sm text-gray-500">
                   Shipping and taxes calculated at checkout.
                 </p>
