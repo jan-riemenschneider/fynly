@@ -2,10 +2,14 @@ import { Footer } from '@/components/layout/Footer'
 import { NavigationBar } from '@/components/layout/NavigationBar'
 import { CartProvider } from '@/context/CartContext'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Oswald } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
+  subsets: ['latin'],
+})
+
+const oswald = Oswald({
   subsets: ['latin'],
 })
 
@@ -25,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de" className={inter.className}>
+    <html lang="de" className={(inter.className, oswald.className)}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

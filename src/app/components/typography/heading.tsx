@@ -10,7 +10,7 @@ interface HeadingProps {
 }
 
 const variants = {
-  xl: 'font-inter text-5xl font-bold tracking-tight leading-20 text-balance text-gray-900 lg:text-6xl',
+  xl: 'font-oswald text-5xl font-bold tracking-tight leading-20 text-balance text-gray-900 lg:text-6xl',
   lg: 'font-inter text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl',
   md: 'font-inter text-lg font-medium tracking-tight text-gray-800 lg:text-xl',
   sm: 'font-inter text-lg font-medium tracking-tight text-gray-700',
