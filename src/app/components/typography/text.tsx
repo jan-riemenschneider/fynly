@@ -3,7 +3,16 @@ import { JSX } from 'react'
 
 interface TextProps {
   level: 'p' | 'small' | 'span'
-  variant: 'body' | 'small' | 'span' | 'muted' | 'card' | 'inline' | 'price'
+  variant?:
+    | 'body'
+    | 'small'
+    | 'span'
+    | 'muted'
+    | 'card'
+    | 'inline'
+    | 'price'
+    | 'SubHeading'
+    | string
   children: React.ReactNode
   className?: string
 }
@@ -18,6 +27,7 @@ export function Text({ level, children, className, variant }: TextProps) {
     inline: 'font-inter text-foreground text-base font-normal tracking-normal',
     card: 'font-inter text-card-foreground text-base leading-relaxed',
     price: 'font-inter text-gray-900 text-md leading-relaxed font-medium block',
+    SubHeading: 'font-inter text-gray-800 text-lg text-balance leading-relaxed',
   } as const
 
   return <Tag className={clsx(VARIANTS[variant], className)}>{children}</Tag>

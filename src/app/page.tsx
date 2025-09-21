@@ -1,3 +1,4 @@
+'use client'
 import ProductGrid from '@/components/grids/productGrid'
 import { Section } from '@/components/sections/Section'
 import { Heading } from '@/components/typography/heading'
@@ -7,22 +8,38 @@ import { Feature } from '@/components/ui/feature'
 import { features } from '@/data/feature'
 import { getFeaturedProducts } from '@/data/products'
 import { testimonials } from '@/data/testimonials'
+import { CldImage } from 'next-cloudinary'
 import { TestinomialCard } from './components/cards/testimonialCard'
-
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
     <>
-      <Section>
-        <div className="col-span-12 items-center md:col-span-6">
-          <Heading variant="xl" level={1}>
-            Produktname
-          </Heading>
-          <Text level="p" variant="muted">
-            Kurze Beschreibung oder Slogan
-          </Text>
-          <Button>Jetzt bestellen</Button>
+      <Section fullWidth background="bg-white">
+        <div className="col-span-12 flex flex-col items-center md:grid md:grid-cols-2">
+          <div className="flex flex-col items-center">
+            <Heading variant="xl" level={1} className="mb-8">
+              Handgemachte Schnullerketten – liebevoll & sicher für dein Baby
+            </Heading>
+            <Text variant="SubHeading" level="p" className="mb-8 max-w-2xl">
+              Unsere Schnullerketten werden mit viel Liebe handgefertigt,
+              geprüft nach EU-Norm und sind frei von BPA. So kannst du deinem
+              Kind Sicherheit und Stil zugleich schenken.
+            </Text>
+            <Button variant="default" size="lg" className="w-full">
+              Jetzt entdecken
+            </Button>
+          </div>
+          <CldImage
+            src={'Schnullerkette-1/one'}
+            alt={'Schnullerkette-2/one'}
+            className="bg-white-50 mb-1 hidden cursor-pointer object-scale-down last:mb-0"
+            width={1000}
+            height={1000}
+            quality="80"
+            format="auto"
+            loading="eager"
+          />
         </div>
       </Section>
 

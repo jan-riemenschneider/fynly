@@ -164,6 +164,7 @@ interface CartContextType extends CartState {
   isCartOpen: boolean
   getItemQuantity: (id: string) => number
   calculateTaxes: (total: number) => number
+  removeTaxes: (total: number) => number
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -206,6 +207,10 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     return total * 0.19
   }
 
+  const removeTaxes = (total: number) => {
+    return total * 0.81
+  }
+
   return (
     <CartContext.Provider
       value={{
@@ -220,6 +225,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         isCartOpen,
         getItemQuantity,
         calculateTaxes,
+        removeTaxes,
       }}
     >
       {children}

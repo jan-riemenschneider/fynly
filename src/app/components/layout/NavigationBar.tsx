@@ -57,7 +57,7 @@ export function NavigationBar() {
     >
       <AnnouncementBar />
       <NavigationMenu className="bg-white/95 backdrop-blur-sm lg:hidden">
-        <NavigationMenuList className="flex w-screen justify-between px-7 shadow-sm">
+        <NavigationMenuList className="flex w-screen justify-between px-6 shadow-sm">
           <Sheet open={toggleHamburger} onOpenChange={setToggleHamburger}>
             <SheetTrigger>
               <Hamburger
@@ -114,7 +114,7 @@ export function NavigationBar() {
       </NavigationMenu>
 
       <NavigationMenu className="hidden w-full bg-white/95 shadow-sm backdrop-blur-sm lg:block">
-        <NavigationMenuList className="mx-auto px-10">
+        <NavigationMenuList className="container mx-auto px-6">
           <div className="flex w-full items-center justify-between">
             <div className="flex space-x-20">
               <Link href={'/'}>

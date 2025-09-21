@@ -41,20 +41,36 @@ const CartSlideoverContent = () => {
   const tax = calculateTaxes(total)
 
   const summary = [
-    { label: 'Zwischensumme', value: total.toFixed(2) + ' €', styling: '' },
     {
-      label: 'Sonderanfertigung',
-      value: customizationCost.toFixed(2) + ' €',
-      styling: '',
+      label: 'Zwischensumme',
+      value: total.toFixed(2) + ' €',
+      variant: 'inline',
     },
-    { label: 'Steuer (19%)', value: tax.toFixed(2) + ' €', styling: '' },
     {
-      label: 'Total',
-      value: (total + tax + customizationCost).toFixed(2) + ' €',
-      styling: '',
+      label: 'Versand',
+      value: '4.90 €',
+      variant: 'inline',
+    },
+    ...(customizationCost > 0
+      ? [
+          {
+            label: 'Sonderanfertigung',
+            value: customizationCost.toFixed(2) + ' €',
+            variant: 'inline',
+          },
+        ]
+      : []),
+    {
+      label: 'Enthaltene MwSt. (19%)',
+      value: tax.toFixed(2) + ' €',
+      variant: 'inline',
+    },
+    {
+      label: 'Gesamtsumme',
+      value: total + customizationCost.toFixed(2) + ' €',
+      variant: 'price',
     },
   ]
-
   return (
     <Sheet open={isCartOpen} onOpenChange={setCartOpen}>
       <SheetTrigger>
@@ -102,33 +118,26 @@ const CartSlideoverContent = () => {
               </ul>
             </div>
             <div className="mb-6 flex flex-1 flex-col justify-end">
-              <div className="border-t border-gray-200 p-6 sm:px-6">
-                <dl className="space-y-4 text-base font-medium text-gray-900">
+              <div className="border-t border-gray-300 p-6">
+                <div>
                   {summary.map((item, i) => (
                     <div
                       key={i}
-                      className="flex justify-between border-b border-gray-200 pb-2"
+                      className="mb-2 flex justify-between border-b-1 pb-2 last:mb-0 last:border-b-0 last:pb-0"
                     >
-                      <Text level="p" variant="body" className=''>
+                      <Text level="p" variant={item.variant}>
                         {item.label}
                       </Text>
-                      <Text
-                        level="span"
-                        variant="price"
-                        className="text-right slashed-zero tabular-nums"
-                      >
+                      <Text level="span" variant={item.variant}>
                         {item.value}
                       </Text>
                     </div>
                   ))}
-                </dl>
+                </div>
 
-                <p className="mt-4 text-sm text-gray-500">
-                  Shipping and taxes calculated at checkout.
-                </p>
                 <ButtonLoading
                   size="lg"
-                  className="mt-6 w-full bg-[#635BFF] hover:bg-[#625de4]"
+                  className="mt-10 w-full bg-[#635BFF] hover:bg-[#625de4]"
                   loading={isLoading}
                   onClick={async () => {
                     setIsLoading(true)
@@ -158,38 +167,5 @@ const CartSlideoverContent = () => {
     </Sheet>
   )
 }
-
-/*  <div className="mt-3 flex flex-col">
-              <h2 className="text-primary-foreground pb-3 text-lg font-semibold">
-                Bestellübersicht
-              </h2>
-              <hr className="my-2 border-gray-200"></hr>
-              <div className="space-y-3 pt-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Zwischensumme</span>
-                  <span>{total.toFixed(2)} €</span>
-                </div>
-                {customizationCost > 0 && (
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">
-                      Individualisierung
-                    </span>
-                    <span>{customizationCost.toFixed(2)} €</span>
-                  </div>
-                )}
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Versand</span>
-                  <span>4.99 €</span>
-                </div>
-              </div>
-              <hr className="my-4 border-gray-200"></hr>
-              <div className="flex items-center justify-between text-lg font-medium">
-                <span>Gesamtsumme</span>
-                <span>{(total + 4.99 + customizationCost).toFixed(2)} €</span>
-              </div>
-              <p className="text-muted-foreground mt-2 text-xs">inkl. MwSt.</p>
-            </div>
-
- */
 
 export default CartSlideoverContent
