@@ -18,7 +18,7 @@ export default function HomePage() {
       <Section fullWidth background="bg-white">
         <div className="col-span-12 grid grid-cols-1 md:grid-cols-2">
           <div>
-            <Heading variant="xl" level={1} className="font-oswald mb-8">
+            <Heading variant="xl" level={1} className="font-playfair mb-8">
               Handgemachte Schnullerketten – liebevoll & sicher für dein Baby
             </Heading>
             <Text variant="SubHeading" level="p" className="mb-8 max-w-2xl">

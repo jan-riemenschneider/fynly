@@ -26,7 +26,7 @@ export function Text({ level, children, className, variant }: TextProps) {
     small: 'font-inter text-muted-foreground text-sm leading-relaxed block',
     inline: 'font-inter text-foreground text-base font-normal tracking-normal',
     card: 'font-inter text-card-foreground text-base leading-relaxed',
-    price: 'font-inter text-gray-900 text-md leading-relaxed font-medium block',
+    price: 'font-inter text-gray-900 text-lg leading-relaxed font-medium block',
     SubHeading: 'font-inter text-gray-800 text-lg text-balance leading-relaxed',
   } as const
 
