@@ -2,6 +2,7 @@
 import { Heading } from '@/components/typography/heading'
 import { Text } from '@/components/typography/text'
 import { Button } from '@/components/ui/button'
+import { useCart } from '@/context/CartContext'
 import { CldImage } from 'next-cloudinary'
 
 interface CartItemProps {
@@ -21,13 +22,12 @@ const CartItem = ({
   customization,
   quantity,
   publicId,
-  clearCart,
 }: CartItemProps) => {
-  /* const { removeItem, setQuantity } = useCart() */
+  const { removeItem, setQuantity } = useCart()
 
-  /*  const handleQuantityChange = (newAmount: number) => {
+  const handleQuantityChange = (newAmount: number) => {
     setQuantity(id, newAmount, customization)
-  } */
+  }
 
   return (
     <li className="flex py-6">
@@ -67,7 +67,7 @@ const CartItem = ({
             variant="link"
             size="link"
             className="text-primary font-medium"
-            onClick={clearCart}
+            onClick={() => removeItem(id, customization)}
           >
             Remove
           </Button>
