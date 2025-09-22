@@ -1,7 +1,12 @@
 'use client'
 import { Product } from '@/data/products'
-import React, { createContext, ReactNode, useReducer, useState } from 'react'
-
+import React, {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from 'react'
 export interface CartItem {
   product: Product
   quantity: number
@@ -172,8 +177,25 @@ const CartContext = createContext<CartContextType | undefined>(undefined)
 export const CartProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [state, dispatch] = useReducer(cartReducer, initialState)
+  const [state, dispatch] = useReducer(cartReducer, initialState, init => {
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem('cart')
+        return stored ? JSON.parse(stored) : init
+      } catch (e) {
+        console.error('Failed to parse cart from localStorage', e)
+        return init
+      }
+    }
+    return init
+  })
+
   const [isCartOpen, setCartOpen] = useState(false)
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state))
+  }, [state])
+
   const addItem = (
     product: Product,
     quantity: number,

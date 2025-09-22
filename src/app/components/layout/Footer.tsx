@@ -20,8 +20,8 @@ export const Footer = () => {
   const router = useRouter()
 
   return (
-    <footer className="bg-rose-50 px-6 py-16 shadow-sm">
-      <div className="container mx-auto">
+    <footer className="bg-rose-50 py-16 shadow-sm">
+      <div className="container px-6 mx-auto">
         <div className="mb-24 flex flex-col flex-wrap gap-10 md:mb-28 md:justify-between lg:flex-row">
           <section className="w-full lg:max-w-sm">
             <Heading level={4} variant="footer" className="mb-4">
