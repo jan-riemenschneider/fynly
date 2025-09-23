@@ -28,6 +28,7 @@ const CartSlideoverContent = () => {
     setCartOpen,
     isCartOpen,
     calculateTaxes,
+    priceFormatter,
   } = useCart()
 
   useEffect(() => {
@@ -43,31 +44,31 @@ const CartSlideoverContent = () => {
   const summary = [
     {
       label: 'Zwischensumme',
-      value: total.toFixed(2) + ' €',
+      value: priceFormatter.format(total),
       variant: 'inline',
     },
     {
       label: 'Versand',
-      value: '4.90 €',
+      value: priceFormatter.format(4.9),
       variant: 'inline',
     },
     ...(customizationCost > 0
       ? [
           {
             label: 'Sonderanfertigung',
-            value: customizationCost.toFixed(2) + ' €',
+            value: priceFormatter.format(customizationCost),
             variant: 'inline',
           },
         ]
       : []),
     {
       label: 'Enthaltene MwSt. (19%)',
-      value: tax.toFixed(2) + ' €',
+      value: priceFormatter.format(tax),
       variant: 'inline',
     },
     {
       label: 'Gesamtsumme',
-      value: total + customizationCost.toFixed(2) + ' €',
+      value: priceFormatter.format(total + 4.9 + customizationCost),
       variant: 'price',
     },
   ]

@@ -23,11 +23,7 @@ const CartItem = ({
   quantity,
   publicId,
 }: CartItemProps) => {
-  const { removeItem, setQuantity } = useCart()
-
-  const handleQuantityChange = (newAmount: number) => {
-    setQuantity(id, newAmount, customization)
-  }
+  const { removeItem } = useCart()
 
   return (
     <li className="flex py-6">
@@ -52,14 +48,16 @@ const CartItem = ({
               {price.toFixed(2)} €
             </Text>
           </div>
-          <div className="flex flex-wrap space-x-1">
-            <Text level="span" variant="muted">
-              Wunschname:
-            </Text>
-            <Text level="span" variant="inline">
-              {customization}
-            </Text>
-          </div>
+          {customization && (
+            <div className="flex flex-wrap space-x-1">
+              <Text level="span" variant="muted">
+                Wunschname:
+              </Text>
+              <Text level="span" variant="inline">
+                {customization}
+              </Text>
+            </div>
+          )}
         </div>
         <div className="flex items-center justify-between">
           <p className="text-gray-500">Stück {quantity}</p>
@@ -69,7 +67,7 @@ const CartItem = ({
             className="text-primary font-medium"
             onClick={() => removeItem(id, customization)}
           >
-            Remove
+            Entfernen
           </Button>
         </div>
       </div>

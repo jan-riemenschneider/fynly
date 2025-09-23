@@ -12,6 +12,7 @@ import { Switch } from '@/components/ui/switch'
 import { useCart } from '@/context/CartContext'
 import { categoryTranslations, getProductById } from '@/data/products'
 import { useGSAP } from '@gsap/react'
+import clsx from 'clsx'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
 import { CldImage } from 'next-cloudinary'
@@ -29,7 +30,7 @@ export default function Product() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [showInput, setShowInput] = useState(false)
   const { id } = useParams<{ id: string }>()
-  const { addItem } = useCart()
+  const { addItem, priceFormatter } = useCart()
   const product = id ? getProductById(id) : null
   const containerRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
@@ -124,7 +125,7 @@ export default function Product() {
               {product.name}
             </Heading>
             <Text level="span" variant="price" className="mb-4">
-              {product.price.toFixed(2)}€
+              {priceFormatter.format(product.price)}
             </Text>
 
             <Text level="p" variant="body" className="mb-4">
@@ -141,10 +142,15 @@ export default function Product() {
                   htmlFor="personalize"
                   className="text-base font-semibold"
                 >
-                  Dein Produkt personalisieren (+ 5,00€)
+                  {clsx(
+                    'Dein Produkt personalisieren +',
+                    priceFormatter.format(5)
+                  )}
                 </label>
               </div>
-              <small>Trage hier deinen Wunschnamen ein (max. 8 Zeichen)</small>
+              <Text level="small" variant="small">
+                Trage hier deinen Wunschnamen ein (max. 8 Zeichen)
+              </Text>
               {showInput && (
                 <Input
                   className="w-full"

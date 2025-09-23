@@ -170,6 +170,7 @@ interface CartContextType extends CartState {
   getItemQuantity: (id: string) => number
   calculateTaxes: (total: number) => number
   removeTaxes: (total: number) => number
+  priceFormatter: Intl.NumberFormat
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -233,6 +234,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     return total * 0.81
   }
 
+  const priceFormatter = new Intl.NumberFormat('de-DE', {
+    style: 'currency',
+    currency: 'EUR',
+  })
+
   return (
     <CartContext.Provider
       value={{
@@ -248,6 +254,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
         getItemQuantity,
         calculateTaxes,
         removeTaxes,
+        priceFormatter,
       }}
     >
       {children}

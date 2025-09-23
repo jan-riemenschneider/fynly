@@ -1,4 +1,5 @@
 'use client'
+import { useCart } from '@/context/CartContext'
 import type { Product } from '@/data/products'
 import { Loader2Icon } from 'lucide-react'
 import { CldImage } from 'next-cloudinary'
@@ -9,6 +10,8 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const { id, name, price, publicId } = product
+
+  const { priceFormatter } = useCart()
 
   return (
     <a href={`/product/${id}`} className="group relative">
@@ -40,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
       <h3 className="mt-4 text-base font-normal">{name}</h3>
       <span className="block text-lg font-semibold text-gray-900">
-        {price.toFixed(2)}€
+        {priceFormatter.format(price)}
       </span>
     </a>
   )
