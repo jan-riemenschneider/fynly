@@ -72,7 +72,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="data-[state=open]:bg-secondary absolute top-7 right-6">
+        <SheetPrimitive.Close className="data-[state=open]:bg-secondary absolute top-6 right-6">
           <X
             className="hover:text-primary text-foreground size-6 hover:cursor-pointer"
             strokeWidth={1}
