@@ -15,8 +15,8 @@ export default function HomePage() {
 
   return (
     <>
-      <Section fullWidth background="bg-white">
-        <div className="col-span-12 grid grid-cols-1 md:grid-cols-2">
+      <div className="col-span-12 mx-auto grid grid-cols-1 px-6 md:container md:grid-cols-2">
+        <div className="flex flex-col justify-center">
           <div>
             <Heading variant="xl" level={1} className="font-playfair mb-8">
               Handgemachte Schnullerketten – liebevoll & sicher für dein Baby
@@ -30,18 +30,20 @@ export default function HomePage() {
               Jetzt entdecken
             </Button>
           </div>
+        </div>
+        <div className='flex justify-center'>
           <CldImage
-            src={'Schnullerkette-1/one'}
-            alt={'Schnullerkette-2/one'}
-            className="bg-white-50 mb-1 cursor-pointer object-scale-down last:mb-0"
-            width={1000}
-            height={1000}
-            quality="80"
+            src={'hero-section'}
+            alt={'hero-section'}
+            className="bg-white-50"
+            width={500}
+            height={500}
+            quality="100"
             format="auto"
             loading="eager"
           />
         </div>
-      </Section>
+      </div>
 
       <Section fullWidth background={'bg-gray-50'} className="">
         <div className="col-span-12 text-center md:text-left">
