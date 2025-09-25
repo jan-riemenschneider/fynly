@@ -27,7 +27,7 @@ export function Text({ level, children, className, variant }: TextProps) {
     inline: 'font-inter text-foreground text-base font-normal tracking-normal',
     card: 'font-inter text-card-foreground text-base leading-relaxed',
     price: 'font-inter text-gray-900 text-lg leading-relaxed font-medium block',
-    SubHeading: 'font-inter text-gray-800 text-lg text-balance leading-relaxed',
+    SubHeading: 'font-inter text-gray-800 text-xl text-balance font-medium leading-relaxed',
   } as const
 
   return <Tag className={clsx(VARIANTS[variant], className)}>{children}</Tag>

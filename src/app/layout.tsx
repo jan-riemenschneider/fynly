@@ -2,14 +2,18 @@ import { Footer } from '@/components/layout/Footer'
 import { NavigationBar } from '@/components/layout/NavigationBar'
 import { CartProvider } from '@/context/CartContext'
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Meow_Script, Rasa } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
 })
 
-const playfair_display = Playfair_Display({
+const meow_Script = Meow_Script({
+  weight: '400',
+})
+
+const rasa = Rasa({
   subsets: ['latin'],
 })
 
@@ -29,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="de" className={(inter.className, playfair_display.className)}>
+    <html
+      lang="de"
+      className={(inter.className, meow_Script.className, rasa.className)}
+    >
       <head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

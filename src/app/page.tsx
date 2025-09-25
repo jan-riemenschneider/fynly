@@ -1,4 +1,5 @@
 'use client'
+import CldImage from '@/components/cloudinary/CldImageWrapper'
 import ProductGrid from '@/components/grids/productGrid'
 import { Section } from '@/components/sections/Section'
 import { Heading } from '@/components/typography/heading'
@@ -8,42 +9,57 @@ import { Feature } from '@/components/ui/feature'
 import { features } from '@/data/feature'
 import { getFeaturedProducts } from '@/data/products'
 import { testimonials } from '@/data/testimonials'
-import { CldImage } from 'next-cloudinary'
 import { TestinomialCard } from './components/cards/testimonialCard'
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts()
 
   return (
     <>
-      <div className="col-span-12 mx-auto grid grid-cols-1 px-6 md:container md:grid-cols-2">
-        <div className="flex flex-col justify-center">
-          <div>
-            <Heading variant="xl" level={1} className="font-playfair mb-8">
-              Handgemachte Schnullerketten – liebevoll & sicher für dein Baby
-            </Heading>
-            <Text variant="SubHeading" level="p" className="mb-8 max-w-2xl">
-              Unsere Schnullerketten werden mit viel Liebe handgefertigt,
-              geprüft nach EU-Norm und sind frei von BPA. So kannst du deinem
-              Kind Sicherheit und Stil zugleich schenken.
-            </Text>
-            <Button variant="default" size="lg">
-              Jetzt entdecken
-            </Button>
-          </div>
+      <Section
+        fullWidth
+        className="h-screen bg-[url('/handgemachte.png')] bg-[length:100%_100%] bg-center"
+      >
+        <div className="col-span-12 mb-10 lg:col-span-7">
+          <Heading
+            variant="xl"
+            level={1}
+            className="font-flowers text-primary-foreground mb-6 text-center md:mb-10 lg:text-start"
+          >
+            handgemachte
+          </Heading>
+          <Heading
+            variant="xl"
+            level={2}
+            className="font-rasa text-primary-foreground mb-6 max-w-full border-b-3 border-dotted border-white pb-6 text-center lg:max-w-fit lg:text-start"
+          >
+            BABY ACCESSOIRES
+          </Heading>
+          <Text
+            variant="SubHeading"
+            level="p"
+            className="font-inter text-primary-foreground mb-12 max-w-full text-center lg:max-w-3xl lg:text-start"
+          >
+            GEPRÜFT NACH EU-NORM, BPA FREI UND OHNE CHEMIKALIEN
+          </Text>
+          <Button
+            variant="default"
+            size="lg"
+            className="w-full rounded-md lg:w-md"
+          >
+            Jetzt entdecken
+          </Button>
         </div>
-        <div className='flex justify-center'>
+        <div className="col-span-12 mx-auto lg:col-span-5">
           <CldImage
-            src={'hero-section'}
             alt={'hero-section'}
-            className="bg-white-50"
-            width={500}
-            height={500}
-            quality="100"
-            format="auto"
-            loading="eager"
+            src={'hero-section'}
+            width={400}
+            height={400}
+            quality={60}
+            className="object-contain"
           />
         </div>
-      </div>
+      </Section>
 
       <Section fullWidth background={'bg-gray-50'} className="">
         <div className="col-span-12 text-center md:text-left">

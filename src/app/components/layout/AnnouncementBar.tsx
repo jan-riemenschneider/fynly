@@ -4,13 +4,13 @@ import { useEffect, useState } from 'react'
 
 const announcements = [
   {
-    text: 'Made in Germany',
+    text: '🇩🇪 Made in Germany',
   },
   {
-    text: 'Jedes Stück eine Unikat ',
+    text: '📿 Jedes Stück eine Unikat ',
   },
   {
-    text: 'Schnelle Lieferung mit DHL',
+    text: '🏃🏼‍♀️‍➡️ Schnelle Lieferung mit DHL',
   },
 ]
 

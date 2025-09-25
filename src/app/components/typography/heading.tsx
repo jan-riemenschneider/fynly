@@ -10,11 +10,11 @@ interface HeadingProps {
 }
 
 const variants = {
-  xl: 'font-oswald text-5xl font-bold tracking-tight leading-20 text-balance text-gray-900 lg:text-6xl',
-  lg: 'font-inter text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl',
-  md: 'font-inter text-lg font-medium tracking-tight text-gray-800 lg:text-xl',
-  sm: 'font-inter text-lg font-medium tracking-tight text-gray-700',
-  footer: 'font-inter text-lg font-semibold tracking-tight text-gray-800',
+  xl: 'text-5xl font-bold tracking-tight lg:leading-20 leading-15 text-balance text-gray-900 lg:text-8xl',
+  lg: 'text-3xl font-semibold tracking-tight text-gray-900 lg:text-4xl',
+  md: 'text-lg font-medium tracking-tight text-gray-800 lg:text-xl',
+  sm: 'text-lg font-medium tracking-tight text-gray-700',
+  footer: 'text-lg font-semibold tracking-tight text-gray-800',
 } as const
 
 export function Heading({

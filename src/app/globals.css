@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -116,8 +117,8 @@
   --radius-xl: calc(var(--radius) + 4px);
   --color-hover-card: var(--hover-card);
   --font-inter: 'Inter';
-  --font-playfair: 'Playfair+Display';
-
+  --font-rasa: 'Rasa';
+  --font-flowers: 'Send Flowers';
   --color-main-background: var(--mainBackground);
 }
 
