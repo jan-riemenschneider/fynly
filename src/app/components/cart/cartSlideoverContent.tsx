@@ -77,12 +77,13 @@ const CartSlideoverContent = () => {
       <SheetTrigger>
         <NavigationMenuLink className="relative hover:cursor-pointer">
           <Badge
+            variant="prize"
             suppressHydrationWarning
-            className="absolute -end-2 -top-3.5 h-5 min-w-5 rounded-full p-1.5 tabular-nums"
+            className="hover: absolute -end-2 -top-3.5 h-5 min-w-5 rounded-full p-1.5 tabular-nums"
           >
             {totalItems}
           </Badge>
-          <ShoppingBag className="margin-0 padding-0 hover:text-primary focus:text-primary text-foreground relative h-6 w-6"></ShoppingBag>
+          <ShoppingBag className="margin-0 padding-0 text-foreground relative h-6 w-6"></ShoppingBag>
         </NavigationMenuLink>
       </SheetTrigger>
 

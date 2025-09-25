@@ -18,7 +18,11 @@ export function ProduktCarousel({
   onImageClick,
 }: ProduktCarouselProps) {
   return (
-    <Carousel>
+    <Carousel
+      opts={{
+        loop: true,
+      }}
+    >
       <CarouselContent>
         {product.publicId.map((slide, index) => (
           <CarouselItem key={index} className="h-130 basis-1/1">
