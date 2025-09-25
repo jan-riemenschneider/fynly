@@ -11,6 +11,7 @@ const inter = Inter({
 
 const meow_Script = Meow_Script({
   weight: '400',
+  subsets: ['latin'],
 })
 
 const rasa = Rasa({
