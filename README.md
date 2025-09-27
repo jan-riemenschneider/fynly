@@ -1,6 +1,6 @@
-# Fynly the Baby Pacifier Chain Shop 📿
+# Fynly - The Baby Pacifier Chain Shop 📿
 
-A modern e-commerce platform named Fynly for handmade, personalized baby pacifier chains built with Next.js and Tailwind CSS.
+A modern e-commerce platform for handmade, personalized baby pacifier chains, built with Next.js and Tailwind CSS.
 
 ## 🌟 Features
 
