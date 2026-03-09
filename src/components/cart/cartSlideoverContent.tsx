@@ -1,6 +1,6 @@
 "use client";
 import { ArrowRight, ShoppingBag } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaStripe } from "react-icons/fa";
 import { useCart } from "../../context/CartContext";
 import { handleCheckout } from "../../lib/handleCheckout";
@@ -19,7 +19,6 @@ import CartItem from "./cartItem";
 
 const CartSlideoverContent = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [customizationCost, setCustomizationCost] = useState(0);
   const {
     totalItems,
     items,
@@ -31,27 +30,24 @@ const CartSlideoverContent = () => {
     priceFormatter,
   } = useCart();
 
-  useEffect(() => {
-    const cost = items.reduce(
-      (cost, item) => (item.customization ? cost + 5 * item.quantity : cost),
-      0,
-    );
-    setCustomizationCost(cost);
-  }, [items]);
+  const customizationCost = items.reduce(
+    (cost, item) =>
+      item.customization
+        ? cost + item.customization.price * item.quantity
+        : cost,
+    0,
+  );
+  const subtotal = total - customizationCost;
 
   const tax = calculateTaxes(total);
 
   const summary = [
     {
       label: "Zwischensumme",
-      value: priceFormatter.format(total),
+      value: priceFormatter.format(subtotal),
       variant: "inline",
     },
-    {
-      label: "Versand",
-      value: priceFormatter.format(4.99),
-      variant: "inline",
-    },
+
     ...(customizationCost > 0
       ? [
           {
@@ -62,13 +58,18 @@ const CartSlideoverContent = () => {
         ]
       : []),
     {
+      label: "Versand",
+      value: priceFormatter.format(4.99),
+      variant: "inline",
+    },
+    {
       label: "Enthaltene MwSt. (19%)",
       value: priceFormatter.format(tax),
       variant: "inline",
     },
     {
       label: "Gesamtsumme",
-      value: priceFormatter.format(total + 4.99 + customizationCost),
+      value: priceFormatter.format(total + 4.99),
       variant: "price",
     },
   ];
@@ -108,7 +109,7 @@ const CartSlideoverContent = () => {
                   <CartItem
                     key={
                       item.customization
-                        ? `${item.product.id}-custom`
+                        ? `${item.product.id}-${item.customization.name}`
                         : `${item.product.id}`
                     }
                     id={item.product.id}

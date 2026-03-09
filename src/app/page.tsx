@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       <Section
         fullWidth
-        className="h-screen bg-[url('/handgemachte.png')] bg-[length:100%_100%] bg-center"
+        className="h-full bg-[url('/handgemachte.png')] bg-[length:100%_100%] bg-center"
       >
         <div className="col-span-12 mb-10 lg:col-span-7">
           <Heading
