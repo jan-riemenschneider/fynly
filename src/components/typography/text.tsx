@@ -1,34 +1,35 @@
-import clsx from 'clsx'
-import { JSX } from 'react'
+import clsx from "clsx";
+import type { JSX } from "react";
 
 interface TextProps {
-  level: 'p' | 'small' | 'span'
+  level: "p" | "small" | "span";
   variant?:
-    | 'body'
-    | 'small'
-    | 'span'
-    | 'muted'
-    | 'card'
-    | 'inline'
-    | 'price'
-    | 'SubHeading'
-    | string
-  children: React.ReactNode
-  className?: string
+    | "body"
+    | "small"
+    | "span"
+    | "muted"
+    | "card"
+    | "inline"
+    | "price"
+    | "SubHeading"
+    | string;
+  children: React.ReactNode;
+  className?: string;
 }
 
 export function Text({ level, children, className, variant }: TextProps) {
-  const Tag = level as keyof JSX.IntrinsicElements
+  const Tag = level as keyof JSX.IntrinsicElements;
 
   const VARIANTS = {
-    body: 'font-inter text-foreground text-base leading-relaxed text-balance',
-    muted: 'font-inter text-muted-foreground text-base leading-relaxed',
-    small: 'font-inter text-muted-foreground text-sm leading-relaxed block',
-    inline: 'font-inter text-foreground text-base font-normal tracking-normal',
-    card: 'font-inter text-card-foreground text-base leading-relaxed',
-    price: 'font-inter text-gray-900 text-lg leading-relaxed font-medium block',
-    SubHeading: 'font-inter text-gray-800 text-xl text-balance font-medium leading-relaxed',
-  } as const
+    body: "font-inter text-foreground text-base leading-relaxed text-balance",
+    card: "font-inter text-card-foreground text-base leading-relaxed",
+    inline: "font-inter text-foreground text-base font-normal tracking-normal",
+    muted: "font-inter text-muted-foreground text-base leading-relaxed",
+    price: "font-inter text-gray-900 text-lg leading-relaxed font-medium block",
+    SubHeading:
+      "font-inter text-gray-800 text-xl text-balance font-medium leading-relaxed",
+    small: "font-inter text-muted-foreground text-sm leading-relaxed block",
+  } as const;
 
-  return <Tag className={clsx(VARIANTS[variant], className)}>{children}</Tag>
+  return <Tag className={clsx(VARIANTS[variant], className)}>{children}</Tag>;
 }

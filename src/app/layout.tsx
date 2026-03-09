@@ -20,11 +20,11 @@ const rasa = Rasa({
 
 export const metadata: Metadata = {
   description:
-    "Handgemachte Schnullerketten, Beißketten & Baby-Zubehör aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!",
+    "Handgemachte Schnullerketten aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!",
   title: {
     default:
-      "fyly - Handgemachte Schnullerketten & Baby Zubehör - Made in Germany",
-    template: "%s | fyly",
+      "fynly - Handgemachte Schnullerketten & Baby Zubehör - Made in Germany",
+    template: "%s | fynly",
   },
 };
 
