@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Send+Flowers&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,300..700;1,300..700&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -19,7 +19,7 @@
   --secondary: oklch(0.9 0 0);
   --secondary-foreground: oklch(44.6% 0.03 256.802);
   --muted: oklch(0.95 0 0);
-  --muted-foreground: oklch(55.1% 0.027 264.364); /* Grey-500 */
+  --muted-foreground: oklch(44.6% 0.03 256.802); /* Grey-500 */
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --accent: oklch(71.2% 0.194 13.428);
@@ -116,9 +116,9 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-hover-card: var(--hover-card);
-  --font-inter: 'Inter';
-  --font-rasa: 'Rasa';
-  --font-flowers: 'Send Flowers';
+  --font-inter: "Inter";
+  --font-rasa: "Rasa";
+  --font-flowers: "Send Flowers";
   --color-main-background: var(--mainBackground);
 }
 
