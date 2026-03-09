@@ -1,4 +1,4 @@
-import { Section } from '@/components/sections/Section'
+import { Section } from "../../components/sections/Section";
 
 export default function legalNotice() {
   return (
@@ -85,5 +85,5 @@ export default function legalNotice() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

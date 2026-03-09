@@ -1,0 +1,43 @@
+import Autoplay from "embla-carousel-autoplay";
+import type { Product } from "../../data/products";
+import { cn } from "../../lib/utils";
+import ProductCard from "../cards/productCard";
+import { Carousel, CarouselContent, CarouselItem } from "./carousel";
+
+interface ProduktCarouselProps {
+  products: Product[];
+  className?: string;
+  autoplay: boolean;
+}
+
+function ProduktCarousel({
+  products = [],
+  className,
+  autoplay,
+}: ProduktCarouselProps) {
+  return (
+    <Carousel
+      className={cn("w-100% mx-auto", className)}
+      plugins={
+        autoplay
+          ? [
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+              }),
+            ]
+          : []
+      }
+    >
+      <CarouselContent className="flex gap-4">
+        {products.map((product) => (
+          <CarouselItem key={product.id} className="basis-4/5 lg:basis-1/4">
+            <ProductCard key={product.id} product={product} />
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+    </Carousel>
+  );
+}
+
+export default ProduktCarousel;

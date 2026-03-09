@@ -1,37 +1,37 @@
-import { Footer } from '@/components/layout/Footer'
-import { NavigationBar } from '@/components/layout/NavigationBar'
-import { CartProvider } from '@/context/CartContext'
-import type { Metadata } from 'next'
-import { Inter, Meow_Script, Rasa } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter, Meow_Script, Rasa } from "next/font/google";
+import { Footer } from "../components/layout/Footer";
+import { NavigationBar } from "../components/layout/NavigationBar";
+import { CartProvider } from "../context/CartContext";
+import "./globals.css";
 
 const inter = Inter({
-  subsets: ['latin'],
-})
+  subsets: ["latin"],
+});
 
 const meow_Script = Meow_Script({
-  weight: '400',
-  subsets: ['latin'],
-})
+  subsets: ["latin"],
+  weight: "400",
+});
 
 const rasa = Rasa({
-  subsets: ['latin'],
-})
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
+  description:
+    "Handgemachte Schnullerketten, Beißketten & Baby-Zubehör aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!",
   title: {
     default:
-      'fyly - Handgemachte Schnullerketten & Baby Zubehör - Made in Germany',
-    template: '%s | fyly',
+      "fyly - Handgemachte Schnullerketten & Baby Zubehör - Made in Germany",
+    template: "%s | fyly",
   },
-  description:
-    'Handgemachte Schnullerketten, Beißketten & Baby-Zubehör aus Deutschland. Personalisierbar, babysicher und schadstofffrei. Jetzt entdecken!',
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
@@ -53,5 +53,5 @@ export default function RootLayout({
         </CartProvider>
       </body>
     </html>
-  )
+  );
 }

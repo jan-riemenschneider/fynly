@@ -1,7 +1,7 @@
-import { Section } from '@/components/sections/Section'
+import { Section } from "../../components/sections/Section";
 
 export default function AboutStorySection() {
-  const shopName = 'Fynly' // z.B. 'Fynnly'
+  const shopName = "Fynly"; // z.B. 'Fynnly'
 
   return (
     <Section className="bg-white">
@@ -21,5 +21,5 @@ export default function AboutStorySection() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

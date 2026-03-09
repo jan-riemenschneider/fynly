@@ -1,4 +1,4 @@
-import { Section } from '@/components/sections/Section'
+import { Section } from "../../components/sections/Section";
 
 export default function TermsAndConditions() {
   return (
@@ -85,5 +85,5 @@ export default function TermsAndConditions() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

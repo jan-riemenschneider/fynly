@@ -1,4 +1,4 @@
-import { Section } from '@/components/sections/Section'
+import { Section } from "../../components/sections/Section";
 
 export default function PrivacyPolicy() {
   return (
@@ -90,5 +90,5 @@ export default function PrivacyPolicy() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

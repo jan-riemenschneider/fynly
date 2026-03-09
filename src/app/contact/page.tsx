@@ -1,4 +1,4 @@
-import { Section } from '@/components/sections/Section'
+import { Section } from "../../components/sections/Section";
 
 export default function Contact() {
   return (
@@ -33,5 +33,5 @@ export default function Contact() {
         </div>
       </div>
     </Section>
-  )
+  );
 }

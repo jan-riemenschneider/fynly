@@ -1,29 +1,31 @@
-'use client'
-import ProductGrid from '@/components/grids/productGrid'
-import { Section } from '@/components/sections/Section'
-import { Heading } from '@/components/typography/heading'
-import { Text } from '@/components/typography/text'
+"use client";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import ProductGrid from "../../../components/grids/productGrid";
+import { Section } from "../../../components/sections/Section";
+import { Heading } from "../../../components/typography/heading";
+import { Text } from "../../../components/typography/text";
+import { Button } from "../../../components/ui/button";
 import {
   categoryTranslations,
   getProductsByCategory,
-  ProductCategory,
-} from '@/data/products'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
-import { Button } from '../../components/ui/button'
+  type ProductCategory,
+} from "../../../data/products";
 
 export default function Category() {
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>();
 
-  const validCategoryId = id as ProductCategory | undefined
+  const validCategoryId = id as ProductCategory | undefined;
 
-  const products = validCategoryId ? getProductsByCategory(validCategoryId) : []
+  const products = validCategoryId
+    ? getProductsByCategory(validCategoryId)
+    : [];
 
-  console.log(validCategoryId)
+  console.log(validCategoryId);
 
   const categoryName = validCategoryId
     ? categoryTranslations[validCategoryId]
-    : 'Kategorie'
+    : "Kategorie";
 
   if (!products) {
     return (
@@ -36,7 +38,7 @@ export default function Category() {
           <Link href="/">Zurück zur Startseite</Link>
         </Button>
       </div>
-    )
+    );
   }
   return (
     <Section>
@@ -51,5 +53,5 @@ export default function Category() {
       </div>
       <ProductGrid products={products} />
     </Section>
-  )
+  );
 }

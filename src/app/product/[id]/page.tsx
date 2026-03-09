@@ -1,82 +1,82 @@
-'use client'
-import { QuantitySelector } from '@/components/business/QuantitySelector'
-import { ProduktCarousel } from '@/components/productShow/productCarousel'
-import { ProduktGallery } from '@/components/productShow/productGallery'
-import { Heading } from '@/components/typography/heading'
-import { Text } from '@/components/typography/text'
-import { Button } from '@/components/ui/button'
-import { InfoAccordion } from '@/components/ui/InfoAccordion'
-import { Input } from '@/components/ui/input'
-import { LightBox } from '@/components/ui/lightbox'
-import { Switch } from '@/components/ui/switch'
-import { useCart } from '@/context/CartContext'
-import { categoryTranslations, getProductById } from '@/data/products'
-import { useGSAP } from '@gsap/react'
-import clsx from 'clsx'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/all'
-import { CldImage } from 'next-cloudinary'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
-import { useEffect, useRef, useState } from 'react'
+"use client";
+import { useGSAP } from "@gsap/react";
+import clsx from "clsx";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { CldImage } from "next-cloudinary";
+import { useEffect, useRef, useState } from "react";
+import { QuantitySelector } from "../../../components/business/QuantitySelector";
+import { ProduktCarousel } from "../../../components/productShow/productCarousel";
+import { ProduktGallery } from "../../../components/productShow/productGallery";
+import { Heading } from "../../../components/typography/heading";
+import { Text } from "../../../components/typography/text";
+import { Button } from "../../../components/ui/button";
+import { InfoAccordion } from "../../../components/ui/InfoAccordion";
+import { Input } from "../../../components/ui/input";
+import { LightBox } from "../../../components/ui/lightbox";
+import { Switch } from "../../../components/ui/switch";
+import { useCart } from "../../../context/CartContext";
+import { categoryTranslations, getProductById } from "../../../data/products";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Product() {
-  const [amount, setAmount] = useState<number>(1)
-  const [custom, setCustom] = useState<string>('')
-  const [isClient, setIsClient] = useState(false)
-  const [aktiveImage, setAktiveImage] = useState<number | null>(null)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [showInput, setShowInput] = useState(false)
-  const { id } = useParams<{ id: string }>()
-  const { addItem, priceFormatter } = useCart()
-  const product = id ? getProductById(id) : null
-  const containerRef = useRef<HTMLDivElement>(null)
-  const rightRef = useRef<HTMLDivElement>(null)
+  const [amount, setAmount] = useState<number>(1);
+  const [custom, setCustom] = useState<string>("");
+  const [isClient, setIsClient] = useState(false);
+  const [aktiveImage, setAktiveImage] = useState<number | null>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [showInput, setShowInput] = useState(false);
+  const { id } = useParams<{ id: string }>();
+  const { addItem, priceFormatter } = useCart();
+  const product = id ? getProductById(id) : null;
+  const containerRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    setIsClient(true);
+  }, []);
 
   useGSAP(
     () => {
-      if (!isClient) return
-      const container = containerRef.current
-      const right = rightRef.current
+      if (!isClient) return;
+      const container = containerRef.current;
+      const right = rightRef.current;
 
       if (window.innerWidth >= 768) {
         const st = ScrollTrigger.create({
-          trigger: container,
-          start: 'top top',
-          end: 'bottom bottom',
+          end: "bottom bottom",
           pin: right,
           pinSpacing: false,
-        })
-        return () => st.kill()
+          start: "top top",
+          trigger: container,
+        });
+        return () => st.kill();
       }
     },
-    { scope: containerRef, dependencies: [isClient] }
-  )
+    { dependencies: [isClient], scope: containerRef },
+  );
 
   const handleAddToCart = () => {
-    addItem(product, amount, custom)
-    setAmount(1)
-  }
+    addItem(product, amount, custom);
+    setAmount(1);
+  };
 
   const handleToggle = () => {
-    setShowInput(prev => !prev)
-    setCustom('')
-  }
+    setShowInput((prev) => !prev);
+    setCustom("");
+  };
 
   const onImageClick = (index: number) => {
-    setAktiveImage(index)
-    setLightboxOpen(true)
-  }
+    setAktiveImage(index);
+    setLightboxOpen(true);
+  };
 
   const closeLightbox = () => {
-    setLightboxOpen(false)
-  }
+    setLightboxOpen(false);
+  };
 
   if (!product) {
     return (
@@ -89,7 +89,7 @@ export default function Product() {
           <Link href="/">Zurück zur Startseite</Link>
         </Button>
       </div>
-    )
+    );
   }
 
   return (
@@ -102,7 +102,7 @@ export default function Product() {
           onImageClick={onImageClick}
           product={product}
           containerRef={containerRef}
-          className={'hidden md:col-span-6 md:block'}
+          className={"hidden md:col-span-6 md:block"}
         />
         {lightboxOpen && aktiveImage !== null && (
           <LightBox
@@ -143,8 +143,8 @@ export default function Product() {
                   className="text-base font-semibold"
                 >
                   {clsx(
-                    'Dein Produkt personalisieren +',
-                    priceFormatter.format(5)
+                    "Dein Produkt personalisieren +",
+                    priceFormatter.format(5),
                   )}
                 </label>
               </div>
@@ -156,7 +156,7 @@ export default function Product() {
                   className="w-full"
                   placeholder="Hier Name eingeben..."
                   maxLength={8}
-                  onChange={e => setCustom(e.target.value)}
+                  onChange={(e) => setCustom(e.target.value)}
                 />
               )}
             </div>
@@ -185,9 +185,9 @@ export default function Product() {
             quality="auto"
             format="auto"
             loading="eager"
-            onClick={event => {
-              event.preventDefault()
-              onImageClick?.(0)
+            onClick={(event) => {
+              event.preventDefault();
+              onImageClick?.(0);
             }}
           />
         </div>
@@ -205,5 +205,5 @@ export default function Product() {
         </div>
       </div>
     </>
-  )
+  );
 }
