@@ -3,11 +3,8 @@ import { useRouter } from "next/navigation";
 import { FaTiktok } from "react-icons/fa";
 import AmericanExpress from "@/public/payment/american-express.svg";
 import ApplePay from "@/public/payment/apple-pay.svg";
-import GooglePay from "@/public/payment/google-pay.svg";
-import Jcb from "@/public/payment/jcb.svg";
 import MasterCard from "@/public/payment/mastercard.svg";
 import PayPal from "@/public/payment/paypal.svg";
-import UnionPay from "@/public/payment/unionpay.svg";
 import Visa from "@/public/payment/visa.svg";
 import { Heading } from "../typography/heading";
 import { List } from "../typography/list";
@@ -22,12 +19,12 @@ export const Footer = () => {
   return (
     <footer className="bg-rose-50 py-16 shadow-sm">
       <div className="container px-6 mx-auto">
-        <div className="mb-24 flex flex-col flex-wrap gap-10 md:mb-28 md:justify-between lg:flex-row">
-          <section className="w-full lg:max-w-sm">
+        <div className="mb-20 grid gap-12 md:grid-cols-2 xl:grid-cols-[minmax(0,1.65fr)_repeat(3,minmax(0,0.75fr))] xl:gap-16">
+          <section>
             <Heading level={4} variant="footer" className="mb-4">
               UNSER VERSPRECHEN
             </Heading>
-            <Text level="p" variant="small">
+            <Text level="p" variant="small" className="max-w-md">
               Unser Ziel ist es, mit Dir den ersten Schritt zu meistern. Den
               ersten Schritt dahin, Dein Baby mit liebevoll handgefertigten
               Schnullerketten zu verwöhnen. Wir richten uns daher an Eltern, die
@@ -36,72 +33,52 @@ export const Footer = () => {
             </Text>
           </section>
 
-          <section className="flex flex-col">
+          <section>
             <Heading level={4} variant="footer" className="mb-4">
               PRODUKTE
             </Heading>
-            <nav className="flex-1">
-              <List className="flex h-full flex-col justify-between">
+            <nav>
+              <List className="flex flex-col gap-3">
                 <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
+                  <Button
+                    onClick={() => router.push("/category/schnullerketten")}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
                     Schnullerketten
                   </Button>
                 </List.Item>
                 <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Beißketten
-                  </Button>
-                </List.Item>
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Kinderwagenketten
-                  </Button>
-                </List.Item>
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Babysocken
+                  <Button
+                    onClick={() => router.push("/category/schluesselanhaenger")}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Schlüsselanhänger
                   </Button>
                 </List.Item>
               </List>
             </nav>
           </section>
 
-          <section className="flex flex-col">
-            <Heading level={4} variant="footer" className="mb-4">
-              SERVICE
-            </Heading>
-            <nav className="flex-1">
-              <List className="flex h-full flex-col justify-between">
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Versand & Lieferung
-                  </Button>
-                </List.Item>
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Größenratgeber
-                  </Button>
-                </List.Item>
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Pflege-Tipps
-                  </Button>
-                </List.Item>
-                <List.Item>
-                  <Button variant="link" size="link" className="justify-start">
-                    Rückgabe & Umtausch
-                  </Button>
-                </List.Item>
-              </List>
-            </nav>
-          </section>
-
-          <section className="flex flex-col">
+          <section>
             <Heading level={4} variant="footer" className="mb-4">
               RECHTLICHES
             </Heading>
-            <nav className="flex-1">
-              <List className="flex h-full flex-col justify-between">
+            <nav>
+              <List className="flex flex-col gap-3">
+                <List.Item>
+                  <Button
+                    onClick={() => router.push("/legalNotice")}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Impressum
+                  </Button>
+                </List.Item>
                 <List.Item>
                   <Button
                     onClick={() => router.push("/privacyPolicy")}
@@ -124,6 +101,26 @@ export const Footer = () => {
                 </List.Item>
                 <List.Item>
                   <Button
+                    onClick={() => router.push("/widerruf")}
+                    variant="link"
+                    size="link"
+                    className="justify-start"
+                  >
+                    Widerruf
+                  </Button>
+                </List.Item>
+              </List>
+            </nav>
+          </section>
+
+          <section>
+            <Heading level={4} variant="footer" className="mb-4">
+              SERVICE
+            </Heading>
+            <nav>
+              <List className="flex flex-col gap-3">
+                <List.Item>
+                  <Button
                     onClick={() => router.push("/contact")}
                     variant="link"
                     size="link"
@@ -139,7 +136,7 @@ export const Footer = () => {
                     size="link"
                     className="justify-start"
                   >
-                    Versand
+                    Zahlung & Versand
                   </Button>
                 </List.Item>
               </List>
@@ -147,8 +144,8 @@ export const Footer = () => {
           </section>
         </div>
 
-        <div className="flex w-full flex-col items-center lg:flex-row">
-          <div className="mb-4 flex flex-col items-center gap-2 lg:w-1/3 lg:items-start">
+        <div className="flex w-full flex-col gap-8 border-t border-black/10 pt-8 lg:flex-row lg:items-end">
+          <div className="flex flex-col items-center gap-2 lg:w-1/3 lg:items-start">
             <div className="flex items-center gap-2">
               <Text variant="body" level="p">
                 FOLGE UNS AUF TIKTOK!
@@ -161,20 +158,17 @@ export const Footer = () => {
           <Text
             variant="small"
             level="small"
-            className="flex justify-center lg:w-1/3"
+            className="flex justify-center text-center lg:w-1/3"
           >
             © {currentYear} fynly - Alle Rechte vorbehalten
           </Text>
-          <SeparatingLine className="my-10 w-full lg:hidden" />
-          <section className="flex items-center gap-4 lg:w-1/3 lg:justify-end">
+          <SeparatingLine className="w-full lg:hidden" />
+          <section className="flex flex-wrap items-center justify-center gap-4 lg:w-1/3 lg:justify-end">
             <ApplePay className="h-6 w-auto rounded-xs border border-gray-200 bg-white" />
-            <GooglePay className="h-6 w-auto" />
             <PayPal className="h-6 w-auto" />
             <Visa className="h-6 w-auto" />
             <MasterCard className="h-6 w-auto" />
             <AmericanExpress className="h-6 w-auto" />
-            <Jcb className="h-6 w-auto" />
-            <UnionPay className="h-6 w-auto" />
           </section>
         </div>
       </div>

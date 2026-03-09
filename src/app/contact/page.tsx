@@ -11,23 +11,33 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="h-fit w-fit rounded-lg bg-gray-50 p-6 shadow-sm mx-auto">
+        <div className="mx-auto h-fit w-fit rounded-lg bg-gray-50 p-6 shadow-sm">
           <h2 className="mb-6">Kontaktinformationen</h2>
 
           <div className="space-y-4">
             <div>
+              <h3>Name:</h3>
+              <p>Thomas Aschoff</p>
+            </div>
+
+            <div>
               <h3>Adresse:</h3>
-              <p>Berliner Straße 62b, 63477 Maintal</p>
+              <p>Am Krebsbach 28, 63486 Bruchkoebel</p>
             </div>
 
             <div>
               <h3>Email:</h3>
-              <p>lmaschoff@googlemail.com</p>
+              <p>thomas.aschoff@bebes-onlineshop.de</p>
             </div>
 
             <div>
-              <h3>Öffnungszeiten:</h3>
-              <p>24/7</p>
+              <h3>Telefon:</h3>
+              <p>06181-4348598</p>
+            </div>
+
+            <div>
+              <h3>Telefax:</h3>
+              <p>06181-4348598</p>
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ const CartSlideoverContent = () => {
     },
     {
       label: "Versand",
-      value: priceFormatter.format(4.9),
+      value: priceFormatter.format(4.99),
       variant: "inline",
     },
     ...(customizationCost > 0
@@ -68,7 +68,7 @@ const CartSlideoverContent = () => {
     },
     {
       label: "Gesamtsumme",
-      value: priceFormatter.format(total + 4.9 + customizationCost),
+      value: priceFormatter.format(total + 4.99 + customizationCost),
       variant: "price",
     },
   ];
@@ -156,10 +156,8 @@ const CartSlideoverContent = () => {
                     }
                   }}
                 >
-                  <div className="flex items-center justify-center gap-2">
-                    <span className="font-extrabold text-white">
-                      Bezahle mit
-                    </span>
+                  <div className="flex w-full items-center justify-center gap-2  text-white">
+                    <span className="text-lg font-extrabold">Weiter zu</span>
                     <FaStripe className="size-12" />
                     <ArrowRight className="size-4" />
                   </div>

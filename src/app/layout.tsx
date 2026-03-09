@@ -3,7 +3,7 @@ import { Inter, Meow_Script, Rasa } from "next/font/google";
 import { Footer } from "../components/layout/Footer";
 import { NavigationBar } from "../components/layout/NavigationBar";
 import { CartProvider } from "../context/CartContext";
-import "./globals.css";
+import "@/globals.css";
 
 const inter = Inter({
   subsets: ["latin"],

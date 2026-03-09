@@ -1,85 +1,96 @@
-import type { NextConfig } from 'next'
+import type { NextConfig } from "next";
+
+type SvgRule = {
+  test?: {
+    test?: (value: string) => boolean;
+  };
+  issuer?: unknown;
+  resourceQuery?: {
+    not: RegExp[];
+  };
+  exclude?: RegExp;
+};
 
 const nextConfig: NextConfig = {
-  webpack(config) {
-    const fileLoaderRule = config.module.rules.find(rule =>
-      rule.test?.test?.('.svg')
-    )
-
-    config.module.rules.push(
+  images: {
+    qualities: [60, 75],
+    remotePatterns: [
       {
-        ...fileLoaderRule,
-        test: /\.svg$/i,
-        resourceQuery: /url/,
+        hostname: "picsum.photos",
+        protocol: "https",
       },
-      {
-        test: /\.svg$/i,
-        issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
-        use: [
-          {
-            loader: '@svgr/webpack',
-            options: {
-              svgoConfig: {
-                plugins: [
-                  {
-                    name: 'preset-default',
-                    params: {
-                      overrides: {
-                        removeViewBox: false,
-                      },
-                    },
-                  },
-                  'removeDimensions',
-                ],
-              },
-            },
-          },
-        ],
-      }
-    )
-
-    fileLoaderRule.exclude = /\.svg$/i
-
-    return config
+    ],
   },
 
   turbopack: {
     rules: {
-      '*.svg': {
+      "*.svg": {
+        as: "*.js",
         loaders: [
           {
-            loader: '@svgr/webpack',
+            loader: "@svgr/webpack",
             options: {
               svgoConfig: {
                 plugins: [
                   {
-                    name: 'preset-default',
+                    name: "preset-default",
                     params: {
                       overrides: {
                         removeViewBox: false,
                       },
                     },
                   },
-                  'removeDimensions',
+                  "removeDimensions",
                 ],
               },
             },
           },
         ],
-        as: '*.js',
       },
     },
   },
+  webpack(config) {
+    const fileLoaderRule = config.module.rules.find((rule: SvgRule) =>
+      rule.test?.test?.(".svg"),
+    );
 
-  images: {
-    remotePatterns: [
+    config.module.rules.push(
       {
-        protocol: 'https',
-        hostname: 'picsum.photos',
+        ...fileLoaderRule,
+        resourceQuery: /url/,
+        test: /\.svg$/i,
       },
-    ],
-  },
-}
+      {
+        issuer: fileLoaderRule.issuer,
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
+        test: /\.svg$/i,
+        use: [
+          {
+            loader: "@svgr/webpack",
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: "preset-default",
+                    params: {
+                      overrides: {
+                        removeViewBox: false,
+                      },
+                    },
+                  },
+                  "removeDimensions",
+                ],
+              },
+            },
+          },
+        ],
+      },
+    );
 
-export default nextConfig
+    fileLoaderRule.exclude = /\.svg$/i;
+
+    return config;
+  },
+};
+
+export default nextConfig;

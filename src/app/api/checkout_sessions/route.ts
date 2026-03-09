@@ -39,10 +39,8 @@ export async function POST(request: NextRequest) {
       line_items,
       mode: "payment",
 
-      payment_method_types: ["card", "sepa_debit", "paypal"],
-
       shipping_address_collection: {
-        allowed_countries: ["DE", "AT", "CH"],
+        allowed_countries: ["DE"],
       },
 
       shipping_options: [
@@ -54,17 +52,6 @@ export async function POST(request: NextRequest) {
             },
             display_name: "Standard Versand",
             fixed_amount: { amount: 499, currency: "eur" },
-            type: "fixed_amount",
-          },
-        },
-        {
-          shipping_rate_data: {
-            delivery_estimate: {
-              maximum: { unit: "business_day", value: 2 },
-              minimum: { unit: "business_day", value: 1 },
-            },
-            display_name: "Express Versand",
-            fixed_amount: { amount: 999, currency: "eur" },
             type: "fixed_amount",
           },
         },
