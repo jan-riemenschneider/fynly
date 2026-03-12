@@ -230,11 +230,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const calculateTaxes = (total: number) => {
-    return total * 0.19;
+    return total - total / 1.19;
   };
 
   const removeTaxes = (total: number) => {
-    return total * 0.81;
+    return total / 1.19;
   };
 
   const priceFormatter = new Intl.NumberFormat("de-DE", {

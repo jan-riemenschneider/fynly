@@ -18,6 +18,7 @@ import {
 import CartItem from "./cartItem";
 
 const CartSlideoverContent = () => {
+  const shippingCost = 4.99;
   const [isLoading, setIsLoading] = useState(false);
   const {
     totalItems,
@@ -39,7 +40,8 @@ const CartSlideoverContent = () => {
   );
   const subtotal = total - customizationCost;
 
-  const tax = calculateTaxes(total);
+  const totalWithShipping = total + shippingCost;
+  const tax = calculateTaxes(totalWithShipping);
 
   const summary = [
     {
@@ -59,7 +61,7 @@ const CartSlideoverContent = () => {
       : []),
     {
       label: "Versand",
-      value: priceFormatter.format(4.99),
+      value: priceFormatter.format(shippingCost),
       variant: "inline",
     },
     {
@@ -69,7 +71,7 @@ const CartSlideoverContent = () => {
     },
     {
       label: "Gesamtsumme",
-      value: priceFormatter.format(total + 4.99),
+      value: priceFormatter.format(totalWithShipping),
       variant: "price",
     },
   ];
