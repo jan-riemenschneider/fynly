@@ -9,23 +9,32 @@ export async function POST(request: NextRequest) {
 
     const origin = request.headers.get("origin") || new URL(request.url).origin;
 
-    const line_items = items.map((item: CartItem) => ({
-      price_data: {
-        currency: "eur",
-        product_data: {
-          description: item.customization
-            ? `${item.product.description} - Deine Personalisierung: ${item.customization.name}`
-            : item.product.description,
-          images: [
-            `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.publicId[0]}/main.png`,
-          ],
-          name: item.product.name,
+    const line_items = items.map((item: CartItem) => {
+      const customizationPrice = item.customization?.price ?? 0;
+      const unitAmount = Math.round(
+        (item.product.price + customizationPrice) * 100,
+      );
+
+      return {
+        price_data: {
+          currency: "eur",
+          product_data: {
+            description: item.customization
+              ? `${item.product.description} - Deine Personalisierung: ${item.customization.name}`
+              : item.product.description,
+            images: [
+              `https://res.cloudinary.com/fynly/image/upload/f_auto,q_auto,w_1200,h_1200,c_fit/${item.product.publicId[0]}/main.png`,
+            ],
+            name: item.customization
+              ? `${item.product.name} inkl. Sonderanfertigung`
+              : item.product.name,
+          },
+          tax_behavior: "inclusive",
+          unit_amount: unitAmount,
         },
-        tax_behavior: "inclusive",
-        unit_amount: Math.round(item.product.price * 100),
-      },
-      quantity: item.quantity,
-    }));
+        quantity: item.quantity,
+      };
+    });
 
     const session = await stripe.checkout.sessions.create({
       automatic_tax: {
